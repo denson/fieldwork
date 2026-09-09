@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 670" role="img" aria-labelledby="title desc">
+  <title id="title">DART ocean measurements join seismic information at NOAA warning centers</title>
+  <desc id="desc">A seafloor pressure recorder sends measurements by an acoustic sound link to a surface buoy, which relays them via satellite to NOAA warning centers. USGS and partner seismic networks provide a separate input. This simplified diagram is not to scale.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#f3c950"/></marker></defs>
+  <rect width="640" height="670" rx="14" fill="#14263b"/>
+  <path d="M0 307Q38 293 77 307T154 307T231 307T308 307H320V608H0Z" fill="#214c6d"/>
+  <path d="M0 307Q38 293 77 307T154 307T231 307T308 307H320" fill="none" stroke="#84c9df" stroke-width="3"/>
+  <path d="M0 608H320V670H0Z" fill="#506477"/>
+  <g fill="#f3c950" stroke="#f3c950"><ellipse cx="134" cy="305" rx="47" ry="12"/><path d="M104 291H164L151 280H117Z"/><path d="M134 279V235M119 272V255H149V272" fill="none" stroke-width="5"/></g>
+  <path d="M134 319 80 608" stroke="#a9c3d6" stroke-width="2" stroke-dasharray="7 6"/>
+  <path d="M68 608H92L84 594H77Z" fill="#a9c3d6"/>
+  <g stroke="#f3c950" stroke-width="4" fill="none" marker-end="url(#arrow)"><path d="M151 554V348"/><path d="M151 234 281 122"/><path d="M363 122 479 224"/></g>
+  <g transform="translate(320 102) rotate(-18)" stroke="#cde5f6" stroke-width="3"><rect x="-18" y="-20" width="36" height="40" rx="4" fill="#668eac"/><path d="M-18 0H-66M18 0H66"/><rect x="-72" y="-25" width="45" height="50" fill="#2e638c"/><rect x="27" y="-25" width="45" height="50" fill="#2e638c"/><path d="M-57-25V25M-42-25V25M42-25V25M57-25V25M-72 0H-27M27 0H72" stroke-width="1"/></g>
+  <rect x="110" y="557" width="78" height="41" rx="7" fill="#f3c950"/>
+  <path d="M116 608 126 595H174L184 608Z" fill="#f3c950"/>
+  <rect x="350" y="239" width="265" height="143" rx="12" fill="#f2f6fb"/>
+  <rect x="350" y="445" width="265" height="112" rx="12" fill="#23405b" stroke="#9fbbd3" stroke-width="2"/>
+  <path d="M482 445V391" stroke="#f3c950" stroke-width="4" marker-end="url(#arrow)"/>
+  <g font-family="Segoe UI,Arial,sans-serif" font-size="28" fill="#fff">
+    <text x="35" y="40">Measurements travel to shore</text>
+    <text x="247" y="174">Satellite</text>
+    <text x="27" y="190">Surface buoy</text>
+    <text x="180" y="435">Sound</text><text x="180" y="470">link</text>
+    <text x="26" y="646">Seafloor pressure recorder</text>
+    <text x="482" y="286" text-anchor="middle" fill="#14263b" font-weight="700">NOAA</text>
+    <text x="482" y="326" text-anchor="middle" fill="#14263b">Tsunami warning</text>
+    <text x="482" y="360" text-anchor="middle" fill="#14263b">centers</text>
+    <text x="482" y="482" text-anchor="middle">USGS + partners</text>
+    <text x="482" y="525" text-anchor="middle">Seismic data</text>
+  </g>
+</svg>

@@ -1,0 +1,95 @@
+[
+  {
+    "file": "noaa-tsunami-formation.jpg",
+    "url": "https://weather.gov/images/nthmp/tsunamiformation.jpg",
+    "dimensions": [
+      2796,
+      1360
+    ],
+    "bytes": 410244,
+    "sha256": "9411802096c77efa36cd099193c74a59c7d700eb83634c68ec1f11d83f2664cc",
+    "status": "downloaded"
+  },
+  {
+    "file": "pmel-dart-cutaway.jpg",
+    "url": "https://tos.org/oceanography/assets/images/content/36-bernard-f2.jpg",
+    "status": "user-supplied",
+    "initial_attempt": {
+      "status": "blocked",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "dimensions": [
+      1536,
+      995
+    ],
+    "bytes": 283721,
+    "sha256": "fba0b62c34c749f4bf068864dfb7b8950d6f0d63f1e6bacc71245c62fba93292",
+    "original_filename": "36-bernard-f2.jpg",
+    "supplied_date": "2026-09-05",
+    "source_article": "https://tos.org/oceanography/article/50-years-of-pmel-tsunami-research-and-development",
+    "license": "CC BY 4.0"
+  },
+  {
+    "file": "noaa-warning-system.jpg",
+    "url": "https://weather.gov/images/nthmp/systemdiagram.jpg",
+    "dimensions": [
+      3305,
+      1795
+    ],
+    "bytes": 650011,
+    "sha256": "721fe4a46a632b276b98f7cb2c2545c65e011f8c491fed15a4d30d67169d19b7",
+    "status": "downloaded"
+  },
+  {
+    "file": "pmel-japan-2011-wave-model.jpg",
+    "url": "https://tos.org/oceanography/assets/images/content/36-bernard-title.jpg",
+    "status": "user-supplied",
+    "initial_attempt": {
+      "status": "blocked",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    "dimensions": [
+      1800,
+      1965
+    ],
+    "bytes": 552481,
+    "sha256": "dbcdb5d382cde820b2c969665f8840b50c292f110a5b1f5fe1058d6f256f6632",
+    "original_filename": "36-bernard-title.jpg",
+    "supplied_date": "2026-09-05",
+    "source_article": "https://tos.org/oceanography/article/50-years-of-pmel-tsunami-research-and-development",
+    "license": "CC BY 4.0"
+  },
+  {
+    "file": "usgs-kodiak-1964.jpg",
+    "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/18_earthquake1964.jpg",
+    "dimensions": [
+      1799,
+      1174
+    ],
+    "bytes": 361586,
+    "sha256": "1d17adeaa65caf96ffeb12bf1c1265858cb3d6d6dbdb2a39dad1e71384ea220b",
+    "status": "downloaded"
+  },
+  {
+    "file": "usgs-natori-2011.jpg",
+    "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/thumbnails/image/Japan2011Natori-damage-10m_1.jpg",
+    "dimensions": [
+      1280,
+      960
+    ],
+    "bytes": 223988,
+    "sha256": "f2fdb9fddba8041d19ca426f3f05f8877e1ac7cd34334b89b584f8518a209458",
+    "status": "downloaded"
+  },
+  {
+    "file": "usgs-ridgecrest-installation.jpg",
+    "url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/images/SV06.jpg",
+    "dimensions": [
+      4048,
+      3036
+    ],
+    "bytes": 3683505,
+    "sha256": "0c02d889f963a5803ff0671a1505c3edbcae890ad6a4711d23525ca11a395e1c",
+    "status": "downloaded"
+  }
+]

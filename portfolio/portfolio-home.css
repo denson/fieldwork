@@ -1,0 +1,21 @@
+/* Shared home and navigation, kept compact in a Chrome split pane. */
+.avatar-heading{display:flex;align-items:center;gap:12px}.guide-avatar{width:56px;height:56px;border-radius:14px;object-fit:cover;flex:0 0 56px;border:1px solid #c9b27c}
+.portfolio-return{display:block;padding:12px clamp(20px,3.4vw,60px);border-bottom:1px solid var(--line);background:#fff;font-size:.85rem;font-weight:650;text-decoration:none}
+.portfolio-return:hover{text-decoration:underline}
+.portfolio-return[hidden]{display:none}
+.portfolio-home-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.62fr);gap:32px;align-items:center}
+.portfolio-home-intro h1{font-size:clamp(2.8rem,4.6vw,4.8rem)}
+.portfolio-home-intro .home-welcome{margin-top:20px;max-width:640px;color:var(--muted);font-size:1.06rem}
+.portfolio-concierge{background:#fff;border:1px solid var(--line);border-radius:12px;padding:25px}
+.portfolio-concierge h2{font:400 1.6rem/1.2 Georgia,serif;margin:10px 0}
+.portfolio-concierge p:not(.eyebrow){font-size:.9rem;color:var(--muted);margin-bottom:18px}
+.portfolio-concierge .button{display:inline-block}
+.portfolio-how{padding:20px 24px;border:1px solid var(--line);border-radius:12px;margin:0 0 28px;background:#edf3fa}
+.portfolio-how h2{font-size:1rem;margin-bottom:7px}.portfolio-how p{font-size:.94rem;max-width:1050px}
+.portfolio-section-title{font:400 2rem Georgia,serif;margin:35px 0 20px}
+.portfolio-experiences{grid-template-columns:repeat(2,minmax(0,1fr))}
+.guide-directory{border-top:1px solid var(--line);margin-top:32px;padding-top:20px;font-size:.9rem}
+.guide-directory summary{cursor:pointer;font-weight:650}.guide-directory p{margin:15px 0;color:var(--muted)}
+.guide-directory ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px 24px}.guide-directory a{color:var(--blue)}
+@media(max-width:700px){.portfolio-home-intro{grid-template-columns:1fr}.portfolio-concierge{max-width:650px}}
+@media(max-width:820px){.portfolio-experiences{grid-template-columns:1fr}}

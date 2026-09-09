@@ -1,0 +1,57 @@
+{
+  "manifest_version": 3,
+  "name": "Fieldwork Companion Pane",
+  "version": "0.6.0",
+  "description": "Start matching Fieldwork lessons and BoodleBox chats together, and place reviewed notes in the paired chat draft.",
+  "minimum_chrome_version": "140",
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://box.boodle.ai/*",
+    "http://127.0.0.1:4173/*",
+    "http://localhost:4173/*",
+    "https://denson.github.io/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://box.boodle.ai/*"
+      ],
+      "js": [
+        "routing.js",
+        "draft.js",
+        "transition-client.js",
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "http://127.0.0.1:4173/*",
+        "http://localhost:4173/*",
+        "https://denson.github.io/colorado-weed-field-guide/*",
+        "https://denson.github.io/fieldwork/*"
+      ],
+      "js": [
+        "routing.js",
+        "activity.js"
+      ],
+      "css": [
+        "activity.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Fieldwork Companion Pane",
+    "default_popup": "popup.html"
+  }
+}

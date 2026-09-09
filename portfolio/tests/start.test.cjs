@@ -1,0 +1,33 @@
+const assert=require('node:assert/strict');
+const F=require('../start-core.js');
+const base='http://127.0.0.1:4173/portfolio/start.html?demo=budget&private=written-answer#old';
+const s={pass:'abcd1234',badge:'lantern',topic:'budget',step:'share',private:'Never put this in a URL'};
+const link=F.url(base,s);
+assert.equal(new URL(link).pathname,'/portfolio/start.html');
+assert.deepEqual([...new URL(link).searchParams.keys()],['step','pass','badge','topic']);
+assert.equal(new URL(link).hash,'');
+assert.equal(F.parse(link).step,'return');
+assert.ok(F.note(base,s).includes('My badge: Lantern'));
+assert.ok(F.note(base,s).includes('My next topic: Community budget'));
+assert.ok(F.note(base,s).includes(link));
+assert.ok(!F.note(base,s).includes(s.private));
+assert.ok(!F.note(base,s).includes('written-answer'));
+assert.equal(F.parse(link.replace('badge=lantern','badge=__proto__')).step,'choose');
+assert.equal(F.parse(link.replace('topic=budget','topic=<script>')).step,'choose');
+assert.equal(F.parse(link.replace('pass=abcd1234','pass=../private')).step,'choose');
+assert.equal(F.parse(link.replace('step=return','step=ready')).step,'choose');
+assert.equal(F.parse('http://localhost:4173/start.html?step=return').step,'choose');
+assert.throws(()=>F.url(base,{...s,topic:'unknown'}));
+const remote=F.reconcile(F.parse(link),null);
+assert.equal(remote.state.badge,'lantern');
+assert.equal(remote.state.confirmed,null); // A return link is not proof of a bot interaction.
+assert.equal(remote.state.understood,false);
+const existing={...s,confirmed:true,understood:true};
+assert.equal(F.reconcile(F.parse(link),existing).state.confirmed,true);
+const stale=F.reconcile({...F.parse(link),badge:'compass'},existing);
+assert.equal(stale.conflict,true);
+assert.equal(stale.state.badge,'lantern'); // Never overwrite saved choices with a mismatched link.
+assert.equal(stale.state.step,'share');
+assert.equal(F.reconcile({...F.parse(link),pass:'newp1234'},existing).state.confirmed,null);
+for(const badge of Object.keys(F.badges))for(const topic of Object.keys(F.topics))assert.equal(F.parse(F.url(base,{...s,badge,topic})).topic,topic);
+console.log('First Steps: note boundaries, invalid links, return links, saved choices, and all 12 combinations passed.');

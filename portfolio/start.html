@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Start with a short Fieldwork tutorial, then choose a hands-on activity and its BoodleBox guide from the portfolio.">
+  <meta name="theme-color" content="#14263b"><title>First Steps — Fieldwork</title>
+  <link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="start.css?v=7">
+  <script defer src="start-core.js?v=4"></script><script defer src="first-handoff.js?v=3"></script><script defer src="start.js?v=6"></script>
+</head>
+<body>
+  <a class="skip-link" href="#practice">Skip to the practice</a>
+  <header class="site-header"><a class="brand" href="start.html" data-fieldwork-combo><span class="brand-mark" aria-hidden="true">f.</span>fieldwork<span class="brand-dot">/</span></a><a class="back-portfolio" href="./?demo=home" data-fieldwork-combo>Already know the loop? Portfolio →</a></header>
+  <main class="first-steps">
+    <div class="start-heading"><img class="welcome-avatar" src="assets/bot-avatars/first-steps-v1.png" alt="First Steps lantern" width="80" height="80"><p class="eyebrow">WELCOME TO FIELDWORK / A 3–5 minute practice</p><h1>Side by side.<br><em>One conversation.</em></h1><p>Make a choice here on the website, then click <b>Put note in BoodleBox</b>. Review the note and press <b>Send</b> to share your choices with your BoodleBot guide. Talk them through with the guide, then follow its link to continue on this website.</p><p>Try that exchange in this short practice. Then head to the portfolio to choose your first investigation.</p></div>
+    <div class="tab-map" aria-label="BoodleBox on the left, activity on the right"><div><span class="tab-cap">LEFT / BOODLEBOX</span><strong>Talk it through</strong><p>Review your note, press Send, and discuss it.</p></div><div class="tab-bridge"><span>← Share a note</span><span>Open next step →</span></div><div><span class="tab-cap">RIGHT / THIS WEBSITE</span><strong>Do & discover</strong><p>Explore the activity and prepare your note.</p></div></div>
+    <p class="connection-rule"><strong>You choose what to share.</strong> Prepare a note here, put it in the chat, then press Send in BoodleBox. The guide’s return link opens the next website step.</p>
+    <p data-with-companion class="connection-rule"><strong>Your companion extension is on.</strong> Its <b>Put note in BoodleBox</b> button fills the message box on the left. You still review the note and press Send.</p>
+    <section id="handoff-panel" class="handoff-panel" hidden aria-labelledby="handoff-title"><h2 id="handoff-title" tabindex="-1">Finding your open practice…</h2><p id="handoff-status" role="status">Checking for the same practice in this browser.</p><label for="handoff-url">Destination for the website side</label><input id="handoff-url" type="text" readonly><div class="next-links"><button id="handoff-copy" class="button primary">Copy destination link</button><button id="handoff-close" class="button secondary" hidden>Close this extra tab</button><button id="handoff-here" class="button secondary">Continue in this page</button></div><p id="handoff-copy-status" role="status"></p><p class="small-note">To keep your layout: click the website side in Chrome, press Ctrl+L, paste the link, and press Enter.</p></section>
+    <section id="practice" class="practice" aria-label="First Steps practice">
+      <ol class="step-track" aria-label="Practice steps"><li data-track="choose">1 <span>Choose</span></li><li data-track="share">2 <span>Share</span></li><li data-track="return">3 <span>Return</span></li><li data-track="ready">4 <span>Portfolio</span></li></ol>
+      <p id="notice" class="practice-notice" role="status" hidden></p>
+      <div class="practice-body">
+        <section data-panel="choose">
+          <p class="eyebrow">STEP 1 / TRY SOMETHING HERE</p><h2 id="step-heading" tabindex="-1">Make your explorer pass.</h2><p>This is a tiny practice activity. Pick a badge and a topic that interests you. There are no wrong choices.</p>
+          <form id="pass-form">
+            <fieldset class="badge-field"><legend>Choose your badge</legend><div class="badge-options">
+              <label class="badge-option"><input type="radio" name="badge" value="compass" required><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="36"/><path d="M61 24 55 55 26 72 43 43Z"/><path d="M50 7v7M50 86v7M7 50h7M86 50h7"/></svg><b>Compass</b><span>Find a direction</span></label>
+              <label class="badge-option"><input type="radio" name="badge" value="lantern"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M38 25v-7a12 12 0 0 1 24 0v7M30 27h40l-7 13 7 35H30l7-35ZM26 81h48M35 40h30M50 41v22"/><circle cx="50" cy="64" r="7"/></svg><b>Lantern</b><span>Illuminate an idea</span></label>
+              <label class="badge-option"><input type="radio" name="badge" value="magnifier"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="42" cy="40" r="26"/><path d="m61 59 25 26-7 7-25-25M28 40a14 14 0 0 1 14-14"/></svg><b>Magnifying glass</b><span>Look a little closer</span></label>
+            </div></fieldset>
+            <label class="topic-label" for="topic">What might you explore after this?</label><select id="topic" required><option value="">Choose a topic…</option><option value="history">History detective</option><option value="quakes">Earthquakes &amp; tsunamis</option><option value="budget">Community budget</option><option value="hearing">Public hearing</option></select>
+            <button type="submit" class="button primary">Make my practice note →</button>
+          </form>
+        </section>
+        <section data-panel="share" hidden>
+          <p class="eyebrow">STEP 2 / TAKE YOUR CHOICES TO THE GUIDE</p><h2 tabindex="-1">Share with the guide on the left.</h2><p>The website has turned your choices into a short note. <strong>Nothing has been sent yet.</strong> Review the note below.</p>
+          <div class="share-layout"><div>
+            <div class="note-toolbar"><label class="note-label" for="practice-note">This is exactly what you’ll share</label><button id="copy-practice" class="note-copy-icon" type="button" aria-label="Copy my practice note" title="Copy my practice note"><svg class="copy-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><svg class="copied-symbol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button></div><textarea id="practice-note" rows="12" readonly spellcheck="false"></textarea>
+            <div data-fieldwork-share data-note-id="practice-note" data-companion="FieldworkFirstSteps" hidden></div>
+            <p id="copy-status" class="status" role="status"></p>
+          </div><div class="handoff-instructions">
+            <h3>Three small steps</h3>
+            <ol data-with-companion><li>Click <b>Put note in BoodleBox</b> below your note.</li><li>Look at the message box on the left. Review the note and press <b>Send</b>.</li><li>Read the guide’s reply, then click its <b>Return to your practice</b> link. This side will show your pass.</li></ol>
+            <ol data-without-companion><li>Click the <b>copy icon</b> above your note.</li><li>Click BoodleBox’s message box on the left, paste, and press <b>Send</b>.</li><li>Read the reply and click the guide’s <b>Return to your practice</b> link.</li></ol>
+            <p>Keep using the same conversation. If you haven’t started one, open the guide below, choose <b>Start New Chat</b>, and place it beside this activity.</p><a class="button secondary guide-link" href="https://box.boodle.ai/a/@FieldworkFirstSteps" target="_blank" rel="noopener noreferrer">Open Fieldwork First Steps ↗</a><p class="small-note">A BoodleBox account and sign-in are needed for the chat.</p>
+            <p data-without-companion class="keyboard-tip">On Windows: <b>Ctrl + V</b> pastes. On a Mac: <b>⌘ + V</b>. Then press BoodleBox’s send arrow.</p>
+            <details><summary>Need a hand with the chat?</summary><p>If BoodleBox turns the note into attached text, type <b>Here is my practice note</b> and send. If the guide misses your choices or gives a broken link, paste the note again and say <b>Name my badge and topic and repeat my return link exactly.</b></p><p>The preview link works on this computer while its local server is running. The guide doesn’t need to open it.</p></details>
+          </div></div>
+          <div class="destination-copy"><h3>Keep the next step on the right.</h3><p>If the link opens elsewhere, copy this destination. Click the website side in Chrome, press <b>Ctrl+L</b>, paste, and press <b>Enter</b>. Or use <b>Continue to my pass</b> below to advance right here.</p><label class="sr-only" for="destination-url">Destination link for the right-hand pane</label><input id="destination-url" type="text" readonly><button id="copy-destination" class="button secondary">Copy destination link</button><p id="destination-status" class="status" role="status"></p></div>
+          <div class="step-actions"><button class="text-button" id="edit-pass">← Change my choices</button><button class="button primary" id="manual-return">Continue to my pass →</button></div><p class="small-note">You can also continue without the chat; the next step lets you say whether you tried it.</p>
+        </section>
+        <section data-panel="return" hidden>
+          <p class="eyebrow">STEP 3 / CLOSE THE LOOP</p><h2 tabindex="-1">Here’s your explorer pass.</h2><p id="return-explanation"></p>
+          <div class="explorer-pass"><div class="pass-emblem" id="pass-emblem" aria-hidden="true"></div><div><span class="tab-cap">FIELDWORK / EXPLORER PASS</span><h3 id="pass-badge"></h3><p id="pass-topic"></p></div><span class="pass-stamp">KEEP<br>CURIOUS</span></div>
+          <fieldset class="confirm-field"><legend>Did the guide name these two choices correctly?</legend><label><input type="radio" name="confirmed" value="yes"> Yes — I saw them in its reply.</label><label><input type="radio" name="confirmed" value="no"> Not yet / I’m trying this without the chat.</label></fieldset>
+          <div class="understanding-check"><h3>You approve the handoff.</h3><p>Your choices on the website become a draft note for BoodleBot. You review the note and press <b>Send</b> to approve sharing it. The bot then receives your choices and responds.</p><p>This is <b>human in the loop (HITL)</b>: a safety feature that keeps you in control of what you share.</p><p id="check-question">What is your approval step?</p><div class="check-options" role="group" aria-labelledby="check-question"><button data-answer="watch">Prepare a note on the website.</button><button data-answer="note">Review the note in BoodleBox and press Send.</button><button data-answer="link">Open the guide’s profile.</button></div><p id="check-feedback" class="status" role="status"></p></div>
+          <div class="step-actions"><button class="text-button" id="back-share">← Back to my note</button><button class="button primary" id="finish-practice" disabled>Finish this practice →</button></div>
+        </section>
+        <section data-panel="ready" hidden>
+          <p class="eyebrow">STEP 4 / YOUR NEXT STOP IS THE PORTFOLIO</p><h2 tabindex="-1">You know the loop. Now explore.</h2><p id="completion-status"></p>
+          <ol class="takeaway"><li><strong>Explore on the website.</strong> Read, try a choice, and write what you think.</li><li><strong>Share a note at a checkpoint.</strong> Prepare it, use <b>Put note in BoodleBox</b> or copy and paste, then review it and press Send.</li><li><strong>Discuss, then return.</strong> Answer the guide’s question or follow its link back. Share another note when your work changes.</li></ol>
+          <p class="connection-rule">A link can open a particular activity or restore choices included in its address. Your later clicks and written answers stay here until you share them.</p>
+          <div class="next-activity"><p class="eyebrow">THE FIELDWORK PORTFOLIO / FOUR PLACES TO START</p><h3 id="next-title"></h3><p id="next-description"></p><div data-fieldwork-launch data-activity-link="next-site" data-launch-label="Open the portfolio →" hidden></div><p class="small-note" data-with-launch>One click opens Portfolio Guide on the left and the activity menu on the right. Choose an activity there to open its matching pair. Your practice chat stays in your history.</p><div class="next-links" data-without-launch><a class="button primary" id="next-site">Open the portfolio →</a><a class="button secondary" id="next-bot" target="_blank" rel="noopener noreferrer">Open Portfolio Guide ↗</a></div><p class="small-note" data-without-launch>The portfolio shows all four activities. Its guide can help you choose; each activity then has its own companion.</p></div>
+          <div class="step-actions"><button class="text-button" id="new-practice">Try the practice again</button></div>
+        </section>
+      </div>
+    </section>
+    <details class="start-faq"><summary>What happens to my choices?</summary><p>This practice saves your badge, topic, and checks in this browser when browser storage is available. Your return link includes the badge, topic, and a practice label, so it can display your pass in another browser too. Anyone with that link can see those choices. There is no name, password, or private answer in the link.</p><p>With the extension, <b>Put note in BoodleBox</b> transfers just the displayed note into the paired chat’s message box. It does not press Send or replace an existing draft. Without the extension, use copy and paste. Your later clicks and answers stay on the website until you share another note.</p></details>
+    <noscript><p>This practice needs JavaScript. You can still use the basic loop: explore a website activity, copy its note into the matching BoodleBox chat, and return to the website to continue.</p></noscript>
+  </main>
+  <footer class="site-footer"><p><b>fieldwork /</b> Independent learning demos for use alongside BoodleBox.</p><a href="./?demo=home" data-fieldwork-combo>Back to portfolio</a></footer>
+</body>
+</html>

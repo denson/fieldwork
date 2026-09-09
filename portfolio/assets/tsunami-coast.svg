@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-labelledby="title desc">
+  <title id="title">Tsunami waves change as they enter shallow coastal water</title>
+  <desc id="desc">Cross-section showing low waves in deep water and higher waves over a rising seafloor near the coast. The wave heights are exaggerated and not a prediction.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#184eca"/></marker></defs>
+  <rect width="360" height="260" rx="12" fill="#e9f3fa"/>
+  <path d="M0 98Q24 92 48 98T96 98T144 98Q160 111 179 98Q195 63 212 98Q227 145 244 98Q264 23 284 98L307 99V260H0Z" fill="#9ecfe5"/>
+  <path d="M0 98Q24 92 48 98T96 98T144 98Q160 111 179 98Q195 63 212 98Q227 145 244 98Q264 23 284 98L307 99" fill="none" stroke="#184eca" stroke-width="4"/>
+  <path d="M0 231H96Q174 231 224 183T313 117L332 94H360V260H0Z" fill="#c5b597"/>
+  <path d="M0 231H96Q174 231 224 183T313 117L332 94H360" fill="none" stroke="#786c58" stroke-width="3"/>
+  <g stroke="#184eca" stroke-width="3" marker-end="url(#arrow)"><path d="M32 69H99"/><path d="M173 56H225"/></g>
+  <g font-family="Segoe UI,Arial,sans-serif" fill="#14263b" font-size="17"><text x="20" y="32">Waves can grow near shore</text><text x="25" y="167">Deep water</text><text x="209" y="235">Shallower water</text></g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 260" role="img" aria-labelledby="title desc">
+  <title id="title">An earthquake can displace the seafloor and the water above it</title>
+  <desc id="desc">Cross-section showing a raised section of seafloor pushing the ocean upward. Arrows indicate movement. Heights are exaggerated.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#d57d21"/></marker></defs>
+  <rect width="360" height="260" rx="12" fill="#e9f3fa"/>
+  <path d="M0 90H120Q180 45 240 90H360V224H0Z" fill="#9ecfe5"/>
+  <path d="M0 90H120Q180 45 240 90H360" fill="none" stroke="#184eca" stroke-width="4"/>
+  <path d="M0 211H129L162 182H240L274 211H360V260H0Z" fill="#c5b597"/>
+  <path d="M0 211H129L162 182H240L274 211H360" fill="none" stroke="#786c58" stroke-width="3"/>
+  <path d="M150 260 194 205 161 182" fill="none" stroke="#805437" stroke-width="4"/>
+  <g stroke="#d57d21" stroke-width="4" marker-end="url(#arrow)"><path d="M170 165V119"/><path d="M216 165V119"/></g>
+  <path d="M92 90H269" stroke="#184eca" stroke-opacity=".4" stroke-width="2" stroke-dasharray="5 5"/>
+  <g font-family="Segoe UI,Arial,sans-serif" fill="#14263b" font-size="17"><text x="20" y="37">Water is displaced</text><text x="22" y="143">Ocean</text><text x="235" y="244">Seafloor</text></g>
+</svg>

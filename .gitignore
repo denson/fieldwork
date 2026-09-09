@@ -1,0 +1,10 @@
+# Publish only the reviewed site, extension and release instructions.
+/*
+!/.gitignore
+!/.github/
+!/portfolio/
+!/chrome-extension/
+!/PUBLISHING.md
+**/__pycache__/
+**/.DS_Store
+**/Thumbs.db
