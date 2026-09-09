@@ -4,19 +4,22 @@
   <meta charset="utf-8">
   <script src="entry.js?v=1"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The shared home for Fieldwork: four hands-on learning activities with BoodleBox guides, plus a short introduction to using them together.">
+  <meta name="description" content="The shared home for Fieldwork: hands-on learning activities and a guided business-plan first draft, with BoodleBox companions.">
   <meta name="theme-color" content="#14263b">
   <title>Fieldwork — learning beyond the chat</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="tsunami-figures.css">
   <link rel="stylesheet" href="civic.css">
   <link rel="stylesheet" href="portfolio-home.css?v=3">
+  <link rel="stylesheet" href="business.css?v=20260909">
   <link rel="stylesheet" href="journey.css?v=20260906-how">
   <link rel="alternate" type="text/markdown" href="llms.txt" title="Guide for AI assistants">
   <script defer src="assets/land.js"></script>
   <script defer src="content.js"></script>
   <script defer src="tsunami.js"></script>
   <script defer src="core.js"></script>
+  <script defer src="business-core.js?v=20260909"></script>
+  <script defer src="business.js?v=20260909"></script>
   <script defer src="civic-data.js"></script>
   <script defer src="civic-core.js?v=20260908"></script>
   <script defer src="civic.js?v=portfolio-3"></script>
@@ -33,13 +36,14 @@
       <a href="?demo=quakes" data-demo="quakes" data-fieldwork-combo>Earthquakes &amp; tsunamis</a>
       <a href="?demo=budget" data-demo="budget" data-fieldwork-combo>Budget challenge</a>
       <a href="?demo=hearing" data-demo="hearing" data-fieldwork-combo>Public hearing</a>
+      <a href="?demo=business" data-demo="business" data-fieldwork-combo>Business plan</a>
     </nav>
     <button class="text-button" id="guide-open">Use with BoodleBox <span aria-hidden="true">↗</span></button>
   </header>
   <a class="portfolio-return" href="?demo=home" data-demo="home" data-fieldwork-combo>← Back to portfolio</a>
   <main id="main">
     <section id="home-view" class="view home-view" aria-labelledby="home-title">
-      <div class="home-intro portfolio-home-intro"><div><p class="eyebrow">FIELDWORK / THE SHARED PORTFOLIO</p><h1 id="home-title" tabindex="-1">What will you<br><em>explore next?</em></h1><p class="home-welcome">Four hands-on activities. A BoodleBox guide for each one. Choose something that catches your interest, then come back here whenever you want a new direction.</p></div><aside class="portfolio-concierge"><p class="eyebrow">YOUR PORTFOLIO GUIDE</p><h2 class="avatar-heading"><img class="guide-avatar" src="assets/bot-avatars/portfolio-v1.png" alt="" width="56" height="56" loading="lazy">A little help choosing?</h2><p>Tell the guide what interests you. It knows the activities and can point you toward a good place to start.</p><a class="button secondary" href="https://box.boodle.ai/a/@FieldworkPortfolioGuide" target="_blank" rel="noopener noreferrer">Open Portfolio Guide ↗</a></aside></div>
+      <div class="home-intro portfolio-home-intro"><div><p class="eyebrow">FIELDWORK / THE SHARED PORTFOLIO</p><h1 id="home-title" tabindex="-1">What will you<br><em>explore next?</em></h1><p class="home-welcome">Five hands-on activities. A BoodleBox guide for each one. Choose something that catches your interest, then come back here whenever you want a new direction.</p></div><aside class="portfolio-concierge"><p class="eyebrow">YOUR PORTFOLIO GUIDE</p><h2 class="avatar-heading"><img class="guide-avatar" src="assets/bot-avatars/portfolio-v1.png" alt="" width="56" height="56" loading="lazy">A little help choosing?</h2><p>Tell the guide what interests you. It knows the activities and can point you toward a good place to start.</p><a class="button secondary" href="https://box.boodle.ai/a/@FieldworkPortfolioGuide" target="_blank" rel="noopener noreferrer">Open Portfolio Guide ↗</a></aside></div>
       <div class="portfolio-how"><h2>One home. Two sides working together.</h2><p>Keep BoodleBox on the left and the website on the right. With the updated Companion Pane extension, choose an activity below to open its matching pair. Your choices become a note you review and send to the guide. Ready for something else? Use <b>Back to portfolio</b> on any activity, or ask any guide for <b>the portfolio</b>.</p></div>
       <div class="first-steps-invite"><div><p class="eyebrow">NEW HERE? START WITH A LITTLE PRACTICE.</p><h2 class="avatar-heading"><img class="guide-avatar" src="assets/bot-avatars/first-steps-v1.png" alt="" width="56" height="56" loading="lazy">Learn the side-by-side loop.</h2><p>Choose a badge, approve your first note, and follow the guide’s link back. About 3–5 minutes.</p></div><a class="button primary" href="start.html" data-fieldwork-combo>Start First Steps →</a></div>
       <h2 class="portfolio-section-title">Choose your next investigation.</h2>
@@ -53,8 +57,11 @@
         <a class="civic-home-card hearing-home" href="?demo=hearing" data-demo="hearing" data-fieldwork-combo><div><p class="eyebrow">04 / Claims and contradictions</p><h2 class="avatar-heading"><img class="guide-avatar" src="assets/bot-avatars/hearing-v1.png" alt="" width="56" height="56" loading="lazy">Public Hearing Detective</h2><p>A confident public statement. Nine exhibits. Question witnesses in the fictional Eastbank case and explain what the evidence supports.</p><span class="experience-action">Open the Eastbank case →</span></div><div class="hearing-home-figure"><span>Fictional case file</span><b>“Tested<br>and ready.”</b><span>Does the record agree?</span></div></a>
       </div>
       <details class="guide-directory"><summary>Opening the two sides yourself?</summary><p>Each activity above works as a website. Open its matching guide below, choose <b>Start New Chat</b>, and keep the two beside each other. BoodleBox sign-in is required. Without the extension, copy your prepared note into the chat and press Send.</p><ul><li><a href="https://box.boodle.ai/a/@FieldworkPortfolioGuide" target="_blank" rel="noopener noreferrer">Portfolio Guide ↗</a></li><li><a href="https://box.boodle.ai/a/@FieldworkFirstSteps" target="_blank" rel="noopener noreferrer">First Steps ↗</a></li><li><a href="https://box.boodle.ai/a/@PuebloHistoryDetective" target="_blank" rel="noopener noreferrer">History Detective ↗</a></li><li><a href="https://box.boodle.ai/a/@EarthquakeTsunamiGuide" target="_blank" rel="noopener noreferrer">Earthquake &amp; Tsunami Guide ↗</a></li><li><a href="https://box.boodle.ai/a/@CommunityBudgetCoach" target="_blank" rel="noopener noreferrer">Budget Coach ↗</a></li><li><a href="https://box.boodle.ai/a/@EastbankHearingGuide" target="_blank" rel="noopener noreferrer">Hearing Guide ↗</a></li></ul></details>
+      <a class="business-home-card" href="?demo=business" data-demo="business" data-fieldwork-combo><p class="eyebrow">05 / FROM AN IDEA TO A FIRST PLAN</p><h2>Business Plan First Steps</h2><p>New to business planning? Work through a fictional yard-care example or your own idea. Define the customer, explore the numbers, and leave with a draft and a next step. Includes a reviewable feedback package to email to Denson.</p><span class="experience-action">Make a first draft →</span></a>
       <div class="learning-loop"><span>YOU APPROVE THE HANDOFF</span><p><b>Explore here</b><span aria-hidden="true">→</span><b>Review your note</b><span aria-hidden="true">→</span><b>Send it to your guide</b></p><a href="lessons/portfolio.md">About the portfolio ↗</a></div>
     </section>
+
+    <section id="business-view" class="view" hidden aria-labelledby="business-title"></section>
 
     <section id="history-view" class="view" hidden aria-labelledby="history-title">
       <div class="page-heading"><div><p class="eyebrow">01 / Pueblo History Detective</p><h1 id="history-title" tabindex="-1">What can a photograph prove?</h1><p>Start with what you can see. Then read the catalog and test your explanation.</p></div><span class="page-tag">Observe · Infer · Question</span></div>

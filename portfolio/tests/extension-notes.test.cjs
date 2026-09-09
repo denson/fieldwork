@@ -40,6 +40,6 @@ function worker({peers=[activity,chat],enabled=true,changePair=false,changeChat=
   assert.equal(D.normalize('Badge: Lantern\n\nTopic: Quakes'),D.normalize('Badge: Lantern\nTopic: Quakes'));
   assert.notEqual(D.normalize('Badge: LanternTopic: Quakes'),D.normalize('Badge: Lantern\nTopic: Quakes'));
   const manifest=JSON.parse(fs.readFileSync(require.resolve('../../chrome-extension/manifest.json'),'utf8'));
-  assert.equal(manifest.version,'0.6.0');assert.deepEqual(manifest.permissions,['storage','tabs']);
+  assert.equal(manifest.version,'0.7.0');assert.deepEqual(manifest.permissions,['storage','tabs']);
   console.log('Note transfer: exact paired chat only, navigation races, no new tabs, top frame/origin/payload boundaries, existing draft preservation, duplicate prevention, editor acceptance, and no automatic send passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

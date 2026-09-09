@@ -4,6 +4,7 @@
   const C = window.FieldworkCore;
   const cases = window.FIELDWORK_CASES;
   const companionBots = {
+    business: {alias:'BusinessPlanFirstSteps',name:'Business Plan First Steps'},
     home: {alias:'FieldworkPortfolioGuide',name:'Fieldwork Portfolio Guide'},
     history: {alias:'PuebloHistoryDetective',name:'Pueblo History Detective'},
     quakes: {alias:'EarthquakeTsunamiGuide',name:'Earthquake & Tsunami Guide'},
@@ -45,10 +46,11 @@
     document.querySelectorAll('.view').forEach(view => view.hidden = view.id !== `${demo}-view`);
     document.querySelectorAll('nav [data-demo]').forEach(link => { if (link.dataset.demo === demo) link.setAttribute('aria-current','page'); else link.removeAttribute('aria-current'); });
     const titles = {home:'Fieldwork — learning beyond the chat', history:'Pueblo History Detective — Fieldwork', math:'Dot Lab — Fieldwork', quakes:'Before the wave arrives — Fieldwork', budget:'Community Budget Challenge — Fieldwork', hearing:'Public Hearing Detective — Fieldwork'};
-    document.title = titles[demo];
+    document.title = demo === 'business' ? 'Business Plan First Steps — Fieldwork' : titles[demo];
     if (demo === 'history') setAddress(demo, {case:currentCase});
     else if (demo === 'math') setAddress(demo, mathSettings());
     else if (demo === 'quakes') { window.FieldworkJourney?.activate(); setAddress(demo, {period:$('quake-period').value,min:$('quake-min').value,...(window.FieldworkJourney?.urlValues()||{})}); }
+    else if (demo === 'business') { window.FieldworkBusiness?.activate(); setAddress(demo, window.FieldworkBusiness?.urlValues() || {}); }
     else if (demo === 'budget' || demo === 'hearing') setAddress(demo, window.FieldworkCivic?.urlValues(demo) || {});
     else setAddress('home',portfolioInterest?{interest:portfolioInterest}:{});
     if (demo === 'quakes' && $('live-earthquake-data').open && !quakes.loaded && !quakes.loading) loadQuakes();

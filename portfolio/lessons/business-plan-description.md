@@ -1,0 +1,1 @@
+Turn an idea into a business-plan first draft. Try a fictional yard-care example or your own idea, with simple calculations and a patient guide. Review and download your draft, then optionally package feedback to email to Denson. No business experience needed.

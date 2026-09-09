@@ -2,7 +2,7 @@
 
 [Open the portfolio](../?demo=home) · [Fieldwork Portfolio Guide](https://box.boodle.ai/a/@FieldworkPortfolioGuide)
 
-Four hands-on activities for curious adults and older teens, with a BoodleBox guide for each. New visitors start at the website homepage with First Steps, then come here to choose an investigation. Return to this portfolio whenever you want another activity. Returning visitors can skip First Steps. This is an independent portfolio by Denson Smith.
+Five hands-on activities for curious adults and older teens, with a BoodleBox guide for each. New visitors start at the website homepage with First Steps, then come here to choose an activity. Return to this portfolio whenever you want another activity. Returning visitors can skip First Steps. This is an independent portfolio by Denson Smith.
 
 ## Choose an activity
 
@@ -13,6 +13,9 @@ Four hands-on activities for curious adults and older teens, with a BoodleBox gu
 | Science and public investment | [Before the wave arrives, 10–15 minutes](../?demo=quakes&case=alaska1964&step=reach) | [Earthquake & Tsunami Guide](https://box.boodle.ai/a/@EarthquakeTsunamiGuide) |
 | Decisions and tradeoffs | [Community Budget Challenge](../?demo=budget) | [Community Budget Coach](https://box.boodle.ai/a/@CommunityBudgetCoach) |
 | Claims and contradictions | [Public Hearing Detective](../?demo=hearing) | [Eastbank Hearing Guide](https://box.boodle.ai/a/@EastbankHearingGuide) |
+| A first business plan | [Business Plan First Steps, 15–20 minutes](../?demo=business) | [Business Plan First Steps](https://box.boodle.ai/a/@BusinessPlanFirstSteps) |
+
+The business-plan walkthrough includes a fictional example, a simple monthly model, a draft download, and a separate feedback package for the reviewer to email. Companion Pane 0.7.0 adds this new website/bot pair; older mappings still work. See [the business-plan reference](business-plan.md).
 
 ## Move between activities
 

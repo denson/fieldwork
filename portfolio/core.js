@@ -3,7 +3,7 @@
   const choose = (value, allowed, fallback) => allowed.includes(value) ? value : fallback;
   function config(params) {
     return {
-      demo: choose(params.get('demo'), ['home', 'history', 'math', 'quakes', 'budget', 'hearing'], 'home'),
+      demo: choose(params.get('demo'), ['home', 'history', 'math', 'quakes', 'budget', 'hearing', 'business'], 'home'),
       case: choose(params.get('case'), ['flood-camp', 'flood-mess-hall', 'union-avenue', 'flood-damage', 'relief-shoes', 'steel-mill'], 'flood-camp'),
       level: choose(Number(params.get('level')), [1, 2, 3], 1),
       ms: params.has('ms') ? choose(Number(params.get('ms')), [0, 350, 650, 1200, 3000, 5000], 0) : 0,

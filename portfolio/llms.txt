@@ -1,8 +1,10 @@
 # Fieldwork
 
-Fieldwork is an independent portfolio of four learning activities and a short First Steps tutorial, each with a BoodleBox guide. Dot Lab is an older experiment excluded from the current menu.
+Fieldwork is an independent portfolio of five learning activities and a short First Steps tutorial, each with a BoodleBox guide. Dot Lab is an older experiment excluded from the current menu.
 
 ## Start here
+- [Business Plan First Steps](lessons/business-plan.md): A beginner's planning walkthrough, fictional example, monthly model, draft download and reviewable feedback package.
+- [Business-plan companion instructions](lessons/business-plan-bot-instructions.md): Patient step-by-step coaching and explicit email handoff limits.
 - [Website homepage](./): Opens the First Steps tutorial, then leads to the portfolio. Use ?demo=home explicitly for the activity menu; existing subject links still work.
 - [Shared portfolio](lessons/portfolio.md): The central menu, every companion, and paired navigation.
 - [Portfolio guide instructions](lessons/portfolio-bot.md): Help a learner choose the next activity.

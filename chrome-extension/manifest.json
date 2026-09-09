@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fieldwork Companion Pane",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Start matching Fieldwork lessons and BoodleBox chats together, and place reviewed notes in the paired chat draft.",
   "minimum_chrome_version": "140",
   "permissions": [
