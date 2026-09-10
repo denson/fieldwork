@@ -4,7 +4,7 @@ Public site: https://denson.github.io/fieldwork/
 
 Public repository: https://github.com/denson/fieldwork
 
-Business Plan First Steps is at `?demo=business` (September 9, 2026). Its exact bot alias is `BusinessPlanFirstSteps`. Companion Pane 0.7.0 adds the mapping with unchanged permissions. `portfolio/business-core.js` builds the monthly model, draft, feedback text and bounded mailto draft. Feedback is never sent automatically. Long feedback must be downloaded and manually attached to the email. The recipient address is entered by the reviewer until the owner supplies a configured address.
+Business Plan First Steps is at `?demo=business` (updated September 10, 2026). Its exact bot alias is `BusinessPlanFirstSteps`. Reviewer feedback is at `?demo=business&step=review&reviewer=1`. Companion Pane 0.7.0 adds the mapping with unchanged permissions. `portfolio/business-core.js` builds the monthly model, owner-pay target, structured Markdown brief, backup format, feedback text and bounded mailto draft. Feedback is never sent automatically. Long feedback must be downloaded and manually attached to the email. The recipient address is entered by the reviewer until the owner supplies a configured address.
 
 The repository's `portfolio/` directory is the GitHub Pages artifact. Root project research, meeting notes, bot setup logs, temporary scripts and downloaded template bundles are excluded from Git. Keep the explicit `.gitignore` allowlist when adding files. Website source and the extension remain in their original local directories.
 
