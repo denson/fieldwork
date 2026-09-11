@@ -7,6 +7,7 @@ const root=path.join(__dirname,'..');
 const js=fs.readFileSync(path.join(root,'business.js'),'utf8');
 const css=fs.readFileSync(path.join(root,'business.css'),'utf8');
 const html=fs.readFileSync(path.join(root,'index.html'),'utf8');
+const knowledge=fs.readFileSync(path.join(root,'lessons','business-plan.md'),'utf8');
 
 test('device persistence is explicit and includes portable backup controls',()=>{
   assert.match(js,/id="business-device-save"/);
@@ -42,4 +43,11 @@ test('chat-first start and three complete example choices are visible',()=>{
   assert.match(js,/Use this draft/);
   assert.match(js,/Object\.entries\(C\.examples\)/);
   assert.match(css,/business-example-grid/);
+});
+
+test('canonical bot knowledge explains the shared experience and all examples',()=>{
+  assert.match(knowledge,/conversation-first planning experience/);
+  assert.match(knowledge,/say it naturally → receive a useful draft/);
+  for(const name of ['Boodle-Ready Sites','Mesa Yard Care','Porchside Bike Tune-Ups'])assert.ok(knowledge.includes(name));
+  assert.match(knowledge,/newest website note the visitor deliberately shared/);
 });
