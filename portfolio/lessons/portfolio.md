@@ -15,7 +15,7 @@ Five hands-on activities for curious adults and older teens, with a BoodleBox gu
 | Claims and contradictions | [Public Hearing Detective](../?demo=hearing) | [Eastbank Hearing Guide](https://box.boodle.ai/a/@EastbankHearingGuide) |
 | A first business plan | [Business Plan First Steps, 15–20 minutes](../?demo=business) | [Business Plan First Steps](https://box.boodle.ai/a/@BusinessPlanFirstSteps) |
 
-The business-plan walkthrough includes a fictional example, a simple monthly model, a draft download, and a separate feedback package for the reviewer to email. Companion Pane 0.7.0 adds this new website/bot pair; older mappings still work. See [the business-plan reference](business-plan.md).
+The business-plan walkthrough includes three complete fictional plans, a chat-first draft handoff, a simple monthly model, a draft download, and a separate feedback package for the reviewer to email. Companion Pane 0.8.0 lets the learner approve draft wording from the Business Plan guide and place it into the paired website; older mappings still work. See [the business-plan reference](business-plan.md).
 
 ## Move between activities
 

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Fieldwork Companion Pane",
-  "version": "0.7.0",
-  "description": "Start matching Fieldwork lessons and BoodleBox chats together, and place reviewed notes in the paired chat draft.",
+  "version": "0.8.0",
+  "description": "Connect Fieldwork lessons and BoodleBox chats, including user-approved business-plan drafts in both directions.",
   "minimum_chrome_version": "140",
   "permissions": [
     "storage",
@@ -24,6 +24,7 @@
       ],
       "js": [
         "routing.js",
+        "business-draft.js",
         "draft.js",
         "transition-client.js",
         "content.js"
@@ -42,6 +43,7 @@
       ],
       "js": [
         "routing.js",
+        "business-draft.js",
         "activity.js"
       ],
       "css": [

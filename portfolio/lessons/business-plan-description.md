@@ -1,1 +1,1 @@
-Turn an idea into a practical first planning brief. Try a fictional yard-care example or your own idea, with simple owner-pay and capacity calculations plus a patient guide. Review, download or print the brief. No business experience needed.
+Describe an idea in ordinary conversation and turn it into a practical first planning brief. Start with your own idea or one of three complete fictional plans, explore simple owner-pay and capacity calculations, then review, download or print the draft. No business experience needed.

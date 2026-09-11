@@ -34,5 +34,12 @@ test('responsive, progress and print contracts remain present',()=>{
 });
 
 test('cache-busted entrypoints load the upgraded business assets',()=>{
-  for(const asset of ['business.css?v=20260910-brief','business-core.js?v=20260910-brief','business.js?v=20260910-brief'])assert.ok(html.includes(asset));
+  for(const asset of ['business.css?v=20260910-chatfirst','business-core.js?v=20260910-chatfirst','business.js?v=20260910-chatfirst'])assert.ok(html.includes(asset));
+});
+
+test('chat-first start and three complete example choices are visible',()=>{
+  assert.match(js,/CHAT FIRST/);
+  assert.match(js,/Use this draft/);
+  assert.match(js,/Object\.entries\(C\.examples\)/);
+  assert.match(css,/business-example-grid/);
 });

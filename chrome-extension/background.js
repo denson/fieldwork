@@ -1,5 +1,6 @@
-importScripts('routing.js','transition.js');
+importScripts('routing.js','business-draft.js','transition.js');
 const R=FieldworkRouting;
+const D=FieldworkBusinessDraft;
 const transitions=FieldworkTransition.create({chrome,R});
 chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   if(!message||sender.frameId!==0||!sender.tab)return;
@@ -9,12 +10,22 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   const isOpen=message.type==='fieldwork-open'&&R.isBoodle(sender.url);
   const isNote=message.type==='fieldwork-note'&&R.isSharePage(sender.url);
   const isLaunch=message.type==='fieldwork-launch'&&R.isSharePage(sender.url);
-  if(!isOpen&&!isNote&&!isLaunch)return;
+  const isBusinessDraft=message.type==='fieldwork-business-draft'&&R.isBoodle(sender.url);
+  if(!isOpen&&!isNote&&!isLaunch&&!isBusinessDraft)return;
   (async()=>{
     const url=isOpen||isLaunch?R.destination(message.url):null;
-    if(isOpen?!url:isLaunch?!R.combo(url):!R.validNote(message))return {status:'rejected'};
+    if(isOpen?!url:isLaunch?!R.combo(url):isNote?!R.validNote(message):!D.valid(message))return {status:'rejected'};
     const settings=await chrome.storage.local.get({enabled:true});if(!settings.enabled)return {status:'disabled'};
     const source=await chrome.tabs.get(sender.tab.id);
+    if(isBusinessDraft){
+      if(source.url!==message.chatUrl||!R.isChat(source.url))return {status:'page-changed'};
+      const peers=await chrome.tabs.query({windowId:source.windowId});
+      const pair=R.paired(source,peers);if(pair.tabId===undefined)return {status:'no-chat',reason:pair.reason};
+      const target=peers.find(t=>t.id===pair.tabId),combo=R.combo(target.url);if(combo?.companion!=='BusinessPlanFirstSteps')return {status:'wrong-guide'};
+      const [freshSource,freshTarget]=await Promise.all([chrome.tabs.get(source.id),chrome.tabs.get(pair.tabId)]);
+      if(freshSource.url!==source.url||freshTarget.url!==target.url||R.paired(freshSource,[freshSource,freshTarget]).tabId!==pair.tabId)return {status:'pair-changed'};
+      return await chrome.tabs.sendMessage(pair.tabId,{type:'fieldwork-apply-business-draft',fieldwork:message.fieldwork,step:message.step,fields:message.fields},{frameId:0});
+    }
     if(isLaunch){
       if(source.url!==message.sourceUrl||!R.isSharePage(source.url)||new URL(source.url).origin!==new URL(sender.url).origin)return {status:'page-changed'};
       const peers=await chrome.tabs.query({windowId:source.windowId});

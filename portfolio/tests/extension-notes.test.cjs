@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const R=require('../../chrome-extension/routing.js'),D=require('../../chrome-extension/draft.js');
+const R=require('../../chrome-extension/routing.js'),D=require('../../chrome-extension/draft.js'),BusinessDraft=require('../../chrome-extension/business-draft.js');
 const activity={id:8,windowId:1,splitViewId:12,url:'http://127.0.0.1:4173/start.html?step=share'};
 const chat={id:7,windowId:1,splitViewId:12,url:'https://box.boodle.ai/c/practice'};
 const note={type:'fieldwork-note',text:'My badge: Lantern\nMy topic: Earthquakes & tsunamis',companion:'FieldworkFirstSteps',sourceUrl:activity.url};
@@ -10,7 +10,7 @@ function worker({peers=[activity,chat],enabled=true,changePair=false,changeChat=
     query:async()=>peers,update:async(...args)=>mutations.push(args),create:async(...args)=>mutations.push(args),
     sendMessage:async(id,message,options)=>{deliveries.push({id,message,options});return {status:'draft-ready'};}
   }};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   return {deliveries,mutations,send:(message=note,sender={frameId:0,tab:activity,url:activity.url})=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
 }
 (async()=>{
@@ -40,6 +40,6 @@ function worker({peers=[activity,chat],enabled=true,changePair=false,changeChat=
   assert.equal(D.normalize('Badge: Lantern\n\nTopic: Quakes'),D.normalize('Badge: Lantern\nTopic: Quakes'));
   assert.notEqual(D.normalize('Badge: LanternTopic: Quakes'),D.normalize('Badge: Lantern\nTopic: Quakes'));
   const manifest=JSON.parse(fs.readFileSync(require.resolve('../../chrome-extension/manifest.json'),'utf8'));
-  assert.equal(manifest.version,'0.7.0');assert.deepEqual(manifest.permissions,['storage','tabs']);
+  assert.equal(manifest.version,'0.8.0');assert.deepEqual(manifest.permissions,['storage','tabs']);
   console.log('Note transfer: exact paired chat only, navigation races, no new tabs, top frame/origin/payload boundaries, existing draft preservation, duplicate prevention, editor acceptance, and no automatic send passed.');
 })().catch(e=>{console.error(e);process.exitCode=1;});

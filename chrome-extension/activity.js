@@ -1,6 +1,6 @@
 (()=>{
   'use strict';
-  const R=FieldworkRouting;if(!R.isSharePage(location.href))return;
+  const R=FieldworkRouting,D=FieldworkBusinessDraft;if(!R.isSharePage(location.href))return;
   let enabled=true;const controls=new Map(),launchControls=new Map();
   const messages={
     'draft-ready':'Your note is in BoodleBox on the left. Review it, then press Send there.',
@@ -17,6 +17,24 @@
     'rejected':'This note cannot be placed automatically. Use Copy note instead.',
     'failed':'The connection is unavailable. Reload both panes and try again, or use Copy note.'
   };
+  function applyBusinessDraft(message){
+    if(!enabled||!D.valid(message)||R.combo(location.href)?.companion!=='BusinessPlanFirstSteps')return {status:enabled?'rejected':'disabled'};
+    const stepButton=document.querySelector(`[data-business-step="${message.step}"]`);if(!stepButton)return {status:'page-changed'};
+    stepButton.click();
+    let count=0;
+    for(const [key,value] of Object.entries(message.fields)){
+      const input=document.querySelector(`[data-business-field="${key}"]`);if(!input)return {status:'page-changed'};
+      input.value=value;input.dispatchEvent(new Event('input',{bubbles:true}));count++;
+    }
+    document.getElementById('fw-business-draft-status')?.remove();
+    const status=document.createElement('p');status.id='fw-business-draft-status';status.className='business-note';status.setAttribute('role','status');status.textContent=`Draft applied from the chat: ${count} ${count===1?'answer':'answers'}. Review and edit anything you want.`;
+    document.querySelector('#business-stage .business-panel')?.prepend(status);status.scrollIntoView({block:'nearest'});
+    return {status:'draft-applied',count};
+  }
+  chrome.runtime.onMessage.addListener((message,sender,reply)=>{
+    if(sender.id!==chrome.runtime.id||sender.tab||message?.type!=='fieldwork-apply-business-draft')return;
+    try{reply(applyBusinessDraft(message));}catch{reply({status:'failed'});}
+  });
   const launchMessages={...messages,'routed':'The page is opening beside its guide.','starting-combo':'Opening the matching guide on the left, then the page on the right…','transition-busy':'The next activity is already opening. Check the guide on the left.','draft-not-empty':'There is an unfinished message in BoodleBox. Send or clear it before changing guides.','failed':'The pair could not finish opening. Check the guide on the left; you can use Start New Chat there if shown.'};
   async function launch(url,button,status){
     if(!enabled||button.disabled||!R.combo(url))return;
@@ -29,7 +47,7 @@
     finally{button.disabled=false;}
   }
   function install(){
-    document.documentElement.dataset.fieldworkCompanion=enabled?'0.6.0':'';
+    document.documentElement.dataset.fieldworkCompanion=enabled?'0.8.0':'';
     document.documentElement.dataset.fieldworkLaunch=enabled?'1':'';
     for(const slot of document.querySelectorAll('[data-fieldwork-launch][data-activity-link]')){
       if(launchControls.has(slot))continue;

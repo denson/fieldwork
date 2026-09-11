@@ -1,3 +1,9 @@
+# Fieldwork Companion Pane — 0.8.0
+
+Business Plan First Steps now supports a user-approved return handoff from chat to the website. When the matching guide emits a valid `business-plan-draft-v1` block, the extension replaces the technical block with a readable draft card. The visitor chooses **Use this draft**; only then does the extension place those values into the matching business-plan step in the paired website. Existing values in that step may be revised by this explicit action. The extension never submits a message or applies a draft without the visitor's click.
+
+The return payload is limited to the known fields for one business-plan step, bounded to the same lengths and numerical ranges as the website, delivered only between the exact Business Plan First Steps chat and business activity in the same Chrome split view, and rechecked immediately before delivery. No draft content is stored by the extension or put into a URL. Reload the unpacked extension and then refresh both panes to enable this release.
+
 # Public Fieldwork release — 0.6.0
 
 Supports https://denson.github.io/fieldwork/ (tutorial, portfolio and all four activities) alongside the public weed guide and existing local development routes. No new permissions. Other projects on denson.github.io remain outside the bridge.

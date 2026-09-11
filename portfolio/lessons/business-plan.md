@@ -18,7 +18,17 @@ An independent Fieldwork / Stoagen learning activity for someone making a first 
 
 Step links use only `?demo=business&step=idea` (or customer, offer, numbers, test, review). Reviewer mode adds `&reviewer=1`. No freeform answers are put in URLs. Answers remain in this browser tab where session/draft storage works and are not uploaded by the website. The learner can opt in to a longer-lived copy on that device, or export/import a private JSON backup. A copied link does not contain the user's draft.
 
-## Fictional worked example
+## Fictional worked examples
+
+The opening screen offers three complete plans so a visitor can inspect a finished first draft instead of starting with blank fields:
+
+- **Boodle-Ready Sites:** an AI-friendly website studio pairing guided websites with BoodleBox bots.
+- **Mesa Yard Care:** a small scheduled neighborhood service.
+- **Porchside Bike Tune-Ups:** a defined mobile bicycle-service package.
+
+All three label demand and customer claims as untested assumptions and include a customer, offer, monthly model, capacity, next test and adviser question.
+
+### Mesa Yard Care calculation example
 
 Mesa Yard Care is a made-up one-person service considering two-hour yard-care visits for older homeowners in one Pueblo neighborhood. It excludes tree work and pesticide application. Demand has not been researched. Before a paid visit the owner needs to check equipment, transport, insurance, local requirements and safe scope of work.
 
@@ -32,7 +42,9 @@ Revenue = price × monthly sales. Variable costs = cost per sale × sales. Opera
 
 ## Guide handoff
 
-Each step prepares a short visible note. The learner deliberately places it in the matching BoodleBox draft using the extension, or copies and pastes it, then presses Send. The bot cannot see unshared fields or later clicks. A returned link navigates a step; it does not fill answers or demonstrate completion. The extension needs version 0.7.0 for this new companion mapping.
+Each step prepares a short visible note. The learner deliberately places it in the matching BoodleBox draft using the extension, or copies and pastes it, then presses Send. The bot cannot see unshared fields or later clicks.
+
+In the return direction, the guide can turn ordinary chat into a bounded draft for one website step. Companion Pane 0.8.0 presents that draft in a readable card. The learner chooses **Use this draft** before the extension writes those values into the paired website. The handoff can revise existing values on that step, remains editable, stores no content in the extension, and never puts answers in a URL. Without the extension, the guide displays the same wording for manual copy/paste.
 
 ## Reviewer feedback
 

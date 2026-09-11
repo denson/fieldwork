@@ -1,5 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const R=require('../../chrome-extension/routing.js');
+const BusinessDraft=require('../../chrome-extension/business-draft.js');
 const source={id:7,windowId:1,splitViewId:12,url:'https://box.boodle.ai/c/practice'};
 const target={id:8,windowId:1,splitViewId:12,url:'http://127.0.0.1:4173/start.html?step=share'};
 const url='http://127.0.0.1:4173/start.html?step=return&pass=abcd1234&badge=lantern&topic=quakes';
@@ -24,7 +25,7 @@ function worker({peers=[source,target],enabled=true,moveOnRecheck=false}={}){
     get:async id=>{getCalls++;return moveOnRecheck&&getCalls>1?{...(id===source.id?source:target),splitViewId:44+id}:id===source.id?source:peers.find(t=>t.id===id);},
     query:async()=>peers,update:async(id,data)=>updates.push({id,...data}),create:async data=>creates.push(data),sendMessage:async()=>({status:'same-guide'})
   }};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   return {updates,creates,send:(message={type:'fieldwork-open',url},sender={frameId:0,tab:source,url:source.url})=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
 }
 (async()=>{

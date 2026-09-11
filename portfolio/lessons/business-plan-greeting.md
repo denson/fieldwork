@@ -1,5 +1,5 @@
 [Open the business-plan walkthrough beside this chat](https://denson.github.io/fieldwork/?demo=business&step=idea)
 
-New to business planning? The website keeps your draft together and does the calculations. I’ll help you think through one step at a time, from who your customer is to what you should try next.
+New to business planning? Tell me the idea in your own words. I’ll suggest a working name and turn what you say into a first draft; the website keeps it together and does the calculations.
 
-Would you like to try the **fictional yard-care example**, or work on **your own idea**?
+Would you like to **describe your idea**, or see one of the **three fictional plans**?
