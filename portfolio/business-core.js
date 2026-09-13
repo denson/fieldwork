@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.FieldworkBusinessCore=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const version='2026-09-12.1';
+  const version='2026-09-13.1';
   const steps=['idea','customer','offer','rules','numbers','test','review'];
   const labels={name:'Working business name',idea:'What you will offer',customer:'First customer group',problem:'Problem worth solving',evidence:'What you know and how you know it',offer:'One thing a customer can buy',alternative:'What customers do today / why choose you',reach:'How you will reach the first customers',delivery:'How you will deliver the work',resources:'People, equipment and requirements to check',checks:'Things to verify before launch',verifier:'Who can help you check',impact:'What this changes in your plan',unit:'One sale means',price:'Price per sale',variable:'Cost per sale',fixed:'Monthly fixed costs',sales:'Expected sales per month',capacity:'Sales you could deliver per month',startup:'One-time startup costs',ownerPay:'Desired monthly owner pay',test:'First real-world test',success:'What result would justify another step',next:'Next action and when',question:'Question for an adviser'};
   const numberKeys=['price','variable','fixed','sales','capacity','startup','ownerPay'];
@@ -20,7 +20,53 @@
     bike:{title:'Mobile bicycle tune-ups',summary:'A service that brings a defined repair package to the customer.',plan:{name:'Porchside Bike Tune-Ups — fictional example',idea:'A mobile bicycle service that performs basic tune-ups at a customer’s home or workplace.',customer:'Occasional adult riders in one part of town who own a usable bike but postpone taking it to a repair shop.',problem:'Transporting a bicycle to a shop and returning later is inconvenient for a basic seasonal tune-up.',evidence:'Practice assumption only. No rider interviews, competitor research or local price checks have been completed.',offer:'One appointment covering a safety check, brake and shifting adjustment, tire inflation and chain lubrication; parts and major repairs are outside the base package.',alternative:'Take the bike to a shop, fix it themselves or leave it unused. The test is whether convenience makes a limited mobile service worthwhile.',reach:'Invite local neighborhood and workplace groups to share a short interview request, then offer a small pilot day if requirements are checked.',delivery:'One mechanic schedules clustered appointments in a limited area and completes each tune-up from a mobile tool kit.',resources:'Check mechanical skill, tools, transport, replacement-parts policy, insurance, scheduling, weather and local operating requirements.',checks:"Verify mechanical competence, a safe service checklist, insurance, local operating rules and handling of lubricants. Exclude major repairs and work outside verified training, tools and coverage before a paid appointment.",verifier:"Ask a qualified bicycle mechanic to review the checklist, an insurer about covered repairs and the local business office about operating requirements.",impact:"Fictional totals include tools and initial training in $2400 startup, supplies and travel in $12 per appointment, and insurance and upkeep in $650 monthly. Actual quotes are unknown. Include each expense once. Allow time for travel and safety checks within 28 appointments per month.",unit:'one basic tune-up appointment',price:'85',variable:'12',fixed:'650',sales:'18',capacity:'28',startup:'2400',ownerPay:'1800',test:'Interview six occasional riders about the last time they needed service, then offer three clearly scoped pilot appointments after requirements are checked.',success:'Three people accept a paid pilot at the stated scope and price, and the average appointment fits the planned time. This would still require more testing.',next:'Write the service checklist and recruit the first six interview participants this week.',question:'Which repairs should be excluded until training, tools and insurance are verified?'}}
   };
   const example=examples.yard.plan;
-  function cleanPlan(raw={}){const p={};for(const k of Object.keys(labels))p[k]=typeof raw[k]==='string'?raw[k].slice(0,numberKeys.includes(k)?18:500):'';return p;}
+  function cleanPlan(raw={}){const p={};for(const k of Object.keys(labels))p[k]=typeof raw[k]==='string'?raw[k].slice(0,numberKeys.includes(k)?18:500):'';if(typeof raw.exampleKey==='string'&&Object.hasOwn(examples,raw.exampleKey))p.exampleKey=raw.exampleKey;return p;}
+  // Preserve the chosen teaching example independently of edits to the business name.
+  // Older drafts have no marker; recognize only a known name or exact example idea.
+  function exampleKeyForPlan(plan={}){
+    if(typeof plan.exampleKey==='string'&&Object.hasOwn(examples,plan.exampleKey))return plan.exampleKey;
+    const name=String(plan.name||'').trim().toLowerCase().replace(/\s*[—–-]\s*fictional example$/,'');
+    return Object.keys(examples).find(key=>name===examples[key].plan.name.split(' — ')[0].toLowerCase()||(!!plan.idea&&plan.idea===examples[key].plan.idea))||'';
+  }
+  const tipTitles={idea:'Small and specific is useful.',customer:'Start with a real customer situation.',offer:'Define the edges of the offer.',rules:'Turn unknowns into things to verify.',numbers:'Count the whole job.',test:'Look for behavior, not just compliments.'};
+  const tips={
+    property:{
+      idea:'SafeStart helps owners investigate lead paint and asbestos before renovation. Its proposed work includes lead-paint measurements, suspected asbestos samples for accredited laboratory analysis, office review of lead readings, and a formal report after review and laboratory results. That gives the plan a clear purpose and a defined result for the customer.',
+      customer:'Start with owners of older properties who are planning renovations. Ask about their last testing project: who they hired, what they needed from the report, and where timing was difficult. Their answers can test the assumed need for SafeStart.',
+      offer:'Define what one property-testing package covers: the agreed measurements and samples, accredited laboratory analysis, office review and the formal report. Agree sample limits and extra work in advance. Removal work is outside this fictional offer; qualifications and reporting scope still need verification.',
+      rules:'For SafeStart, identify who can confirm the qualifications for the proposed service, equipment requirements, safe sampling, laboratory arrangements, insurance and report limits. Record what must be resolved before a paid job and how it affects costs or timing. A filled-in draft does not establish permission to operate.',
+      numbers:'One SafeStart sale includes fieldwork, laboratory analysis, office review and reporting. Include per-job laboratory fees and supplies once in cost per sale. Allow for office time and laboratory turnaround when estimating capacity. Initial training and equipment belong in startup costs; recurring insurance and upkeep belong in monthly costs.',
+      test:'Talk with property owners or renovation coordinators about a past testing project. A specific scheduling or reporting problem, followed by a request to hear more, is a useful early signal. Verify qualifications, laboratory arrangements and scope before offering fieldwork or a paid pilot.'
+    },
+    yard:{
+      idea:'Mesa Yard Care starts with scheduled cleanup and manual weeding for small yards. A clear service and a limited scope give the owner something concrete to discuss with potential customers.',
+      customer:'Mesa starts with older homeowners in one neighborhood. Ask how they arranged yard help last time, what was difficult and what they actually paid for. Wanting a small scheduled service is still an assumption until it is checked.',
+      offer:'Mesa sells a two-hour cleanup and manual-weeding visit. Tree work and pesticide application are outside its scope. Agree the tasks with the customer and check equipment, transport, insurance and safe working practices before a paid pilot.',
+      rules:'For Mesa, check local operating requirements, insurance, tool safety, transport and disposal arrangements. Keep the first offer within a safe scope such as cleanup and manual weeding. Ask the relevant business office, insurer or qualified operator to confirm the unknowns before paid work.',
+      numbers:'One Mesa sale is a two-hour visit. Include travel and supplies in its per-visit costs, and allow travel and safe work time when estimating monthly capacity. Compare the sales needed for your owner-pay target with the visits you can actually deliver.',
+      test:'Ask homeowners about their last experience arranging yard help. Requests for a follow-up about a clearly scoped visit are more useful than compliments alone. Check the requirements before a paid pilot; a few interested people do not yet prove a market.'
+    },
+    bike:{
+      idea:'Porchside offers basic bicycle tune-ups at a customer’s home or workplace. A defined appointment gives riders a clear idea of what they would receive and gives the mechanic a service to test.',
+      customer:'Start with occasional adult riders who postpone taking a usable bike to a shop. Ask about the last time their bike needed service and what stopped them arranging it. Convenience is a possible advantage to investigate.',
+      offer:'Define the basic tune-up checklist and what is outside the price. In the fictional example, parts and major repairs are excluded. Keep the service within verified skills, tools and insurance coverage.',
+      rules:'For Porchside, have a qualified mechanic review the service checklist, confirm the repairs covered by insurance, and check local operating requirements and safe handling of lubricants. Resolve the work limits before paid appointments.',
+      numbers:'One Porchside sale is a basic tune-up appointment. Include supplies and travel once in cost per appointment. Allow time for safety checks and travel when setting capacity, and make the treatment of replacement parts clear.',
+      test:'Interview riders about a recent need for service. After checking requirements, a small paid pilot can test whether riders accept the scope and price and whether appointments fit the planned time. Record what would make you revise the offer.'
+    },
+    own:{
+      idea:'Describe one product or service and the result a customer would receive. A narrow first offer is easier to explain, price and test. Your working name can change as the idea develops.',
+      customer:'Choose one group you could realistically talk with. Ask about a recent experience with the problem you hope to solve. Keep what you observed separate from what you are assuming.',
+      offer:'Describe one purchase, what it includes and what is outside the price. Consider who does the work, what is needed and why a customer might choose it over their current alternative.',
+      rules:'Identify what needs checking before your first paid job, who can confirm it and what it changes in costs, scope or timing. Start with the most important unknown. A completed planning note does not establish permission to operate.',
+      numbers:'Use the same unit for price, cost per sale and monthly sales. Include each expense once, allow for the full time needed to deliver the work, and compare the sales needed for owner pay with realistic capacity. Leave an unknown required cost total blank.',
+      test:'Choose a small action that could change your mind about the idea. Look for a specific customer problem or behavior, record what you learn, and decide what result would justify another step.'
+    }
+  };
+  function planningTip(plan,step){
+    const exampleKey=exampleKeyForPlan(plan),key=Object.hasOwn(tipTitles,step)?step:'idea';
+    return {exampleKey,title:tipTitles[key],label:exampleKey?'PLANNING TIP · '+examples[exampleKey].plan.name.split(' — ')[0].toUpperCase()+' EXAMPLE':'PLANNING TIP',text:tips[exampleKey||'own'][key],disclaimer:exampleKey?'This fictional example is for learning. Its details are not verified facts about your business.':''};
+  }
   function amount(value){if(typeof value!=='string'||value.trim()===''||!/^\d+(\.\d{1,2})?$/.test(value.trim()))return null;const n=Number(value);return Number.isFinite(n)&&n<=1000000?n:null;}
   const money=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(n);
   function calculate(plan){
@@ -63,5 +109,5 @@
     const value=k=>{const v=p[k]||'Not filled in yet';return v.length>budget?v.slice(0,budget-1)+'…':v;};
     return header+keys.map(k=>`${labels[k]}: ${value(k)}`).join('\n\n')+numbers+footer;
   }
-  return {version,steps,labels,example,examples,cleanPlan,calculate,money,numericSummary,completion,planSections,planText,backupText,parseBackup,feedbackText,emailDraft,chatNote};
+  return {version,steps,labels,example,examples,cleanPlan,exampleKeyForPlan,planningTip,calculate,money,numericSummary,completion,planSections,planText,backupText,parseBackup,feedbackText,emailDraft,chatNote};
 });

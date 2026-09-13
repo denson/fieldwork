@@ -94,3 +94,30 @@ test('SafeStart includes the full work cycle and remains inside transfer field l
  for(const [step,keys] of Object.entries(D.fieldsByStep)){const draft={fieldwork:D.marker,step,fields:Object.fromEntries(keys.map(k=>[k,plan[k]]))};assert.deepEqual(D.normalize(draft),draft);}
  const n=B.calculate(plan);assert.equal(n.result,3240);assert.equal(n.breakEven,6);assert.equal(n.ownerPaySales,13);
 });
+
+test('SafeStart tips follow legacy drafts and stay with a renamed, backed-up example',()=>{
+ const legacy=B.parseBackup(B.backupText(B.examples.property.plan)).plan;
+ assert.equal(B.exampleKeyForPlan(legacy),'property');
+ const renamed={...legacy,exampleKey:B.exampleKeyForPlan(legacy),name:'My testing practice',idea:'My revised service description'};
+ const restored=B.parseBackup(B.backupText(renamed)).plan;
+ assert.equal(B.exampleKeyForPlan(restored),'property');
+ for(const step of B.steps.filter(s=>s!=='review')){
+  const tip=B.planningTip(restored,step);
+  assert.match(tip.label,/SAFESTART PROPERTY TESTING/);
+  assert.doesNotMatch(tip.text,/yard|weeding|bicycle/i);
+ }
+ assert.match(B.planningTip(restored,'idea').text,/accredited laboratory analysis/);
+ assert.match(B.planningTip(restored,'idea').text,/office review/);
+});
+
+test('switching examples and starting a personal plan does not reuse the previous tips',()=>{
+ for(const [key,label] of [['yard','MESA YARD CARE'],['bike','PORCHSIDE BIKE TUNE-UPS']]){
+  const tip=B.planningTip({...B.examples[key].plan,exampleKey:key},'idea');
+  assert.ok(tip.label.includes(label));assert.doesNotMatch(tip.text,/SafeStart/);
+ }
+ for(const own of [{},{name:'A new studio',idea:'Design services'},{exampleKey:'__proto__'},{exampleKey:'unknown'}]){
+  const plan=B.cleanPlan(own),tip=B.planningTip(plan,'idea');
+  assert.equal(plan.exampleKey,undefined);assert.equal(tip.exampleKey,'');assert.equal(tip.label,'PLANNING TIP');
+  assert.doesNotMatch(tip.text,/Mesa|SafeStart|Porchside/);assert.equal(tip.disclaimer,'');
+ }
+});
