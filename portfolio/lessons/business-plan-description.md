@@ -1,1 +1,1 @@
-Describe an idea in ordinary conversation and turn it into a practical first planning brief. Start with your own idea or one of three complete fictional plans, explore simple owner-pay and capacity calculations, then review, download or print the draft. No business experience needed.
+Turn a rough business idea into a first draft, one useful question at a time. Bring your own idea or explore yard care or property testing. Discover what to check before launch, try the numbers, and keep an editable planning brief. No business experience needed.

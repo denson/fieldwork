@@ -13,9 +13,9 @@ test('fictional example separates operation, startup spending and owner pay',()=
  const r=B.calculate(B.example);assert.equal(r.revenue,1800);assert.equal(r.result,700);assert.equal(r.breakEven,10);assert.equal(r.lowerSales,15);assert.equal(r.lowerResult,350);assert.equal(r.startup,1800);assert.equal(r.ownerPay,1500);assert.equal(r.ownerPaySales,32);assert.equal(r.ownerPayOverCapacity,true);
 });
 test('three complete fictional plans cover different business shapes',()=>{
- assert.deepEqual(Object.keys(B.examples),['aiSites','yard','bike']);
+ assert.deepEqual(Object.keys(B.examples),['yard','property','bike']);
  for(const item of Object.values(B.examples)){assert.equal(B.completion(item.plan).missing.length,0);assert.ok(item.title);assert.ok(item.summary);}
- assert.match(B.examples.aiSites.plan.idea,/BoodleBox/);
+ assert.match(B.examples.property.plan.idea,/accredited laboratory analysis/);
 });
 test('blank and invalid inputs never become a zero-cost success',()=>{
  assert.equal(B.calculate({}).ready,false);
@@ -55,4 +55,42 @@ test('plan export is structured Markdown with gaps, assumptions and adviser work
 test('JSON backup round-trips only recognized bounded plan data',()=>{
  const backup=B.backupText({...B.example,name:'Backup test',unexpected:'ignore me'}),parsed=B.parseBackup(backup);assert.equal(parsed.ok,true);assert.equal(parsed.plan.name,'Backup test');assert.equal(parsed.plan.unexpected,undefined);
  assert.equal(B.parseBackup('{bad json').ok,false);assert.equal(B.parseBackup(JSON.stringify({plan:B.example})).ok,false);
+});
+
+test('old backups preserve existing work and expose the new questions as unfinished',()=>{
+ const legacy={...B.example,name:'An existing private draft'};
+ for(const key of ['checks','verifier','impact'])delete legacy[key];
+ const parsed=B.parseBackup(JSON.stringify({format:'fieldwork-business-plan-backup',version:'2026-09-10.3',plan:legacy}));
+ assert.equal(parsed.ok,true);assert.equal(parsed.plan.name,legacy.name);
+ assert.deepEqual(B.calculate(parsed.plan),B.calculate(legacy));
+ assert.equal(B.completion(parsed.plan).byStep.rules.status,'empty');
+ assert.deepEqual(B.completion(parsed.plan).missing,['checks','verifier','impact']);
+ assert.equal(B.completion(parsed.plan).byStep.review.status,'partial');
+});
+
+test('verification findings survive editing, backup, brief and the downstream guide notes',()=>{
+ const plan={...B.example,checks:'Check scope before paid work',verifier:'Ask the insurer about this scope',impact:'Lab quote unknown; allow office review before promising a date'};
+ const restored=B.parseBackup(B.backupText(plan)).plan;
+ for(const key of ['checks','verifier','impact'])assert.equal(restored[key],plan[key]);
+ const sections=B.planSections(restored).map(s=>s.title);
+ assert.ok(sections.indexOf('Licenses, safety, and rules')>sections.indexOf('Offer and delivery'));
+ assert.ok(sections.indexOf('Licenses, safety, and rules')<sections.indexOf('Monthly model inputs'));
+ for(const key of ['checks','verifier','impact'])assert.ok(B.planText(restored).includes(plan[key]));
+ for(const step of ['offer','rules','numbers','test','review'])assert.ok(B.chatNote(restored,step).includes(plan.impact));
+ // Text notes never silently add a second copy of an expense to the calculator.
+ assert.deepEqual(B.calculate(restored),B.calculate(B.example));
+ assert.equal(B.calculate({...restored,variable:''}).ready,false);
+});
+
+test('long notes keep the step link and conclusion even when answers are abbreviated',()=>{
+ const plan={...B.examples.property.plan,...Object.fromEntries(['checks','verifier','impact','offer','delivery','resources','test','question','next'].map(k=>[k,'x'.repeat(500)]))};
+ for(const step of B.steps){const note=B.chatNote(plan,step);assert.ok(note.length<=3700);assert.ok(note.endsWith('&step='+step));assert.ok(note.includes('ask one useful question and wait'));}
+});
+
+test('SafeStart includes the full work cycle and remains inside transfer field limits',()=>{
+ const D=require('../../chrome-extension/business-draft.js'),plan=B.examples.property.plan;
+ assert.deepEqual(B.cleanPlan(plan),plan);
+ assert.match(plan.delivery,/office review/);assert.match(plan.delivery,/laboratory analysis/);assert.match(plan.delivery,/report/);
+ for(const [step,keys] of Object.entries(D.fieldsByStep)){const draft={fieldwork:D.marker,step,fields:Object.fromEntries(keys.map(k=>[k,plan[k]]))};assert.deepEqual(D.normalize(draft),draft);}
+ const n=B.calculate(plan);assert.equal(n.result,3240);assert.equal(n.breakEven,6);assert.equal(n.ownerPaySales,13);
 });

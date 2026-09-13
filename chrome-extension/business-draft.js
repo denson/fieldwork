@@ -5,10 +5,11 @@
     idea:['name','idea'],
     customer:['customer','problem','evidence'],
     offer:['offer','alternative','reach','delivery','resources'],
+    rules:['checks','verifier','impact'],
     numbers:['unit','price','variable','fixed','sales','capacity','startup','ownerPay'],
     test:['test','success','next','question']
   };
-  const labels={name:'Working business name',idea:'What you will offer',customer:'First customer group',problem:'Problem worth solving',evidence:'What you know and how you know it',offer:'One thing a customer can buy',alternative:'What customers do today / why choose you',reach:'How you will reach the first customers',delivery:'How you will deliver the work',resources:'People, equipment and requirements to check',unit:'One sale means',price:'Price per sale',variable:'Cost per sale',fixed:'Monthly fixed costs',sales:'Expected sales per month',capacity:'Sales you could deliver per month',startup:'One-time startup costs',ownerPay:'Desired monthly owner pay',test:'First real-world test',success:'What result would justify another step',next:'Next action and when',question:'Question for an adviser'};
+  const labels={name:'Working business name',idea:'What you will offer',customer:'First customer group',problem:'Problem worth solving',evidence:'What you know and how you know it',offer:'One thing a customer can buy',alternative:'What customers do today / why choose you',reach:'How you will reach the first customers',delivery:'How you will deliver the work',resources:'People, equipment and requirements to check',checks:'Things to verify before launch',verifier:'Who can help you check',impact:'What this changes in your plan',unit:'One sale means',price:'Price per sale',variable:'Cost per sale',fixed:'Monthly fixed costs',sales:'Expected sales per month',capacity:'Sales you could deliver per month',startup:'One-time startup costs',ownerPay:'Desired monthly owner pay',test:'First real-world test',success:'What result would justify another step',next:'Next action and when',question:'Question for an adviser'};
   const numberKeys=new Set(['price','variable','fixed','sales','capacity','startup','ownerPay']);
   function normalize(input){
     if(!input||input.fieldwork!==marker||!Object.hasOwn(fieldsByStep,input.step)||!input.fields||typeof input.fields!=='object'||Array.isArray(input.fields))return null;

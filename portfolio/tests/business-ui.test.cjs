@@ -35,7 +35,7 @@ test('responsive, progress and print contracts remain present',()=>{
 });
 
 test('cache-busted entrypoints load the upgraded business assets',()=>{
-  for(const asset of ['business.css?v=20260910-chatfirst','business-core.js?v=20260910-chatfirst','business.js?v=20260910-chatfirst'])assert.ok(html.includes(asset));
+  for(const asset of ['business.css?v=20260912-firstdraft','business-core.js?v=20260912-firstdraft','business.js?v=20260912-firstdraft'])assert.ok(html.includes(asset));
 });
 
 test('chat-first start and three complete example choices are visible',()=>{
@@ -48,6 +48,6 @@ test('chat-first start and three complete example choices are visible',()=>{
 test('canonical bot knowledge explains the shared experience and all examples',()=>{
   assert.match(knowledge,/conversation-first planning experience/);
   assert.match(knowledge,/say it naturally → receive a useful draft/);
-  for(const name of ['Boodle-Ready Sites','Mesa Yard Care','Porchside Bike Tune-Ups'])assert.ok(knowledge.includes(name));
+  for(const name of ['SafeStart Property Testing','Mesa Yard Care','Porchside Bike Tune-Ups'])assert.ok(knowledge.includes(name));
   assert.match(knowledge,/newest website note the visitor deliberately shared/);
 });

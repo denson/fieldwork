@@ -47,7 +47,7 @@
     finally{button.disabled=false;}
   }
   function install(){
-    document.documentElement.dataset.fieldworkCompanion=enabled?'0.8.0':'';
+    document.documentElement.dataset.fieldworkCompanion=enabled?'0.9.0':'';
     document.documentElement.dataset.fieldworkLaunch=enabled?'1':'';
     for(const slot of document.querySelectorAll('[data-fieldwork-launch][data-activity-link]')){
       if(launchControls.has(slot))continue;

@@ -1,4 +1,4 @@
-# Fieldwork Companion Pane — 0.8.0
+# Fieldwork Companion Pane — 0.9.0
 
 Business Plan First Steps now supports a user-approved return handoff from chat to the website. When the matching guide emits a valid `business-plan-draft-v1` block, the extension replaces the technical block with a readable draft card. The visitor chooses **Use this draft**; only then does the extension place those values into the matching business-plan step in the paired website. Existing values in that step may be revised by this explicit action. The extension never submits a message or applies a draft without the visitor's click.
 
