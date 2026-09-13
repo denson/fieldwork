@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Fieldwork Companion Pane",
-  "version": "0.9.0",
-  "description": "Connect Fieldwork lessons and BoodleBox chats, including user-approved business-plan drafts in both directions.",
+  "version": "0.10.0",
+  "description": "Connect Fieldwork and BoodleBox with a verified workspace status and visitor-approved planning drafts.",
   "minimum_chrome_version": "140",
   "permissions": [
     "storage",
@@ -26,6 +26,8 @@
         "routing.js",
         "business-draft.js",
         "draft.js",
+        "connection.js",
+        "connection-client.js",
         "transition-client.js",
         "content.js"
       ],

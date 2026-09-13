@@ -1,4 +1,14 @@
-# Fieldwork Companion Pane — 0.9.0
+# Fieldwork Companion Pane — 0.10.0
+
+Business Plan First Steps shows a connection indicator above its message box. It verifies the enabled extension, the exact guide and the responding business-plan workspace in the same Chrome split view. The catalog is a selection page; open an example to reach a connectable workspace. An installed extension alone does not prove a working connection.
+
+**Use the connected workspace** checks again and prepares a visible status and choice message. **Keep planning in chat** prepares the opposite choice without discarding the plan. Review and press Send yourself. Neither automatic checks nor button clicks submit a message, replace an existing message/attachment, or disclose unshared website answers. Business notes deliberately placed in the matching chat include the latest responding connection check when available. A sent check is a report, not continuing live access or evidence of a saved draft.
+
+**Open workspace** reuses only a blank paired pane, keeps an already-open business draft, or opens a new tab when another page occupies the pane. Draft cards check the connection again before applying. A disabled extension, wrong guide, changed pairing or missing receiver leaves chat/manual copying available. Only this business bot gets the new indicator; the other guides keep their existing behavior. Permissions remain `storage` and `tabs`; there is no new storage, backend or telemetry.
+
+Update the files in the unpacked extension folder, reload **Fieldwork Companion Pane** in Chrome's Extensions page, then reload both ordinary pages. Existing page scripts cannot receive the new code until refreshed. Version 0.10.0 is covered by all repository tests and a real-content-script DOM fixture, including stale checks, changed pairing, preserved messages/attachments, disabled mode and no automatic Send. Live use of the new controls still needs the updated extension loaded in Chrome.
+
+## Previous release — 0.9.0
 
 Business Plan First Steps now supports a user-approved return handoff from chat to the website. When the matching guide emits a valid `business-plan-draft-v1` block, the extension replaces the technical block with a readable draft card. The visitor chooses **Use this draft**; only then does the extension place those values into the matching business-plan step in the paired website. Existing values in that step may be revised by this explicit action. The extension never submits a message or applies a draft without the visitor's click.
 

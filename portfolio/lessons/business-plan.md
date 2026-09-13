@@ -23,7 +23,7 @@ Mesa Yard Care, SafeStart Property Testing and Porchside Bike Tune-Ups are origi
 
 A filled-in draft is not a validated business. Every example has six review topics: customer evidence; delivery, people and capacity; price and cost assumptions; cash timing and seasonality; requirements before launch; and milestones. The questions below remain open until supported by relevant findings. The guide should prioritize two or three material gaps in a short brief and provide the full review when asked for a detailed plan.
 
-For each gap, record what is unknown, why it matters and a next check; add an owner and date when supplied. Customer compliments are not sales. A review session with Allan is not evidence of demand. A cost estimate is not a quote. Name the source and date of any findings. On the website, findings may be marked “Evidence recorded (self-reported)” only after a note is entered; this is not independent verification. Revisit findings when the offer or assumptions change.
+For each gap, record what is unknown, why it matters and a next check; add an owner and date when supplied. Customer compliments are not sales. A review session with an adviser is not evidence of demand. A cost estimate is not a quote. Name the source and date of any findings. On the website, findings may be marked “Evidence recorded (self-reported)” only after a note is entered; this is not independent verification. Revisit findings when the offer or assumptions change.
 
 Cash planning needs opening cash, startup and inventory spending, when customers pay, when suppliers and other bills are due, taxes, debt and owner draws. Identify any funding gap. The monthly calculator does not compute a cash-flow statement, balance sheet or multi-year forecast. These are additional planning work when relevant, not completed outputs.
 
@@ -343,3 +343,11 @@ A reviewer can try a familiar example, change one assumption, inspect the result
 - EPA asbestos professionals: https://www.epa.gov/asbestos/asbestos-professionals
 
 SBA source pages checked September 13, 2026. EPA links are starting points for qualified verification, not a determination of applicability.
+
+## Connection-aware instructions — Companion Pane 0.10.0
+
+The business-plan chat shows a connection indicator when the companion is active. It checks both the exact guide and matching workspace. Open workspace preserves unrelated pages. Use the connected workspace prepares a visible FIELDWORK CONNECTION message, including the check time and the visitor's requested experience; the visitor reviews and presses Send. A connected website-to-chat business-plan note includes that status when it fits within the note limit. No choice or status is sent automatically.
+
+Chat-only remains the default. Without a shared connection report, website help uses readable wording and manual copy/paste, with no technical transfer block. With a confirmed report and the visitor choosing website support, the bot can provide the existing one-step draft card and precise Use this draft instructions. Installation alone does not prove pairing. Status describes the last check, not live access or a completed save; the extension checks again before a draft is applied. Missing buttons, changed browsers or a disabled extension return the instructions to manual copy/paste until reconfirmed.
+
+Keep planning in chat prepares a visible chat-only choice and preserves the latest shared plan. The visitor can also say this in ordinary language. Explicit chat-only requests override detected capabilities. The other Fieldwork bots keep their existing behavior.

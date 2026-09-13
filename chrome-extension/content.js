@@ -2,34 +2,43 @@
   'use strict';
   const R=FieldworkRouting,D=FieldworkBusinessDraft,buttons=new WeakMap(),businessDrafts=new WeakMap(),draftCards=new Set();let enabled=true,scheduled=false;
   let placing=false;
+  const connectionUI=FieldworkConnectionUI.create({chrome,C:FieldworkConnection,R,document,location,findEditor:findBusinessEditor,isEnabled:()=>enabled,place:placeText,onState:state=>{
+    for(const card of draftCards){const button=card.querySelector('.fw-use-business-draft');if(button)button.disabled=!enabled||!FieldworkConnection.fresh(state);}
+  }});
+  function findBusinessEditor(){const editors=[...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"][contenteditable="true"]')].filter(e=>e.getClientRects().length&&e.getAttribute('aria-label')==='Your prompt to '+R.companions.BusinessPlanFirstSteps);return editors.length===1?editors[0]:null;}
+  async function placeText(text,chatUrl,companion='BusinessPlanFirstSteps'){
+    if(!enabled)return {status:'disabled'};
+    if(placing)return {status:'chat-not-ready'};
+    if(!R.validNote({text,companion})||!R.isChat(location.href)||location.href!==chatUrl)return {status:'page-changed'};
+    const editors=[...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"][contenteditable="true"]')].filter(e=>e.getClientRects().length&&/^Your prompt to /.test(e.getAttribute('aria-label')||''));
+    if(editors.length!==1)return {status:'no-composer'};
+    const editor=editors[0];if(editor.getAttribute('aria-label')!=='Your prompt to '+R.companions[companion])return {status:'wrong-guide'};
+    const send=[...document.querySelectorAll('button[aria-label="Submit prompt"]')].find(e=>e.getClientRects().length);
+    placing=true;
+    try{return await FieldworkDraft.place({text,editor,send,insert:(el,value)=>{
+      el.focus();const selection=window.getSelection(),range=document.createRange();range.selectNodeContents(el);range.collapse(false);selection.removeAllRanges();selection.addRange(range);
+      const data=new DataTransfer();data.setData('text/plain',value);
+      el.dispatchEvent(new ClipboardEvent('paste',{bubbles:true,cancelable:true,clipboardData:data}));
+    },wait:()=>new Promise(resolve=>setTimeout(resolve,180))});}finally{placing=false;}
+  }
   chrome.runtime.onMessage.addListener((message,sender,reply)=>{
-    if(sender.id!==chrome.runtime.id||sender.tab||message?.type!=='fieldwork-place-draft')return;
+    if(sender.id!==chrome.runtime.id||sender.tab)return;
+    if(message?.type==='fieldwork-business-chat-probe'){
+      chrome.storage.local.get({enabled:true}).then(settings=>reply(settings.enabled&&message.chatUrl===location.href&&R.isChat(location.href)&&findBusinessEditor()?{status:'chat-ready',protocol:FieldworkConnection.protocol}:{status:'chat-unavailable'})).catch(()=>reply({status:'chat-unavailable'}));return true;
+    }
+    if(message?.type!=='fieldwork-place-draft')return;
     (async()=>{
-      if(!enabled)return {status:'disabled'};
-      if(placing)return {status:'chat-not-ready'};
-      if(!R.validNote(message)||!R.isChat(location.href)||location.href!==message.chatUrl)return {status:'rejected'};
-      const editors=[...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"][contenteditable="true"]')].filter(e=>e.getClientRects().length&&/^Your prompt to /.test(e.getAttribute('aria-label')||''));
-      if(editors.length!==1)return {status:'no-composer'};
-      const editor=editors[0];
-      if(editor.getAttribute('aria-label')!=='Your prompt to '+R.companions[message.companion])return {status:'wrong-guide'};
-      const send=[...document.querySelectorAll('button[aria-label="Submit prompt"]')].find(e=>e.getClientRects().length);
-      placing=true;
-      try{
-        const result=await FieldworkDraft.place({text:message.text,editor,send,insert:(el,text)=>{
-          el.focus();const selection=window.getSelection(),range=document.createRange();range.selectNodeContents(el);range.collapse(false);selection.removeAllRanges();selection.addRange(range);
-          // Lexical's paste handler preserves paragraph breaks; multiline insertText
-          // flattens them in BoodleBox. This event does not touch the system clipboard.
-          const data=new DataTransfer();data.setData('text/plain',text);
-          el.dispatchEvent(new ClipboardEvent('paste',{bubbles:true,cancelable:true,clipboardData:data}));
-        },wait:()=>new Promise(resolve=>setTimeout(resolve,180))});
-        if(result.status==='draft-ready'||result.status==='already-ready')announce('Fieldwork note placed here. Review it, then press Send.');
-        return result;
-      }finally{placing=false;}
+      if(!R.validNote(message))return {status:'rejected'};
+      const connection=message.companion==='BusinessPlanFirstSteps'?FieldworkConnection.note(message.connection):null;
+      const text=connection&&message.text.length+connection.length+2<=32000?message.text+'\n\n'+connection:message.text;
+      const result=await placeText(text,message.chatUrl,message.companion);
+      if(result.status==='draft-ready'||result.status==='already-ready')announce('Fieldwork note placed here. Review it, then press Send.');
+      return result;
     })().then(reply).catch(()=>reply({status:'check-draft'}));
     return true;
   });
   chrome.storage.local.get({enabled:true}).then(s=>{enabled=s.enabled;scan();});
-  chrome.storage.onChanged.addListener((changes,area)=>{if(area==='local'&&changes.enabled){enabled=changes.enabled.newValue!==false;document.querySelectorAll('.fw-pane-copy').forEach(b=>b.hidden=!enabled);for(const card of draftCards){card.hidden=!enabled;const pre=card.previousElementSibling;if(pre?.tagName==='PRE')pre.hidden=enabled;}if(enabled)scan();}});
+  chrome.storage.onChanged.addListener((changes,area)=>{if(area==='local'&&changes.enabled){enabled=changes.enabled.newValue!==false;document.querySelectorAll('.fw-pane-copy').forEach(b=>b.hidden=!enabled);for(const card of draftCards){card.hidden=!enabled;const pre=card.previousElementSibling;if(pre?.tagName==='PRE')pre.hidden=enabled;}connectionUI.refresh(true);scan();}});
   function announce(message,url){
     document.getElementById('fw-pane-status')?.remove();
     const box=document.createElement('div');box.id='fw-pane-status';box.setAttribute('role','status');
@@ -42,17 +51,17 @@
   function businessGuideReady(){return [...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"]')].some(e=>e.getClientRects().length&&e.getAttribute('aria-label')==='Your prompt to '+R.companions.BusinessPlanFirstSteps);}
   function installBusinessDrafts(){
     if(!businessGuideReady())return;
-    const stepNames={idea:'Your idea',customer:'Your customer',offer:'Your offer',numbers:'Your numbers',test:'Your next test'};
+    const stepNames={idea:'Your idea',customer:'Your customer',offer:'Your offer',rules:'Licenses, safety, and rules',numbers:'Your numbers',test:'Your next test'};
     document.querySelectorAll('pre').forEach(pre=>{
       if(businessDrafts.has(pre))return;const draft=D.parse(pre.innerText||pre.textContent);if(!draft)return;
       const card=document.createElement('section');card.className='fw-business-draft';card.setAttribute('aria-label','Business-plan draft ready to apply');
       const title=document.createElement('strong');title.textContent='Draft for '+stepNames[draft.step];
       const list=document.createElement('dl');for(const [key,value] of Object.entries(draft.fields)){const row=document.createElement('div'),term=document.createElement('dt'),detail=document.createElement('dd');term.textContent=D.labels[key];detail.textContent=value;row.append(term,detail);list.append(row);}
-      const button=document.createElement('button');button.type='button';button.className='fw-use-business-draft';button.textContent='Use this draft →';
+      const button=document.createElement('button');button.type='button';button.className='fw-use-business-draft';button.textContent='Use this draft →';button.disabled=!FieldworkConnection.fresh(connectionUI.getState());
       const status=document.createElement('p');status.setAttribute('role','status');
       button.addEventListener('click',async event=>{
         if(!event.isTrusted||button.disabled||!enabled)return;button.disabled=true;status.textContent='Updating the website beside this chat…';
-        try{const result=await chrome.runtime.sendMessage({type:'fieldwork-business-draft',...draft,chatUrl:location.href});status.textContent={
+        try{const connection=await connectionUI.refresh(true);if(!FieldworkConnection.fresh(connection)){status.textContent='Connect the matching workspace using the connection controls above the message box, or copy the wording manually.';return;}const result=await chrome.runtime.sendMessage({type:'fieldwork-business-draft',...draft,chatUrl:location.href});status.textContent={
           'draft-applied':'Draft added to the website. Review or edit it there.',
           'no-chat':'Keep the matching business-plan website beside this chat in Chrome split view.',
           'wrong-guide':'Open the Business Plan First Steps website beside this chat.',
@@ -61,12 +70,13 @@
           'disabled':'The companion extension is turned off.',
           'rejected':'That draft could not be applied safely.',
           'failed':'The website could not be updated. Reload both panes and try again.'
-        }[result?.status]||'The website could not be updated. Reload both panes and try again.';}catch{status.textContent='The website could not be updated. Reload both panes and try again.';}finally{button.disabled=false;}
+        }[result?.status]||'The website could not be updated. Reload both panes and try again.';}catch{status.textContent='The website could not be updated. Reload both panes and try again.';}finally{button.disabled=!enabled||!FieldworkConnection.fresh(connectionUI.getState());}
       });
       card.append(title,list,button,status);pre.after(card);pre.hidden=true;businessDrafts.set(pre,card);draftCards.add(card);
     });
   }
   function scan(){
+    connectionUI.scan();
     if(!enabled)return;
     document.querySelectorAll('a[href]').forEach(a=>{
       if(a.dataset.fwFallback||!R.destination(a.href)||buttons.get(a)?.isConnected)return;
@@ -75,7 +85,10 @@
     });
     installBusinessDrafts();
   }
-  new MutationObserver(()=>{if(!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;scan();});}}).observe(document.body,{childList:true,subtree:true});
+  new MutationObserver(()=>{if(!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;scan();});}}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['aria-label','contenteditable']});
+  setInterval(()=>{if(document.visibilityState!=='hidden')connectionUI.refresh();},15000);
+  window.addEventListener('focus',()=>connectionUI.refresh(true));
+  document.addEventListener('visibilitychange',()=>{if(document.visibilityState!=='hidden')connectionUI.refresh(true);});
   document.addEventListener('click',async e=>{
     if(!enabled||!e.isTrusted||e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;
     const a=e.target instanceof Element?e.target.closest('a[href]'):null;

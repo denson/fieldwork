@@ -32,7 +32,14 @@
     return {status:'draft-applied',count};
   }
   chrome.runtime.onMessage.addListener((message,sender,reply)=>{
-    if(sender.id!==chrome.runtime.id||sender.tab||message?.type!=='fieldwork-apply-business-draft')return;
+    if(sender.id!==chrome.runtime.id||sender.tab)return;
+    if(message?.type==='fieldwork-business-workspace-probe'){
+      chrome.storage.local.get({enabled:true}).then(settings=>{
+        const ready=settings.enabled&&message.workspaceUrl===location.href&&R.combo(location.href)?.companion==='BusinessPlanFirstSteps'&&document.querySelector('#business-view [data-business-step="idea"]')&&document.querySelector('#business-stage');
+        reply(ready?{status:'workspace-ready',protocol:'fieldwork-connection-v1',step:new URL(location.href).searchParams.get('step')}:{status:'workspace-unavailable'});
+      }).catch(()=>reply({status:'workspace-unavailable'}));return true;
+    }
+    if(message?.type!=='fieldwork-apply-business-draft')return;
     try{reply(applyBusinessDraft(message));}catch{reply({status:'failed'});}
   });
   const launchMessages={...messages,'routed':'The page is opening beside its guide.','starting-combo':'Opening the matching guide on the left, then the page on the right…','transition-busy':'The next activity is already opening. Check the guide on the left.','draft-not-empty':'There is an unfinished message in BoodleBox. Send or clear it before changing guides.','failed':'The pair could not finish opening. Check the guide on the left; you can use Start New Chat there if shown.'};
@@ -47,7 +54,7 @@
     finally{button.disabled=false;}
   }
   function install(){
-    document.documentElement.dataset.fieldworkCompanion=enabled?'0.9.0':'';
+    document.documentElement.dataset.fieldworkCompanion=enabled?chrome.runtime.getManifest().version:'';
     document.documentElement.dataset.fieldworkLaunch=enabled?'1':'';
     for(const slot of document.querySelectorAll('[data-fieldwork-launch][data-activity-link]')){
       if(launchControls.has(slot))continue;

@@ -1,9 +1,14 @@
-importScripts('routing.js','business-draft.js','transition.js');
+importScripts('routing.js','business-draft.js','connection.js','transition.js');
 const R=FieldworkRouting;
 const D=FieldworkBusinessDraft;
 const transitions=FieldworkTransition.create({chrome,R});
 chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   if(!message||sender.frameId!==0||!sender.tab)return;
+  if(['fieldwork-connection-state','fieldwork-business-workspace-open'].includes(message.type)){
+    if(sender.id!==chrome.runtime.id||!R.isChat(sender.url)||!R.isChat(message.chatUrl))return;
+    const action=message.type==='fieldwork-connection-state'?FieldworkConnection.check:FieldworkConnection.open;
+    action({chrome,R,sourceId:sender.tab.id,chatUrl:message.chatUrl}).then(reply).catch(()=>reply({status:'unavailable'}));return true;
+  }
   if(['fieldwork-transition-state','fieldwork-transition-start','fieldwork-transition-ready'].includes(message.type)&&R.isBoodle(sender.url)){
     transitions.resume(message,sender).then(reply).catch(()=>reply({status:'failed'}));return true;
   }
@@ -44,7 +49,13 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
       if(freshSource.url!==source.url||freshTarget.url!==target.url||R.pairedChat(freshSource,[freshSource,freshTarget]).tabId!==pair.tabId)return {status:'pair-changed'};
       // Deliver only to the paired chat's top frame. Never submit, open a new chat,
       // store notes, or select a different conversation on the learner's behalf.
-      return await chrome.tabs.sendMessage(pair.tabId,{type:'fieldwork-place-draft',text:message.text,companion:message.companion,chatUrl:freshTarget.url},{frameId:0});
+      let connection;
+      if(message.companion==='BusinessPlanFirstSteps'&&R.combo(freshSource.url)?.companion==='BusinessPlanFirstSteps'){
+        connection=await FieldworkConnection.check({chrome,R,sourceId:freshTarget.id,chatUrl:freshTarget.url});
+        const [lastSource,lastTarget]=await Promise.all([chrome.tabs.get(source.id),chrome.tabs.get(pair.tabId)]);
+        if(lastSource.url!==freshSource.url||lastTarget.url!==freshTarget.url||R.pairedChat(lastSource,[lastSource,lastTarget]).tabId!==pair.tabId)return {status:'pair-changed'};
+      }
+      return await chrome.tabs.sendMessage(pair.tabId,{type:'fieldwork-place-draft',text:message.text,companion:message.companion,chatUrl:freshTarget.url,...(connection?{connection}:{})},{frameId:0});
     }
     if(!R.isBoodle(source.url))return {status:'rejected'};
     const peers=await chrome.tabs.query({windowId:source.windowId});

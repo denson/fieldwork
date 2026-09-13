@@ -1,6 +1,7 @@
 # Publish only the reviewed site, extension and release instructions.
 /*
 !/.gitignore
+!/.gitattributes
 !/.github/
 !/portfolio/
 !/chrome-extension/

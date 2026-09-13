@@ -1,5 +1,13 @@
 # Fieldwork publication
 
+## September 13 connection and client-facing copy update
+
+Current extension: Companion Pane **0.10.0**. Current Business Plan bot instructions: **v1.7**. Publish the exact LF-normalized `portfolio/lessons/business-plan-boodlebox-configuration.txt`; it includes every current example field and stays below 49,000 characters before the builder's rich-text formatting. Keep the existing greeting and description. The bot defaults to chat, uses manual copy/paste when the workspace connection is unconfirmed, and supplies transfer cards only after the visitor shares a connection check and chooses the workspace. A request to return to chat overrides an earlier connection report.
+
+The extension verifies the exact paired guide/workspace, presents visible mode choices, preserves unsent messages and attachments, and never presses Send. Status and choices are shared through the existing message composer, not a private BoodleBox integration. The site and published bot cannot update the installed extension; reload version 0.10.0 and both ordinary pages to enable the controls. Read the extension README for update details and validation limits.
+
+The business example catalog and workspace now address the business owner. Meeting-specific Allan copy and duplicate links opening another Business Plan bot chat were removed. Historical handoff records and private meeting guides retain their context. Updated business UI/CSS asset queries are `20260913-connection`; unchanged example/core assets remain `20260913-library`.
+
 Public site: https://denson.github.io/fieldwork/
 
 Public repository: https://github.com/denson/fieldwork
