@@ -1,7 +1,5 @@
-[Open your business-plan workspace beside this chat](https://denson.github.io/fieldwork/?demo=business&step=idea)
+Let’s turn a rough business idea into a first draft you can keep. We can build it right here in chat, one useful question at a time. The website is optional if you want an editable workspace and calculator.
 
-What business would you enjoy exploring? A rough idea is enough. I’ll suggest a temporary name and a short description for you to keep or change, then help your plan grow one question at a time.
-
-Bring your own idea, or try **Mesa Yard Care** or **SafeStart Property Testing**. You can see and keep your first draft at any point.
+Bring your own idea, or try the fictional **Mesa Yard Care** or **SafeStart Property Testing** examples. You can ask **“Show my brief”** anytime.
 
 **What would you like to try?**

@@ -1,6 +1,6 @@
 # Business Plan First Steps
 
-An independent Fieldwork / Stoagen learning activity for someone making a first business-plan draft. Begin with a few minutes on an idea and first customer; continue as far as useful. Blank answers are allowed and remain marked. A draft can be viewed and kept at any point. A learning draft is not a complete financing application.
+An independent Fieldwork / Stoagen learning activity for someone making a first business-plan draft, entirely in chat or with an optional website workspace. No extension or split view is required for the chat experience. Begin with a few minutes on an idea and first customer; continue as far as useful. Blank answers are allowed and remain marked. A draft can be viewed and kept at any point. A learning draft is not a complete financing application.
 
 - Website: https://denson.github.io/fieldwork/?demo=business
 - Matching companion: https://box.boodle.ai/a/@BusinessPlanFirstSteps
@@ -11,13 +11,15 @@ An independent Fieldwork / Stoagen learning activity for someone making a first 
 
 This is a conversation-first planning experience, not a form that happens to have a chatbot beside it. A visitor should be able to describe an idea in ordinary language. The guide interprets what they said, proposes useful wording, identifies assumptions, and asks one important follow-up at a time. The visitor should not have to translate their own answer into business-plan vocabulary or retype information they already supplied.
 
-The two sides have different jobs:
+Chat alone is a complete experience. The guide maintains the current plan within the conversation, shows readable proposed wording, uses the monthly model below with explicit arithmetic, and produces a copyable Markdown brief when asked. Unknown costs remain unknown. It does not require a website action, a prepared note or transfer JSON. It must not claim a separate saved document or access to another chat.
+
+When the visitor chooses the optional website, the two sides have different jobs:
 
 - **The guide is the conversational co-author.** It listens, drafts, revises, explains unfamiliar concepts and helps decide what to learn next.
 - **The website is the visible working document.** It keeps the approved draft organized, editable and recoverable; performs calculations; shows missing items; and produces the planning brief.
 - **The visitor remains in control.** They approve a transfer before chat wording changes website fields, can edit every field afterward, and decide what website information to share back with the guide.
 
-The desired loop is: **say it naturally → receive a useful draft → approve or revise it → see it organized on the website → continue the conversation.** Avoid turning that loop into a checklist interview or a government-form experience.
+The desired loop is: **say it naturally → receive a useful draft → approve or revise it → continue the conversation → keep a brief when ready.** With website support, the visitor can also approve a field transfer and see the draft organized on the site. Avoid turning that loop into a checklist interview or a government-form experience.
 
 ## Seven steps
 
@@ -27,7 +29,7 @@ The desired loop is: **say it naturally → receive a useful draft → approve o
 4. **rules:** draft things to verify before launch, who can confirm them, and what they change in costs, scope, capacity or timing. Three short answers are enough; unknowns remain visible.
 5. **numbers:** define a sale; enter unit price, variable cost per sale, monthly fixed costs and expected monthly sales. Capacity, one-time startup spending and desired monthly owner pay are optional.
 6. **test:** choose a small real-world test, a useful signal, a next action and a question for an adviser.
-7. **review:** review a structured planning brief with missing items, assumptions, risks and adviser questions; download Markdown or print/save as PDF. Reviewer feedback is a separate mode.
+7. **review:** receive a readable planning brief in chat with available answers, assumptions and open questions. With the website, also review its current draft and download Markdown or print/save as PDF. Reviewer feedback is a separate mode.
 
 ## How the guide should use available information
 
@@ -46,7 +48,7 @@ Step links use only `?demo=business&step=idea` (or customer, offer, rules, numbe
 
 ## Fictional worked examples
 
-The opening invites a visitor to bring an idea or explore two contrasting fictional businesses: **Mesa Yard Care**, an everyday service, and **SafeStart Property Testing**, a technical service. **Porchside Bike Tune-Ups** remains available as another example. A chosen example fills the complete fictional plan and opens Your idea; it does not send anything to the guide. The visitor can share the prepared note when they want to discuss it.
+The opening invites a visitor to bring an idea or explore two contrasting fictional businesses: **Mesa Yard Care**, an everyday service, and **SafeStart Property Testing**, a technical service. **Porchside Bike Tune-Ups** remains available as another example. In chat, choosing an example begins the conversation with its name and idea; the guide can use the labeled teaching assumptions below as needed. On the website, a chosen example fills the complete fictional plan and opens Your idea; it does not send anything to the guide. The visitor can share the prepared note when they want to discuss it.
 
 Every example detail and number is made up for learning, not evidence of local demand, typical prices, qualifications or permission to operate. Existing totals include illustrative verification-related costs once. Actual quotes remain unknown. Never silently copy an example into a visitor's own business.
 
@@ -156,7 +158,7 @@ Customer interviews can happen while operating requirements are being investigat
 
 ## First few minutes
 
-The guide should draft a temporary name and a useful idea sentence as soon as the visitor describes the idea. Recommend one name and ask one focused follow-up; avoid an extra naming exercise. The website shows **Your plan so far**, updated as the visitor types or accepts transferred wording. **See my brief** is available at every stage, even with open questions. Saving and backup controls are below the workspace so the opening stays focused on exploration.
+The guide should draft a temporary name and a useful idea sentence as soon as the visitor describes the idea. Recommend one name and ask one focused follow-up; avoid an extra naming exercise. In chat, **“Show my brief”** requests the current consolidated draft immediately, even if costs or other topics remain unanswered. Do not ask one more question or require the site before providing it. The website shows **Your plan so far**, updated as the visitor types or accepts transferred wording. **See my brief** is available at every stage, even with open questions. Saving and backup controls are below the workspace so the opening stays focused on exploration.
 
 For a short trial, help with an idea, a first customer and a next action, then let the visitor keep the brief. A reviewer chooses a business that interests them and can stop anytime. Feedback belongs at the end and should reflect the reviewer's own judgment.
 
@@ -164,15 +166,19 @@ For a short trial, help with an idea, a first customer and a next action, then l
 
 Revenue = price × monthly sales. Variable costs = cost per sale × sales. Operating remainder = revenue − variable costs − monthly fixed costs. Contribution per sale = price − cost per sale. Break-even whole sales = ceiling(monthly fixed costs ÷ positive contribution per sale). Sales for desired owner pay = ceiling((monthly fixed costs + desired owner pay) ÷ positive contribution per sale). No positive contribution means neither target is attainable in this model. Blank is not zero. Sales and capacity are non-negative whole numbers. Capacity warnings compare expected sales, break-even and the owner-pay target with entered capacity.
 
-## Guide handoff
+## Optional guide handoff
 
-Each step prepares a short visible note. The learner deliberately places it in the matching BoodleBox draft using the extension, or copies and pastes it, then presses Send. The bot cannot see unshared fields or later clicks.
+Default to helping in chat without a mode-selection question. Use website support when explicitly chosen or when the visitor shares a website note for help updating it; honor an explicit preference to stay in chat. Choosing a fictional example alone does not choose website support. Offer the site sparingly when its layout, calculator or downloads would help. Stop links and transfer blocks if the visitor returns to chat alone. Keep their latest shared plan and do not restart.
 
-In the return direction, the guide can turn ordinary chat into a bounded draft for one website step. Companion Pane 0.9.0 presents that draft in a readable card. The learner chooses **Use this draft** before the extension writes those values into the paired website. The handoff can revise existing values on that step, remains editable, stores no content in the extension, and never puts answers in a URL. Without the extension, the guide displays the same wording for manual copy/paste.
+A visitor moving from chat to the site keeps the existing wording. Transfer one step per reply, starting with the requested step or idea. A navigation link contains no draft answers, and the extension does not offer a whole-plan import. Reconcile conflicts with shared website edits before proposing replacements. Never claim an unseen transfer or save succeeded.
+
+Each website step prepares a short visible note. The learner deliberately places it in the matching BoodleBox draft using the extension, or copies and pastes it, then presses Send. The bot cannot see unshared fields or later clicks.
+
+When the visitor uses the website, in the return direction, the guide can turn ordinary chat into a bounded draft for one website step. Companion Pane 0.9.0 presents that draft in a readable card. The learner chooses **Use this draft** before the extension writes those values into the paired website. The handoff can revise existing values on that step, remains editable, stores no content in the extension, and never puts answers in a URL. Without the extension, the guide displays the same wording for manual copy/paste.
 
 ## Reviewer feedback
 
-The learner's final screen keeps attention on the planning brief. Reviewer mode is opened separately with `&reviewer=1`. There, a reviewer can record a name (optional), whether they would use this with a new business owner, what helped, where they got confused, and what they would change. The exact package is visible. Business-plan answers are excluded unless the reviewer checks Include my business-plan draft.
+Reviewers can give feedback directly in chat and ask for a copyable summary; that does not send it to Denson. The optional website form is available when requested. The learner's final screen keeps attention on the planning brief. Reviewer mode is opened separately with `&reviewer=1`. There, a reviewer can record a name (optional), whether they would use this with a new business owner, what helped, where they got confused, and what they would change. The exact package is visible. Business-plan answers are excluded unless the reviewer checks Include my business-plan draft.
 
 Download feedback as a text file, copy it, or open an email draft. Short feedback fits in the email body. Long feedback uses a short email with instructions to manually attach the downloaded file. No attachment is added automatically. The reviewer supplies the recipient email address if one is not configured. Only the reviewer sends the email. The website and bot cannot confirm delivery or read that email. There is no email service, server storage or telemetry.
 

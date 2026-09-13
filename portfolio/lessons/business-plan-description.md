@@ -1,1 +1,1 @@
-Turn a rough business idea into a first draft, one useful question at a time. Bring your own idea or explore yard care or property testing. Discover what to check before launch, try the numbers, and keep an editable planning brief. No business experience needed.
+Turn a rough business idea into a useful first draft, one question at a time. Work entirely in chat or use the optional website workspace and calculator. Explore your own idea, yard care or property testing, check assumptions, and ask for a planning brief anytime.
