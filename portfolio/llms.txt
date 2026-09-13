@@ -3,6 +3,8 @@
 Fieldwork is an independent portfolio of five learning activities and a short First Steps tutorial, each with a BoodleBox guide. Dot Lab is an older experiment excluded from the current menu.
 
 ## Start here
+- [Business-plan example selection](business-plans.html): Five starting points for services, consulting and products, with editable planning gaps.
+- [Complete Business Plan bot configuration](lessons/business-plan-boodlebox-configuration.txt): Current instructions and compact authoritative example reference; below the builder limit.
 - [Business Plan First Steps](lessons/business-plan.md): A beginner's planning walkthrough, fictional example, monthly model, draft download and reviewable feedback package.
 - [Business-plan companion instructions](lessons/business-plan-bot-instructions.md): Patient step-by-step coaching and explicit email handoff limits.
 - [Website homepage](./): Opens the First Steps tutorial, then leads to the portfolio. Use ?demo=home explicitly for the activity menu; existing subject links still work.

@@ -12,8 +12,8 @@ test('business guide routes the exact public and local companion',()=>{
 test('fictional example separates operation, startup spending and owner pay',()=>{
  const r=B.calculate(B.example);assert.equal(r.revenue,1800);assert.equal(r.result,700);assert.equal(r.breakEven,10);assert.equal(r.lowerSales,15);assert.equal(r.lowerResult,350);assert.equal(r.startup,1800);assert.equal(r.ownerPay,1500);assert.equal(r.ownerPaySales,32);assert.equal(r.ownerPayOverCapacity,true);
 });
-test('three complete fictional plans cover different business shapes',()=>{
- assert.deepEqual(Object.keys(B.examples),['yard','property','bike']);
+test('five complete fictional plans cover different business shapes',()=>{
+ assert.deepEqual(Object.keys(B.examples),['yard','property','bike','consulting','toys']);
  for(const item of Object.values(B.examples)){assert.equal(B.completion(item.plan).missing.length,0);assert.ok(item.title);assert.ok(item.summary);}
  assert.match(B.examples.property.plan.idea,/accredited laboratory analysis/);
 });

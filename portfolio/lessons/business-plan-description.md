@@ -1,1 +1,1 @@
-Turn a rough business idea into a useful first draft, one question at a time. Work entirely in chat or use the optional website workspace and calculator. Explore your own idea, yard care or property testing, check assumptions, and ask for a planning brief anytime.
+Build a useful business-plan first draft with clear assumptions, simple numbers and planning gaps. Try your own idea or five examples spanning services, consulting and products. Work entirely in chat, or use the optional website’s editable plan, calculator and gap review.

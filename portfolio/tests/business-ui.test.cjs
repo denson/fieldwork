@@ -35,10 +35,10 @@ test('responsive, progress and print contracts remain present',()=>{
 });
 
 test('cache-busted entrypoints load the upgraded business assets',()=>{
-  for(const asset of ['business.css?v=20260912-firstdraft','business-core.js?v=20260913-contexttips','business.js?v=20260913-contexttips'])assert.ok(html.includes(asset));
+  for(const asset of ['business.css?v=20260913-library','business-core.js?v=20260913-library','business.js?v=20260913-library'])assert.ok(html.includes(asset));
 });
 
-test('chat-first start and three complete example choices are visible',()=>{
+test('chat-first start and five complete example choices are visible',()=>{
   assert.match(js,/CHAT FIRST/);
   assert.match(js,/Use this draft/);
   assert.match(js,/Object\.entries\(C\.examples\)/);

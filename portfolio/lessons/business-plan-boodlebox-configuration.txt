@@ -139,3 +139,224 @@ A reviewer can give feedback directly in chat. Help summarize their own words wh
 The page asks what helped, what was confusing, what to change and whether they would use it with a new business owner. Their name is optional. Their business-plan answers are excluded unless they choose Include my business-plan draft. They review the exact package, then download it, copy it, or open an email draft to Denson. If no recipient is configured they enter the address Denson gave them. Never invent an address. Long feedback requires manually attaching the downloaded file. The website cannot attach it automatically. They review and send from their email app. Neither you nor the website can confirm sending or delivery. Never say feedback was submitted merely because it was drafted or downloaded. Do not send email yourself. Feedback should reflect the reviewer's own judgment, not praise invented by you.
 
 When requested, return to [the Fieldwork portfolio](https://denson.github.io/fieldwork/?demo=home). Keep the planning activity useful independently of BoodleBox. Describe this as an early planning draft and an adviser discussion, not a complete financing application.
+
+
+---
+
+# CURRENT AUTHORITATIVE TEACHING REFERENCE — September 13, 2026
+
+Use this current compact reference; disregard the older attached snapshot with the same filename.
+
+# Current teaching examples — September 13, 2026
+
+This compact appendix contains the same five current plans as business-plan.md. Every value is fictional and unverified. SBA supplies the consulting and toy business concepts; Fieldwork supplies the current narrowed scopes, numbers and gap prompts. The other three plans are original Fieldwork examples. Do not use the old attached snapshot.
+
+## Mesa Yard Care — fictional example
+
+Pattern: Local scheduled service. Cleaning, home services and other small appointment businesses.
+
+name: Mesa Yard Care — fictional example
+idea: A small yard-care service offering scheduled cleanup and manual weeding.
+customer: Older homeowners in one Pueblo neighborhood who want help keeping a small yard manageable.
+problem: Routine yard work has become difficult, but a large landscaping contract feels unnecessary.
+evidence: Practice assumption only. No customer interviews or local demand research have been completed.
+offer: One two-hour yard-care visit, excluding tree work and pesticide application.
+alternative: Do it themselves, ask family, or hire a larger crew. We would test whether a small scheduled visit is more useful.
+reach: Ask a neighborhood organization whether we can talk with five interested homeowners.
+delivery: One owner schedules visits close together, agrees a checklist and records work and travel time. Confirm tool storage, transport and disposal. Allow for weather delays and seasonal demand before adding more visits.
+resources: Owner does the work, scheduling and customer follow-up. Check tools, transport, insurance, safe scope and local requirements. No employee wages are in this model; obtain and add the full cost of help before hiring.
+checks: Check local operating requirements, insurance, safe use of tools, transport and disposal arrangements before a paid visit. Keep the initial offer to cleanup and manual weeding; exclude tree work, pesticides and other garden chemicals.
+verifier: Ask the local business office about the proposed scope, an insurer about coverage and a qualified yard-care operator about safe equipment and work limits.
+impact: Fictional totals include tools and initial training in $1800 startup, travel and supplies in $20 per visit, and insurance and upkeep in $700 monthly. Actual quotes are unknown. Count each expense once. Confirm requirements before a paid pilot; include travel and safe work pace in the 30-visit capacity.
+unit: one two-hour visit
+price: 90
+variable: 20
+fixed: 700
+sales: 20
+capacity: 30
+startup: 1800
+ownerPay: 1500
+test: Talk with five potential customers about their last experience arranging yard help. If there is interest, offer a clearly scoped paid pilot after requirements are checked.
+success: Two people request a follow-up about a paid visit. Treat this as an early signal, not proof of a market.
+next: Owner: arrange five interviews this week; check equipment, insurance and disposal quotes in week two; after an eligible pilot, compare actual travel, work time and cost with the model before adding visits.
+question: What am I missing in the costs and practical requirements for a one-person service?
+
+Teaching results: revenue 1800; operating remainder BEFORE owner pay 700; contribution 70; break-even 10 sales; owner-pay target 32 sales; downside sales 15 and remainder 350. All money USD.
+
+Open gaps (ask one useful question; help plan a next check):
+Customer evidence: Will homeowners book repeat visits at the proposed scope and price?
+Delivery, people and capacity: Does the 30-visit capacity include travel, admin and weather delays?
+Cost and price assumptions: Which prices and cost totals have supporting evidence?
+Cash, timing and seasonality: How will slow seasons and cancellations affect cash available for bills?
+Requirements before launch: What must be confirmed for this exact offer and location?
+Milestones and decisions: What happens next, who owns it, and what would change the decision?
+
+Source: Original Fieldwork fictional example https://www.sba.gov/counseling/plan-your-business/
+
+## SafeStart Property Testing — fictional example
+
+Pattern: Specialist project service. Technical services involving equipment, outside specialists and formal deliverables.
+
+name: SafeStart Property Testing — fictional example
+idea: A property-testing service that collects lead-paint measurements with specialized equipment and suspected asbestos samples for accredited laboratory analysis. Lead readings are reviewed and interpreted at the office; the customer receives a formal report after review and laboratory results.
+customer: Owners of older properties planning renovations who need qualified testing and a clear report before deciding their next steps.
+problem: They need to understand what a testing service can establish, what the report covers and how long results may take before scheduling renovation work.
+evidence: Practice assumption only. No owner interviews, local demand research, price quotes or qualification checks have been completed.
+offer: One agreed property-testing package: scoped lead-paint measurements, safe collection of agreed suspected asbestos samples, accredited laboratory analysis, office review and a written report. Sample limits and extra work must be agreed in advance. No removal work or promise of an immediate onsite conclusion.
+alternative: Hire an established environmental testing firm or ask a renovation adviser for a referral. Test whether clear scope, scheduling and understandable reporting make this offer useful.
+reach: Ask five property owners or renovation coordinators about their last testing project, referral source and difficulties with timing or reports.
+delivery: After qualifications and scope are verified, a qualified operator performs field measurements and sampling. Lead readings undergo office review, interpretation and quality checks. Asbestos findings depend on accredited laboratory analysis. The report documents methods, findings and the limits of the agreed service.
+resources: Specialized calibrated equipment, trained personnel, safe sampling supplies, transport, a suitable accredited laboratory, insurance, reporting and secure records. Field time, office review and laboratory turnaround all affect capacity.
+checks: Verify the certifications and permissions for the exact services and jurisdiction, equipment and calibration requirements, safe sampling procedures, laboratory accreditation, insurance, report scope and recordkeeping. Confirm these before accepting a first paid testing job; inspection, risk assessment and removal are different scopes.
+verifier: Ask the relevant state lead/asbestos program about the proposed service and credentials; ask an accredited laboratory about methods, sample acceptance and turnaround; confirm coverage with an insurer and review report limits with a qualified professional.
+impact: Fictional totals only: startup $18000 includes initial training and equipment; $180 per job includes lab work, supplies and travel; $2400 monthly includes insurance, equipment upkeep and records. Actual quotes are unknown. Include each expense once. Hold paid testing until requirements are confirmed; allow office review and lab time within 16 jobs per month.
+unit: one scoped property-testing package
+price: 650
+variable: 180
+fixed: 2400
+sales: 12
+capacity: 16
+startup: 18000
+ownerPay: 3500
+test: Interview five owners or renovation coordinators about a past testing project. Separately verify qualifications, laboratory arrangements and report scope before offering fieldwork or a paid pilot.
+success: Three interviewees describe a specific unmet scheduling or reporting need and request a follow-up. This is an early signal only; paid work also depends on verified qualifications, costs and scope.
+next: Owner: arrange two customer conversations this week; ask the state program, laboratory and insurer about readiness in week two; review quotes, report workflow and total job time before accepting paid testing.
+question: Which qualifications, report limits, laboratory costs and turnaround times change this offer, startup budget and realistic monthly capacity?
+
+Teaching results: revenue 7800; operating remainder BEFORE owner pay 3240; contribution 470; break-even 6 sales; owner-pay target 13 sales; downside sales 9 and remainder 1830. All money USD.
+
+Open gaps (ask one useful question; help plan a next check):
+Customer evidence: Which owners or renovation coordinators have a specific unmet need?
+Delivery, people and capacity: Do fieldwork, office review, lab turnaround and quality checks fit 16 jobs per month?
+Cost and price assumptions: Are the lab, calibration, training, insurance and reporting allowances supported by quotes?
+Cash, timing and seasonality: Must laboratory and operating bills be paid before customers pay for reports?
+Requirements before launch: Who can confirm the credentials, methods and report limits for this jurisdiction?
+Milestones and decisions: What happens next, who owns it, and what would change the decision?
+
+Source: Original Fieldwork fictional example https://www.sba.gov/counseling/plan-your-business/
+
+## Porchside Bike Tune-Ups — fictional example
+
+Pattern: Mobile repair service. Repair, maintenance and skilled services delivered by appointment.
+
+name: Porchside Bike Tune-Ups — fictional example
+idea: A mobile bicycle service that performs basic tune-ups at a customer’s home or workplace.
+customer: Occasional adult riders in one part of town who own a usable bike but postpone taking it to a repair shop.
+problem: Transporting a bicycle to a shop and returning later is inconvenient for a basic seasonal tune-up.
+evidence: Practice assumption only. No rider interviews, competitor research or local price checks have been completed.
+offer: One appointment covering a safety check, brake and shifting adjustment, tire inflation and chain lubrication; parts and major repairs are outside the base package.
+alternative: Take the bike to a shop, fix it themselves or leave it unused. The test is whether convenience makes a limited mobile service worthwhile.
+reach: Invite local neighborhood and workplace groups to share a short interview request, then offer a small pilot day if requirements are checked.
+delivery: One mechanic clusters appointments in a limited area using a mobile tool kit and a defined checklist. Record travel, work and follow-up time. Plan for weather, seasonal demand, cancellations and jobs needing a shop referral.
+resources: Owner handles repairs, booking and customer follow-up. Verify skill, tools, transport, parts policy, insurance and operating requirements. No staff wages are included; cost extra help before hiring and identify a qualified referral option for excluded repairs.
+checks: Verify mechanical competence, a safe service checklist, insurance, local operating rules and handling of lubricants. Exclude major repairs and work outside verified training, tools and coverage before a paid appointment.
+verifier: Ask a qualified bicycle mechanic to review the checklist, an insurer about covered repairs and the local business office about operating requirements.
+impact: Fictional totals include tools and initial training in $2400 startup, supplies and travel in $12 per appointment, and insurance and upkeep in $650 monthly. Actual quotes are unknown. Include each expense once. Allow time for travel and safety checks within 28 appointments per month.
+unit: one basic tune-up appointment
+price: 85
+variable: 12
+fixed: 650
+sales: 18
+capacity: 28
+startup: 2400
+ownerPay: 1800
+test: Interview six occasional riders about the last time they needed service, then offer three clearly scoped pilot appointments after requirements are checked.
+success: Three people accept a paid pilot at the stated scope and price, and the average appointment fits the planned time. This would still require more testing.
+next: Owner: write the service checklist and arrange six rider interviews this week; check insurance and tools in week two; review three eligible pilot appointments for time, costs and customer acceptance before scheduling more.
+question: Which repairs should be excluded until training, tools and insurance are verified?
+
+Teaching results: revenue 1530; operating remainder BEFORE owner pay 664; contribution 73; break-even 9 sales; owner-pay target 34 sales; downside sales 13 and remainder 299. All money USD.
+
+Open gaps (ask one useful question; help plan a next check):
+Customer evidence: Who has actually experienced this problem and paid to solve it?
+Delivery, people and capacity: Will clustered appointments leave time for travel, safety checks and rework?
+Cost and price assumptions: Are parts, consumables, travel and possible return visits treated consistently?
+Cash, timing and seasonality: What happens to bookings and cash during bad weather or the off-season?
+Requirements before launch: What must be confirmed for this exact offer and location?
+Milestones and decisions: What happens next, who owns it, and what would change the decision?
+
+Source: Original Fieldwork fictional example https://www.sba.gov/counseling/plan-your-business/
+
+## We Can Do It Consulting — fictional example
+
+Pattern: Consulting and expertise. Consultants, freelancers, agencies and professional services.
+
+name: We Can Do It Consulting — fictional example
+idea: A consulting practice that helps small businesses simplify one office process, such as customer intake or scheduling.
+customer: Owners of small service firms with 5–20 staff who can approve a short process-improvement project. This narrower first market is a Fieldwork teaching assumption.
+problem: Repeated handoffs, duplicate entry and unclear responsibilities may waste staff time and delay customer responses.
+evidence: Unverified teaching assumptions. No owner interviews, workflow observations or willingness-to-pay tests have been completed. The SBA sample is a planning example, not market research.
+offer: A scoped workflow review, agreed recommendations and one follow-up meeting, billed for approved hours. Agree the deliverables and an hour limit before work; software implementation and ongoing support require a separate agreement.
+alternative: Owners improve the process themselves, buy software or hire another consultant. Test whether a focused review produces a useful, measurable change before claiming an advantage.
+reach: Ask a local business network for introductions to five owners. Discuss their last process problem and purchasing decision; seek permission for one scoped proposal after interviews.
+delivery: The owner interviews staff, maps one workflow and reviews recommendations with a client sponsor. Reserve nonbillable time for proposals, preparation, follow-up and administration. Track actual hours by project before promising another start date.
+resources: Owner handles consulting and sales; bookkeeping and specialist support need quotes before use. Confirm relevant experience, secure collaboration tools, professional coverage and a workspace. Hire or subcontract only when workload and margins support the cost.
+checks: Confirm business setup, contract and data-handling obligations, professional coverage, client authorization and limits of advice for the exact work. Agree access to records, confidentiality, deliverable acceptance and payment terms before a paid project.
+verifier: Ask a business adviser about structure and pricing, an insurer about the proposed work, and a qualified contract/data adviser about client information, scope and payment terms.
+impact: Fieldwork teaching totals: $2500 startup for setup and tools; $10 per billed hour for project expenses; $900 monthly for software, coverage and administration. Owner labor is represented by the $3500 owner-pay target, not counted again per hour. Actual quotes are unknown. Employee or subcontractor pay would need to be added once if used.
+unit: one approved billable consulting hour
+price: 125
+variable: 10
+fixed: 900
+sales: 40
+capacity: 60
+startup: 2500
+ownerPay: 3500
+test: Interview five owners about a recent workflow problem, its cost and how they buy help. After scope and requirements are checked, propose one capped project and compare approved billable hours with all time spent.
+success: Two owners describe a repeated costly problem and one requests a scoped proposal. Continue only if a paid pilot produces an agreed improvement within the hour limit; revise the offer if preparation or rework consumes the margin.
+next: Owner: arrange two interviews this week; draft a one-process scope in week two; review price, total hours and client feedback after the first eligible pilot before expanding.
+question: Can a client recognize and pay for this outcome, and can the practice cover nonbillable time and late payments without relying on one large client?
+
+Teaching results: revenue 5000; operating remainder BEFORE owner pay 3700; contribution 115; break-even 8 sales; owner-pay target 39 sales; downside sales 30 and remainder 2550. All money USD.
+
+Open gaps (ask one useful question; help plan a next check):
+Customer evidence: Will a decision-maker pay for a defined improvement rather than general advice?
+Delivery, people and capacity: Can 60 billable hours fit alongside nonbillable work and client changes?
+Cost and price assumptions: Does the rate cover project expenses, unpaid time and any additional team members?
+Cash, timing and seasonality: Can the business pay its bills if its biggest client pays a month late?
+Requirements before launch: Are scope, confidentiality, data access and acceptance agreed?
+Milestones and decisions: What happens next, who owns it, and what would change the decision?
+
+Source: Adapted from SBA’s fictional example https://legacy.sba.gov/document/support-rebeccas-business-plan-template-traditional
+
+## Wooden Grain Toy Company — fictional example
+
+Pattern: Products and inventory. Makers, craft sellers, online sellers and small retail businesses.
+
+name: Wooden Grain Toy Company — fictional example
+idea: A small maker sells durable wooden toy vehicles directly to parents and gift buyers, beginning with one toy design and a limited batch.
+customer: Parents and gift buyers looking for a durable, simple wooden toy. Start with one local craft-fair audience before assuming a wider online market.
+problem: Some buyers may prefer a durable physical toy to short-lived novelty purchases, but design, price and age suitability still need testing.
+evidence: Unverified teaching assumptions adapted from the SBA toy-company example. No buyer interviews, current competitor checks, safety assessment or supplier quotes establish demand, pricing or readiness.
+offer: One wooden toy vehicle sold directly at a local craft fair, with appropriate packaging and instructions after product requirements are verified. Start with one design; online shipping, wholesale and extra designs need separate cost estimates.
+alternative: Mass-produced toys, other craft makers or secondhand toys. Test whether buyers value this design and finish enough to pay the proposed price; handmade does not prove demand or safety.
+reach: Interview five gift buyers and compare three alternatives. Check one craft fair’s fees and audience before booking; record visitor conversations, purchases and returns during an eligible small pilot.
+delivery: The owner makes small batches, checks quality, packs finished units and sells at a local fair. Track making, finishing, setup and selling time, waste and unsold stock. Confirm a safe workspace and materials supply; add help only after costing it.
+resources: Owner handles making and selling; obtain advice on product testing and bookkeeping. Tools, safe workspace, materials, packaging, storage and insurance need verified quotes. The 100-unit monthly capacity includes production and selling time but is an untested estimate.
+checks: Verify the requirements for the exact toy, intended age group, materials and market, including product testing, labeling, records, workspace safety and coverage. Identify necessary changes before selling or placing a prototype with children.
+verifier: Ask a qualified product-safety professional or suitable testing laboratory about the exact design and market; confirm workspace arrangements, insurance and business requirements with the relevant advisers.
+impact: Fieldwork teaching totals: $6000 startup for setup, tools and an initial testing allowance; $18 per toy for materials, packaging, payment fees and estimated waste; $800 monthly for space, coverage and selling costs. Owner labor is covered by the $2000 owner-pay target. Actual quotes and pre-sale stock funding are unknown; keep inventory cash separate from this monthly sales model.
+unit: one toy vehicle sold directly at a local fair
+price: 45
+variable: 18
+fixed: 800
+sales: 80
+capacity: 100
+startup: 6000
+ownerPay: 2000
+test: Show drawings to five adult gift buyers and compare alternatives. After product requirements are verified, test a small batch at one fair and record conversion, total time, defects, returns and unsold stock.
+success: Three buyers request follow-up at the proposed price. An eligible pilot must also fit production time and cost assumptions. Rework the design or channel if stock remains unsold or quality problems remove the expected margin.
+next: Owner: interview buyers this week, request material and testing quotes in week two, then review readiness and batch cash needs before committing to production or a fair.
+question: How much cash must be committed before the first sale, and can this design cover the owner-pay target within safe, realistic production capacity?
+
+Teaching results: revenue 3600; operating remainder BEFORE owner pay 1360; contribution 27; break-even 30 sales; owner-pay target 104 sales; downside sales 60 and remainder 820. All money USD.
+
+Open gaps (ask one useful question; help plan a next check):
+Customer evidence: Will real buyers choose this toy over alternatives at the proposed price?
+Delivery, people and capacity: Can safe production, quality checks and selling fit 100 toys per month?
+Cost and price assumptions: Do material, waste, packaging, selling and testing allowances cover the chosen channel?
+Cash, timing and seasonality: How much cash is tied up in materials and unsold toys before buyers pay?
+Requirements before launch: What product and workspace checks apply to the exact design and intended age group?
+Milestones and decisions: What happens next, who owns it, and what would change the decision?
+
+Source: Adapted from SBA’s fictional example https://legacy.sba.gov/document/support-andrews-business-plan-template-lean

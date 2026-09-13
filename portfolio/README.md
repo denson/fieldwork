@@ -2,7 +2,7 @@
 
 [Start the tutorial](https://denson.github.io/fieldwork/) · [Choose an activity](https://denson.github.io/fieldwork/?demo=home)
 
-The site includes First Steps, Pueblo History Detective, Before the wave arrives, Community Budget Challenge and Public Hearing Detective. Each has a published BoodleBox companion. Dot Lab is an older experiment excluded from the menu.
+The site includes First Steps, Pueblo History Detective, Before the wave arrives, Community Budget Challenge Public Hearing Detective and Business Plan First Steps. Each has a published BoodleBox companion. Dot Lab is an older experiment excluded from the menu.
 
 Plain HTML, CSS and JavaScript, hosted on GitHub Pages. No application server, private key or database is needed. Visitors can explore the activities without a BoodleBox account; chat requires BoodleBox sign-in. The optional earthquake explorer requests a public USGS feed directly from the visitor's browser.
 
@@ -13,3 +13,5 @@ Sources and image credits: [sources.html](sources.html). Library of Congress pho
 Run the repository checks with `node --test portfolio/tests/*.test.cjs` from its root. GitHub Actions checks these before publishing this directory. See [publishing instructions](https://github.com/denson/fieldwork/blob/main/PUBLISHING.md) and [extension setup](https://github.com/denson/fieldwork/tree/main/chrome-extension).
 
 Project context, publication state, settled design decisions and remaining Business Plan First Steps work are preserved in the [project handoff](handoff/business-plan-first-steps-handoff.md). Its adjacent [session record](handoff/business-plan-first-steps-session.json) contains the visible user/assistant conversation through September 12, 2026, excluding system context, tool traces and hidden reasoning.
+
+Business-plan clients can begin at [the example selection page](business-plans.html). Its five fictional examples combine two SBA adaptations with three original Fieldwork plans. The editable brief includes planning gaps, self-reported findings, operating assumptions and a next test. Business Plan First Steps works entirely in chat too; the site adds structure, calculation and downloads. Current publication/configuration details are in PUBLISHING.md.
