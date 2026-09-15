@@ -1,4 +1,10 @@
-# Fieldwork Companion Pane — 0.10.2
+# Fieldwork Companion Pane — 0.10.3
+
+The chat controls now use plain text and small underlined actions. Drafts sit outside BoodleBox's code-block container, inherit the chat theme, and no longer appear as boxed cards. The workspace controls start folded into a single text disclosure; they expand only when opened and close after preparing a mode-choice message. Failed preparation keeps the explanation visible. Disabling the extension restores the original code block.
+
+All 55 repository tests pass. The actual content-script DOM fixture checks closed-by-default behavior, automatic closing on success, preserved messages/attachments, restored source blocks when disabled, and no automatic Send. A Chrome local fixture verifies keyboard expansion, successful collapse and plain-text rendering. Load 0.10.3 and refresh both real pages for final integration testing.
+
+## New-chat routing fix in 0.10.2
 
 Fixes **Open workspace** and connection checks after starting a new BoodleBox chat without a page reload. Chrome can retain the original profile or launch URL in MessageSender.url while BoodleBox displays the new conversation. The connection channel now validates the sender's BoodleBox origin, then checks Chrome's current tab URL and the responding Business Plan composer. Same-extension, top-frame, current-chat and exact-pair checks remain required.
 

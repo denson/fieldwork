@@ -1,5 +1,9 @@
 # Fieldwork publication
 
+## Plain chat controls — 0.10.3
+
+Replaces the persistent connection box with a closed text disclosure and renders proposed draft fields as ordinary themed text with a small Use this draft action. The original BoodleBox code-block container is hidden while the extension is enabled and restored when it is disabled. Modes still require a reviewed message and manual Send; successful mode preparation closes the disclosure. The previous new-chat routing fix is retained. All 55 repository tests and the actual content-script DOM fixture pass. The new extension must be loaded and the ordinary pages refreshed to see these changes.
+
 ## Open workspace fix — 0.10.2
 
 Fixes connection checks and Open workspace after BoodleBox starts a new chat using client-side navigation. The original document URL is checked for the BoodleBox origin; the live tab URL and responding guide still determine whether a current chat is eligible. No permissions, bot instructions or website behavior changed. The new regression failed before the fix and passes against both source and store background code; all 55 repository tests pass. The failure and reload workaround were verified in Chrome. Load and test the 0.10.2 submission ZIP from a newly started chat before submitting it to Google.

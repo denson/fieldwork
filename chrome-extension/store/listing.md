@@ -1,4 +1,4 @@
-# Chrome Web Store listing — Fieldwork Companion Pane 0.10.2
+# Chrome Web Store listing — Fieldwork Companion Pane 0.10.3
 
 Prepared September 14, 2026. These are editable submission materials; nothing has been submitted to Google.
 
@@ -28,19 +28,19 @@ WHAT YOU CAN DO
 
 • Review an activity note and choose Put note in BoodleBox to place it in the matching chat's empty message box. Review it there and press Send yourself.
 • In Business Plan First Steps, check whether the matching workspace is connected. Choose the workspace or keep planning entirely in chat.
-• Review the guide's proposed business-plan fields in a readable draft card. Choose Use this draft to apply one step to the matching workspace, then edit it there.
+• Review the guide's proposed business-plan fields as readable text. Choose Use this draft to apply one step to the matching workspace, then edit it there.
 • Follow supported activity links and open the matching guide beside the lesson.
 • Use Copy link when you want to place a supported destination yourself.
 
 YOU CONTROL THE HANDOFF
 
-The extension never presses Send. An unfinished message or attachment is preserved. It checks the exact paired tabs before a transfer, and opening the business workspace preserves other occupied pages. Draft cards apply only the displayed fields for one planning step; they do not synchronize the entire conversation or all website edits.
+The extension never presses Send. An unfinished message or attachment is preserved. It checks the exact paired tabs before a transfer, and opening the business workspace preserves other occupied pages. Draft actions apply only the displayed fields for one planning step; they do not synchronize the entire conversation or all website edits.
 
 REQUIREMENTS
 
 Desktop Chrome 140 or later with split view available. BoodleBox sign-in and access to the selected guide are required. This extension does not supply a BoodleBox account or subscription; BoodleBox's own access requirements apply. Put the matching chat and activity in the same Chrome split view and refresh pages opened before installation.
 
-Supports the published Fieldwork activities and Colorado Weed Field Guide on denson.github.io. Business-plan draft cards and connection-choice controls are specific to Business Plan First Steps. The store version does not connect to localhost development sites.
+Supports the published Fieldwork activities and Colorado Weed Field Guide on denson.github.io. Business-plan draft actions and connection-choice controls are specific to Business Plan First Steps. The store version does not connect to localhost development sites.
 
 PRIVACY
 

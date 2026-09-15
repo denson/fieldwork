@@ -1,12 +1,12 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.FieldworkConnectionUI=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   function create({chrome,C,R,document,location,findEditor,isEnabled,place,onState,now=()=>Date.now()}){
-    let bar,title,help,action,chatOnly,recheck,notice,state={status:'unavailable'},checked=0,route='',pending=null,sequence=0,signature='';
+    let bar,disclosure,title,help,action,chatOnly,recheck,notice,state={status:'unavailable'},checked=0,route='',pending=null,sequence=0,signature='';
     const button=text=>{const b=document.createElement('button');b.type='button';b.textContent=text;return b;};
     function render(){
       if(!bar)return;const current=isEnabled()?state:{status:'disabled'},copy=C.describe(current),next=location.href+'|'+current.status+'|'+current.reason;
       if(signature===next)return;signature=next;
-      title.textContent=copy.title;help.textContent=copy.help;bar.dataset.connectionState=current.status;
+      title.textContent=current.status==='connected'?'Workspace connected':current.status==='disabled'?'Workspace off':'Workspace';help.textContent=copy.help;bar.dataset.connectionState=current.status;
       action.textContent=current.status==='connected'?'Use the connected workspace':'Open workspace';
       action.disabled=current.status==='disabled';chatOnly.disabled=current.status==='disabled';recheck.disabled=current.status==='disabled';
       onState(current);
@@ -42,16 +42,22 @@
         'chat-not-ready':'Wait until the guide finishes, then choose this option again.',
         'page-changed':'The conversation changed. Make your choice again in the intended chat.'
       }[result?.status]||'Check the message box. Preparation was not confirmed; you can also tell the guide your choice in your own words.';
+      if(result?.status==='draft-ready'||result?.status==='already-ready'){
+        disclosure.open=false;findEditor()?.focus();
+      }
     }
     function scan(){
       const editor=findEditor();
       if(!editor||!R.isChat(location.href)){if(bar)bar.hidden=true;sequence++;route='';pending=null;state={status:'chat-unavailable'};onState(state);return;}
       if(!bar?.isConnected){
         bar=document.createElement('section');bar.id='fw-business-connection';bar.setAttribute('aria-label','Fieldwork workspace connection');
-        title=document.createElement('strong');help=document.createElement('p');
-        const controls=document.createElement('div');action=button('Open workspace');chatOnly=button('Keep planning in chat');recheck=button('Check again');
+        disclosure=document.createElement('details');const summary=document.createElement('summary');
+        title=document.createElement('strong');summary.append(title);help=document.createElement('p');
+        const panel=document.createElement('div');panel.className='fw-connection-options';
+        const controls=document.createElement('div');controls.className='fw-connection-controls';action=button('Open workspace');chatOnly=button('Keep planning in chat');recheck=button('Check again');
         notice=document.createElement('p');notice.setAttribute('role','status');notice.className='fw-connection-notice';
-        controls.append(action,chatOnly,recheck);bar.append(title,help,controls,notice);editor.before(bar);signature='';
+        controls.append(action,chatOnly,recheck);panel.append(help,controls,notice);disclosure.append(summary,panel);bar.append(disclosure);editor.before(bar);signature='';
+        disclosure.addEventListener('toggle',()=>{if(disclosure.open)refresh(true);});
         action.addEventListener('click',async e=>{
           if(!e.isTrusted||action.disabled)return;
           action.disabled=true;

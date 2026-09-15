@@ -2,7 +2,7 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),vm=requir
 const {buildFiles}=require('../../chrome-extension/store-build.cjs');
 const files=buildFiles(),manifest=JSON.parse(files.get('manifest.json'));
 test('store build limits access and routing to the published websites',()=>{
-  assert.equal(manifest.version,'0.10.2');assert.equal(manifest.manifest_version,3);assert.ok(manifest.description.length<=132);
+  assert.equal(manifest.version,'0.10.3');assert.equal(manifest.manifest_version,3);assert.ok(manifest.description.length<=132);
   assert.deepEqual(manifest.permissions,['storage','tabs']);
   assert.deepEqual(manifest.host_permissions,['https://box.boodle.ai/*','https://denson.github.io/*']);
   assert.ok(manifest.content_scripts.flatMap(s=>s.matches).every(s=>s.startsWith('https://')));

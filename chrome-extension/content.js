@@ -1,6 +1,6 @@
 (()=>{
   'use strict';
-  const R=FieldworkRouting,D=FieldworkBusinessDraft,buttons=new WeakMap(),businessDrafts=new WeakMap(),draftCards=new Set();let enabled=true,scheduled=false;
+  const R=FieldworkRouting,D=FieldworkBusinessDraft,buttons=new WeakMap(),businessDrafts=new WeakMap(),draftSources=new WeakMap(),draftCards=new Set();let enabled=true,scheduled=false;
   let placing=false;
   const connectionUI=FieldworkConnectionUI.create({chrome,C:FieldworkConnection,R,document,location,findEditor:findBusinessEditor,isEnabled:()=>enabled,place:placeText,onState:state=>{
     for(const card of draftCards){const button=card.querySelector('.fw-use-business-draft');if(button)button.disabled=!enabled||!FieldworkConnection.fresh(state);}
@@ -38,7 +38,7 @@
     return true;
   });
   chrome.storage.local.get({enabled:true}).then(s=>{enabled=s.enabled;scan();});
-  chrome.storage.onChanged.addListener((changes,area)=>{if(area==='local'&&changes.enabled){enabled=changes.enabled.newValue!==false;document.querySelectorAll('.fw-pane-copy').forEach(b=>b.hidden=!enabled);for(const card of draftCards){card.hidden=!enabled;const pre=card.previousElementSibling;if(pre?.tagName==='PRE')pre.hidden=enabled;}connectionUI.refresh(true);scan();}});
+  chrome.storage.onChanged.addListener((changes,area)=>{if(area==='local'&&changes.enabled){enabled=changes.enabled.newValue!==false;document.querySelectorAll('.fw-pane-copy').forEach(b=>b.hidden=!enabled);for(const card of draftCards){card.hidden=!enabled;const source=draftSources.get(card);if(source)source.hidden=enabled;}connectionUI.refresh(true);scan();}});
   function announce(message,url){
     document.getElementById('fw-pane-status')?.remove();
     const box=document.createElement('div');box.id='fw-pane-status';box.setAttribute('role','status');
@@ -72,7 +72,11 @@
           'failed':'The website could not be updated. Reload both panes and try again.'
         }[result?.status]||'The website could not be updated. Reload both panes and try again.';}catch{status.textContent='The website could not be updated. Reload both panes and try again.';}finally{button.disabled=!enabled||!FieldworkConnection.fresh(connectionUI.getState());}
       });
-      card.append(title,list,button,status);pre.after(card);pre.hidden=true;businessDrafts.set(pre,card);draftCards.add(card);
+      // Keep the readable draft outside BoodleBox's code-block chrome and dark code styles.
+      const wrapper=pre.parentElement;
+      const source=wrapper?.matches('.markdown-code')&&wrapper.querySelectorAll('pre').length===1?wrapper:pre;
+      card.append(title,list,button,status);source.after(card);source.classList.add('fw-draft-source');source.hidden=true;
+      businessDrafts.set(pre,card);draftSources.set(card,source);draftCards.add(card);
     });
   }
   function scan(){
