@@ -21,6 +21,10 @@ First verify **Open workspace** from a new chat: after loading the extension, op
 7. On the website, change the proposed name manually. The chat should not silently receive or claim to know that edit. A later reviewed note is needed to share it.
 8. Expand **Workspace connected** and choose **Keep planning in chat**, then review and send that prepared choice. Ask “Show my brief.” The guide should retain the latest shared work and provide a readable chat brief without requiring the website.
 
+## Whole-plan revision
+
+On the business workspace, choose Revise or restore a whole plan. Save a copy, enter a change affecting the whole business, and send the prepared request to the guide. Review revised plan in chat must stage a website comparison without changing the current plan. Cancel once to confirm nothing changed; stage it again and choose Load this version. Confirm that unknown numeric values are blank, affected sections are consistent, and a previous saved version can be reviewed and restored. Save controls retain the last five versions in the tab and start dated JSON backup downloads. Copy/paste or backup-file review is available without the extension.
+
 ## Important safeguards to exercise
 
 - Type “Unsent test message” in the chat without sending. Try Put note in BoodleBox. The existing draft must remain unchanged. Clear it yourself after checking. Repeat with an attachment-only draft if your test account supports it.
@@ -37,4 +41,4 @@ Open https://denson.github.io/fieldwork/start.html with https://box.boodle.ai/a/
 
 The package is readable Manifest V3 code with no remote-code execution or extension backend. Browser metadata is used only for exact pane targeting and navigation. Notes and planning fields are not stored in extension storage. The store build deliberately removes localhost access and routing. The current extension requires the matching guide's normal English composer labels.
 
-All 55 repository tests pass, including the new-chat routing regression against source and packaged background code. Automated verification also covers the store manifest/icons/runtime, public routes, transfer boundaries, races, existing drafts, note validation and unchanged business planning behavior. A live 0.10.3 candidate test is still required before review submission. The prepared store screenshot shows the unchanged website-side note control, captured with the earlier 0.9.0 extension; it does not assert that the 0.10.3 candidate has been loaded.
+All 59 repository tests pass, including the new-chat routing regression against source and packaged background code. Automated verification also covers the store manifest/icons/runtime, public routes, transfer boundaries, races, existing drafts, note validation and unchanged business planning behavior. A live 0.10.4 candidate test is still required before review submission. The prepared store screenshot shows the unchanged website-side note control, captured with the earlier 0.9.0 extension; it does not assert that the 0.10.4 candidate has been loaded.

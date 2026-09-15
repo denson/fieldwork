@@ -39,6 +39,13 @@
         reply(ready?{status:'workspace-ready',protocol:'fieldwork-connection-v1',step:new URL(location.href).searchParams.get('step')}:{status:'workspace-unavailable'});
       }).catch(()=>reply({status:'workspace-unavailable'}));return true;
     }
+    if(message?.type==='fieldwork-stage-business-revision'){
+      const draft=D.normalizeRevision(message),input=document.getElementById('business-revision-input'),button=document.getElementById('business-stage-revision');
+      if(!enabled||!draft||R.combo(location.href)?.companion!=='BusinessPlanFirstSteps'){reply({status:'rejected'});return;}
+      if(!input||!button){reply({status:'reload-workspace'});return;}
+      input.value=JSON.stringify(draft);input.dispatchEvent(new Event('input',{bubbles:true}));button.click();
+      reply({status:input.dataset.accepted==='1'?'revision-staged':'revision-busy'});return;
+    }
     if(message?.type!=='fieldwork-apply-business-draft')return;
     try{reply(applyBusinessDraft(message));}catch{reply({status:'failed'});}
   });

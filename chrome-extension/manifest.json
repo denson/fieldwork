@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Fieldwork Companion Pane",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "description": "Connect Fieldwork activities and BoodleBox chats in Chrome split view, with reviewed notes and business-plan drafts.",
   "minimum_chrome_version": "140",
   "permissions": [

@@ -33,7 +33,7 @@
   function toast(message) { $('toast').textContent = message; $('toast').hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => $('toast').hidden = true, 4000); }
   async function copy(text) { try { await navigator.clipboard.writeText(text); return true; } catch { return false; } }
   function configuredURL(demo, values = {}) {
-    const url = new URL(location.href); url.search = ''; url.hash = '';
+    const url = new URL(location.href); url.search = ''; url.hash = demo==='business'&&url.hash==='#revise-plan'?'#revise-plan':'';
     url.searchParams.set('demo', demo);
     Object.entries(values).forEach(([key,value]) => url.searchParams.set(key, String(value)));
     return url.href;

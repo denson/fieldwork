@@ -1,5 +1,13 @@
 # Fieldwork publication
 
+## Complete-plan revision — Companion Pane 0.10.4 and Business Plan bot v1.11
+
+The business workspace now guides visitors through saving the current plan, reviewing a complete revision, and explicitly loading it. Dated JSON backups include planning gaps and feedback; the last five saved workspace versions remain in the tab for restoration. Loading clears removed or unknown answers instead of retaining another example’s assumptions. New revision findings stay open for review. Cancellation, edits after saving, invalid proposals and storage failures protect the current draft.
+
+The extension stages whole-plan proposals through a small Review revised plan action in chat; the rich comparison and save/load controls stay on the website. Single-step transfers are unchanged. Permissions are unchanged. Manual copied-text and backup-file review also work. Bot v1.11 was published and verified after reload, retaining the existing greeting and all five complete examples. Its combined LF instructions contain 48,941 characters (49,315 in the builder).
+
+All 59 repository tests and actual website/content-script DOM fixtures pass. Chrome verified the website’s save, complete comparison, explicit load, restoration and direct revision link. The 0.10.4 store ZIP was built and validated; loading it in the user’s Chrome profile and testing the new paired-page action remain necessary before store submission. Nothing has been submitted to Google.
+
 ## Instruction before workspace link — Business Plan bot v1.10
 
 Moved the Chrome split-view instruction above the welcome link and changed its wording to “right-click the link below.” The bot instructions specify the same order. Published in BoodleBox; reloading the builder confirmed the order persisted with no unpublished changes. The six business-library tests pass, including the configuration size and complete example fields. Extension remains 0.10.3.

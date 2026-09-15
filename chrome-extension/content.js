@@ -53,15 +53,18 @@
     if(!businessGuideReady())return;
     const stepNames={idea:'Your idea',customer:'Your customer',offer:'Your offer',rules:'Licenses, safety, and rules',numbers:'Your numbers',test:'Your next test'};
     document.querySelectorAll('pre').forEach(pre=>{
-      if(businessDrafts.has(pre))return;const draft=D.parse(pre.innerText||pre.textContent);if(!draft)return;
+      if(businessDrafts.has(pre))return;const raw=pre.innerText||pre.textContent,revision=D.parseRevision(raw),draft=revision||D.parse(raw);if(!draft)return;
       const card=document.createElement('section');card.className='fw-business-draft';card.setAttribute('aria-label','Business-plan draft ready to apply');
-      const title=document.createElement('strong');title.textContent='Draft for '+stepNames[draft.step];
-      const list=document.createElement('dl');for(const [key,value] of Object.entries(draft.fields)){const row=document.createElement('div'),term=document.createElement('dt'),detail=document.createElement('dd');term.textContent=D.labels[key];detail.textContent=value;row.append(term,detail);list.append(row);}
-      const button=document.createElement('button');button.type='button';button.className='fw-use-business-draft';button.textContent='Use this draft →';button.disabled=!FieldworkConnection.fresh(connectionUI.getState());
+      const title=document.createElement('strong');title.textContent=revision?'Revised plan: '+revision.plan.name:'Draft for '+stepNames[draft.step];
+      const list=document.createElement('dl');for(const [key,value] of Object.entries(revision?{}:draft.fields)){const row=document.createElement('div'),term=document.createElement('dt'),detail=document.createElement('dd');term.textContent=D.labels[key];detail.textContent=value;row.append(term,detail);list.append(row);}
+      const button=document.createElement('button');button.type='button';button.className='fw-use-business-draft';button.textContent=revision?'Review revised plan →':'Use this draft →';button.disabled=!FieldworkConnection.fresh(connectionUI.getState());
       const status=document.createElement('p');status.setAttribute('role','status');
       button.addEventListener('click',async event=>{
-        if(!event.isTrusted||button.disabled||!enabled)return;button.disabled=true;status.textContent='Updating the website beside this chat…';
-        try{const connection=await connectionUI.refresh(true);if(!FieldworkConnection.fresh(connection)){status.textContent='Connect the matching workspace using the connection controls above the message box, or copy the wording manually.';return;}const result=await chrome.runtime.sendMessage({type:'fieldwork-business-draft',...draft,chatUrl:location.href});status.textContent={
+        if(!event.isTrusted||button.disabled||!enabled)return;button.disabled=true;status.textContent=revision?'Opening the revision for review on the website…':'Updating the website beside this chat…';
+        try{const connection=await connectionUI.refresh(true);if(!FieldworkConnection.fresh(connection)){status.textContent='Connect the matching workspace using the connection controls above the message box, or copy the wording manually.';return;}const result=await chrome.runtime.sendMessage({type:revision?'fieldwork-business-revision':'fieldwork-business-draft',...draft,chatUrl:location.href});status.textContent={
+          'revision-staged':'Revision ready on the website. Save the current plan, review the changes, then choose whether to load it.',
+          'revision-busy':'A revision is already being reviewed on the website. Keep or dismiss it there before sending another.',
+          'reload-workspace':'Reload the website to enable whole-plan review, then try again.',
           'draft-applied':'Draft added to the website. Review or edit it there.',
           'no-chat':'Keep the matching business-plan website beside this chat in Chrome split view.',
           'wrong-guide':'Open the Business Plan First Steps website beside this chat.',

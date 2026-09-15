@@ -17,11 +17,12 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   const isOpen=message.type==='fieldwork-open'&&R.isBoodle(sender.url);
   const isNote=message.type==='fieldwork-note'&&R.isSharePage(sender.url);
   const isLaunch=message.type==='fieldwork-launch'&&R.isSharePage(sender.url);
-  const isBusinessDraft=message.type==='fieldwork-business-draft'&&R.isBoodle(sender.url);
+  const isRevision=message.type==='fieldwork-business-revision'&&sender.id===chrome.runtime.id&&R.isBoodle(sender.url);
+  const isBusinessDraft=(message.type==='fieldwork-business-draft'&&R.isBoodle(sender.url))||isRevision;
   if(!isOpen&&!isNote&&!isLaunch&&!isBusinessDraft)return;
   (async()=>{
     const url=isOpen||isLaunch?R.destination(message.url):null;
-    if(isOpen?!url:isLaunch?!R.combo(url):isNote?!R.validNote(message):!D.valid(message))return {status:'rejected'};
+    if(isOpen?!url:isLaunch?!R.combo(url):isNote?!R.validNote(message):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
     const settings=await chrome.storage.local.get({enabled:true});if(!settings.enabled)return {status:'disabled'};
     const source=await chrome.tabs.get(sender.tab.id);
     if(isBusinessDraft){
@@ -31,6 +32,7 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
       const target=peers.find(t=>t.id===pair.tabId),combo=R.combo(target.url);if(combo?.companion!=='BusinessPlanFirstSteps')return {status:'wrong-guide'};
       const [freshSource,freshTarget]=await Promise.all([chrome.tabs.get(source.id),chrome.tabs.get(pair.tabId)]);
       if(freshSource.url!==source.url||freshTarget.url!==target.url||R.paired(freshSource,[freshSource,freshTarget]).tabId!==pair.tabId)return {status:'pair-changed'};
+      if(isRevision)return await chrome.tabs.sendMessage(pair.tabId,{type:'fieldwork-stage-business-revision',...D.normalizeRevision(message)},{frameId:0});
       return await chrome.tabs.sendMessage(pair.tabId,{type:'fieldwork-apply-business-draft',fieldwork:message.fieldwork,step:message.step,fields:message.fields},{frameId:0});
     }
     if(isLaunch){

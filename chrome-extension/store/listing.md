@@ -1,6 +1,6 @@
-# Chrome Web Store listing — Fieldwork Companion Pane 0.10.3
+# Chrome Web Store listing — Fieldwork Companion Pane 0.10.4
 
-Prepared September 14, 2026. These are editable submission materials; nothing has been submitted to Google.
+Prepared September 15, 2026. These are editable submission materials; nothing has been submitted to Google.
 
 ## Product fields
 
@@ -29,12 +29,13 @@ WHAT YOU CAN DO
 • Review an activity note and choose Put note in BoodleBox to place it in the matching chat's empty message box. Review it there and press Send yourself.
 • In Business Plan First Steps, check whether the matching workspace is connected. Choose the workspace or keep planning entirely in chat.
 • Review the guide's proposed business-plan fields as readable text. Choose Use this draft to apply one step to the matching workspace, then edit it there.
+• For a complete business-plan revision, choose Review revised plan to open a website preview. Save the current plan, compare the revision, and load it only when ready.
 • Follow supported activity links and open the matching guide beside the lesson.
 • Use Copy link when you want to place a supported destination yourself.
 
 YOU CONTROL THE HANDOFF
 
-The extension never presses Send. An unfinished message or attachment is preserved. It checks the exact paired tabs before a transfer, and opening the business workspace preserves other occupied pages. Draft actions apply only the displayed fields for one planning step; they do not synchronize the entire conversation or all website edits.
+The extension never presses Send. An unfinished message or attachment is preserved. It checks the exact paired tabs before a transfer, and opening the business workspace preserves other occupied pages. Single-step draft actions apply only the displayed fields. Whole-plan revision actions open a preview; saving and loading happen through explicit website controls. Neither synchronizes the entire conversation or all website edits.
 
 REQUIREMENTS
 
