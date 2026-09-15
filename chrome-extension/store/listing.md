@@ -1,4 +1,4 @@
-# Chrome Web Store listing — Fieldwork Companion Pane 0.10.1
+# Chrome Web Store listing — Fieldwork Companion Pane 0.10.2
 
 Prepared September 14, 2026. These are editable submission materials; nothing has been submitted to Google.
 

@@ -1,4 +1,10 @@
-# Fieldwork Companion Pane — 0.10.1
+# Fieldwork Companion Pane — 0.10.2
+
+Fixes **Open workspace** and connection checks after starting a new BoodleBox chat without a page reload. Chrome can retain the original profile or launch URL in MessageSender.url while BoodleBox displays the new conversation. The connection channel now validates the sender's BoodleBox origin, then checks Chrome's current tab URL and the responding Business Plan composer. Same-extension, top-frame, current-chat and exact-pair checks remain required.
+
+The reported failure was reproduced in Chrome: Open workspace failed in a newly started chat, then succeeded after refreshing that chat and reached **Workspace connected**. A regression test fails on 0.10.1 and passes on the corrected source and production runtime. All 55 repository tests pass. The 0.10.2 ZIP still needs to be loaded in Chrome and tested from a newly started chat before store submission.
+
+## Store packaging introduced in 0.10.1
 
 Store preparation adds extension/toolbar icons and public help/privacy links. `store-build.cjs` creates a public-only runtime: no localhost host permissions, content-script matches or local routing. The source checkout retains development routes. `package-store.py OUTPUT_DIRECTORY --node NODE_PATH` writes an identical unpacked runtime and a ZIP with `manifest.json` at the root; build scripts, documentation and listing assets stay outside that upload ZIP. Use a new output directory to prevent stale files. The ZIP is distinct from the older folder-wrapped unpacked-install archives.
 

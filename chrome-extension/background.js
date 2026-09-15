@@ -5,7 +5,9 @@ const transitions=FieldworkTransition.create({chrome,R});
 chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   if(!message||sender.frameId!==0||!sender.tab)return;
   if(['fieldwork-connection-state','fieldwork-business-workspace-open'].includes(message.type)){
-    if(sender.id!==chrome.runtime.id||!R.isChat(sender.url)||!R.isChat(message.chatUrl))return;
+    // BoodleBox can start a chat without reloading the original profile document.
+    // Check the sender's origin here; check/open verify the current tab URL and guide.
+    if(sender.id!==chrome.runtime.id||!R.isBoodle(sender.url)||!R.isChat(message.chatUrl))return;
     const action=message.type==='fieldwork-connection-state'?FieldworkConnection.check:FieldworkConnection.open;
     action({chrome,R,sourceId:sender.tab.id,chatUrl:message.chatUrl}).then(reply).catch(()=>reply({status:'unavailable'}));return true;
   }

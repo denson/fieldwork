@@ -1,6 +1,6 @@
 # Privacy practices — prepared answers
 
-These answers describe the 0.10.1 **store build**, not the development checkout. Match them to the current dashboard labels and review the certifications yourself before submitting.
+These answers describe the 0.10.2 **store build**, not the development checkout. Match them to the current dashboard labels and review the certifications yourself before submitting.
 
 ## Single purpose — paste
 

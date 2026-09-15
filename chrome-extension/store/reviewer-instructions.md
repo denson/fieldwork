@@ -8,6 +8,8 @@ Before submitting for review, make sure the reviewer can obtain the required Boo
 
 ## Business-plan handoff
 
+First verify **Open workspace** from a new chat: after loading the extension, open the Business Plan profile and choose Start New Chat. Without refreshing the new chat, click Open workspace. With Chrome's blank split-view chooser beside the chat, the workspace should open there and the status should become Workspace connected. Without a blank paired pane, it should open a new tab while preserving other pages. This covers the new-chat routing fix in 0.10.2.
+
 1. Open https://box.boodle.ai/a/@BusinessPlanFirstSteps and choose Start New Chat after signing in. Leave the new message box empty.
 2. Open https://denson.github.io/fieldwork/?demo=business&example=yard&step=idea in a second tab. It loads a fictional yard-care plan. Put the chat and this workspace in the two halves of the same Chrome split view. Do not pair the example-selection catalog instead of the workspace.
 3. Enable the companion in its toolbar popup. If pages predate installation/update, refresh both. The Business Plan chat should show **Workspace connected** above its message box.
@@ -33,4 +35,4 @@ Open https://denson.github.io/fieldwork/start.html with https://box.boodle.ai/a/
 
 The package is readable Manifest V3 code with no remote-code execution or extension backend. Browser metadata is used only for exact pane targeting and navigation. Notes and planning fields are not stored in extension storage. The store build deliberately removes localhost access and routing. The current extension requires the matching guide's normal English composer labels.
 
-Automated verification covers the store manifest/icons/runtime, public routes, transfer boundaries, races, existing drafts, note validation and unchanged business planning behavior. A live 0.10.1 candidate test is still required before review submission. The prepared store screenshot shows the unchanged website-side note control, captured with the currently installed 0.9.0 extension; it does not assert that the 0.10.1 candidate has been loaded.
+All 55 repository tests pass, including the new-chat routing regression against source and packaged background code. Automated verification also covers the store manifest/icons/runtime, public routes, transfer boundaries, races, existing drafts, note validation and unchanged business planning behavior. A live 0.10.2 candidate test is still required before review submission. The prepared store screenshot shows the unchanged website-side note control, captured with the earlier 0.9.0 extension; it does not assert that the 0.10.2 candidate has been loaded.

@@ -1,5 +1,9 @@
 # Fieldwork publication
 
+## Open workspace fix — 0.10.2
+
+Fixes connection checks and Open workspace after BoodleBox starts a new chat using client-side navigation. The original document URL is checked for the BoodleBox origin; the live tab URL and responding guide still determine whether a current chat is eligible. No permissions, bot instructions or website behavior changed. The new regression failed before the fix and passes against both source and store background code; all 55 repository tests pass. The failure and reload workaround were verified in Chrome. Load and test the 0.10.2 submission ZIP from a newly started chat before submitting it to Google.
+
 ## September 14 Chrome Web Store preparation
 
 Companion Pane **0.10.1** adds PNG icons, toolbar icons and public help/privacy links. Business Plan bot v1.7 is unchanged. Build the store package with `chrome-extension/package-store.py`; it removes localhost permissions/matches/routes, includes only runtime files, and places `manifest.json` at the ZIP root. The source checkout still supports local development. Store-specific tests verify runtime completeness, public routing, permission scope, icon dimensions and absence of remote-code loaders.
