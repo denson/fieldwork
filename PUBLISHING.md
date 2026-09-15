@@ -1,5 +1,9 @@
 # Fieldwork publication
 
+## Welcome split-view instructions — Business Plan bot v1.9
+
+The greeting and bot instructions now tell Chrome users to right-click the workspace link and choose **Open link in split view**, keeping the website beside the chat. This uses Chrome’s normal link menu. Chat-only planning remains available. All five example references are unchanged; the combined LF configuration is 48,925 characters. Published in BoodleBox and verified after reloading the builder, with the updated greeting persisted and no unpublished changes. All 55 repository tests pass. Extension remains 0.10.3; no reinstall is needed for this bot update.
+
 ## Welcome workspace link — Business Plan bot v1.8
 
 The welcome now includes a normal **Open the planning workspace** link to the business activity, with editable examples, calculator and gap review explained briefly. Chat-only planning remains complete. Instructions retain all five example references, require that welcome link, and describe Companion Pane 0.10.3's folded text controls. Keep rich content on the accompanying page and the chat conversational. This is a bot update; it needs no extension reinstall. The combined LF configuration is 48,943 characters (49,686 in BoodleBox's formatted counter), and all 55 repository tests pass.
