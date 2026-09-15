@@ -1,5 +1,9 @@
 # Fieldwork publication
 
+## Welcome workspace link — Business Plan bot v1.8
+
+The welcome now includes a normal **Open the planning workspace** link to the business activity, with editable examples, calculator and gap review explained briefly. Chat-only planning remains complete. Instructions retain all five example references, require that welcome link, and describe Companion Pane 0.10.3's folded text controls. Keep rich content on the accompanying page and the chat conversational. This is a bot update; it needs no extension reinstall. The combined LF configuration is 48,943 characters (49,686 in BoodleBox's formatted counter), and all 55 repository tests pass.
+
 ## Plain chat controls — 0.10.3
 
 Replaces the persistent connection box with a closed text disclosure and renders proposed draft fields as ordinary themed text with a small Use this draft action. The original BoodleBox code-block container is hidden while the extension is enabled and restored when it is disabled. Modes still require a reviewed message and manual Send; successful mode preparation closes the disclosure. The previous new-chat routing fix is retained. All 55 repository tests and the actual content-script DOM fixture pass. The new extension must be loaded and the ordinary pages refreshed to see these changes.
