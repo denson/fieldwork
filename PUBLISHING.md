@@ -1,5 +1,11 @@
 # Fieldwork publication
 
+## September 14 Chrome Web Store preparation
+
+Companion Pane **0.10.1** adds PNG icons, toolbar icons and public help/privacy links. Business Plan bot v1.7 is unchanged. Build the store package with `chrome-extension/package-store.py`; it removes localhost permissions/matches/routes, includes only runtime files, and places `manifest.json` at the ZIP root. The source checkout still supports local development. Store-specific tests verify runtime completeness, public routing, permission scope, icon dimensions and absence of remote-code loaders.
+
+The required public URLs are `extension.html` (help/homepage) and `extension-privacy.html` (data handling). The policy describes local handling of current tab metadata, known draft content and prepared notes, BoodleBox's separate handling of text placed in its page, and exact extension storage/retention. Do not declare that the extension handles no data merely because it has no collection backend. Store copy and reviewer instructions are in `chrome-extension/store/`; submission is manual. No store listing, review submission, account certification or trader declaration is completed by this release. A live test of the new unpacked store candidate remains necessary before review submission.
+
 ## September 13 connection and client-facing copy update
 
 Current extension: Companion Pane **0.10.0**. Current Business Plan bot instructions: **v1.7**. Publish the exact LF-normalized `portfolio/lessons/business-plan-boodlebox-configuration.txt`; it includes every current example field and stays below 49,000 characters before the builder's rich-text formatting. Keep the existing greeting and description. The bot defaults to chat, uses manual copy/paste when the workspace connection is unconfirmed, and supplies transfer cards only after the visitor shares a connection check and chooses the workspace. A request to return to chat overrides an earlier connection report.

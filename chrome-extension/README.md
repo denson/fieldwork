@@ -1,4 +1,10 @@
-# Fieldwork Companion Pane — 0.10.0
+# Fieldwork Companion Pane — 0.10.1
+
+Store preparation adds extension/toolbar icons and public help/privacy links. `store-build.cjs` creates a public-only runtime: no localhost host permissions, content-script matches or local routing. The source checkout retains development routes. `package-store.py OUTPUT_DIRECTORY --node NODE_PATH` writes an identical unpacked runtime and a ZIP with `manifest.json` at the root; build scripts, documentation and listing assets stay outside that upload ZIP. Use a new output directory to prevent stale files. The ZIP is distinct from the older folder-wrapped unpacked-install archives.
+
+Public help: https://denson.github.io/fieldwork/extension.html . Privacy policy: https://denson.github.io/fieldwork/extension-privacy.html . Store listing materials are in `store/`. A BoodleBox account with guide access is required for the chat features. Automated checks pass, but the store candidate must be loaded and tested live before submitting for review; a store listing is not automatically published by preparing these files.
+
+## Connection behavior introduced in 0.10.0
 
 Business Plan First Steps shows a connection indicator above its message box. It verifies the enabled extension, the exact guide and the responding business-plan workspace in the same Chrome split view. The catalog is a selection page; open an example to reach a connectable workspace. An installed extension alone does not prove a working connection.
 
