@@ -1,0 +1,9 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const {assess,grade}=require('../a2a-core.js');
+const {quiz}=require('../a2a-content.json');
+test('total fees and changed terms require approval even when base price is low',()=>{assert.equal(assess({}).canProceed,true);for(const value of [{fee:15},{recurring:true,price:10},{scopeMatches:false},{authorityValid:false}])assert.equal(assess(value).status,'needs-approval');assert.equal(assess({fee:10}).canProceed,true);});
+test('payment timeout, failure, payment success and delivery acceptance remain separate',()=>{assert.equal(assess({payment:'unknown'}).status,'unknown');assert.equal(assess({payment:'failed'}).status,'failed');assert.equal(assess({payment:'succeeded'}).status,'awaiting-delivery');assert.equal(assess({payment:'succeeded',deliveryAccepted:true}).status,'accepted');assert.equal(assess({deliveryAccepted:true}).status,'ready');});
+test('changed terms do not hide an existing unknown or recorded payment',()=>{assert.match(assess({recurring:true,payment:'unknown'}).reasons.join(' '),/Reconcile/);assert.match(assess({authorityValid:false,payment:'succeeded'}).reasons.join(' '),/already recorded/);});
+test('invalid money cannot authorize an exercise purchase',()=>{for(const value of [-1,NaN,Infinity,'40',null,1000001])assert.equal(assess({price:value}).status,'invalid');});
+test('quiz needs completion and every critical decision, not just a high score',()=>{const correct=Object.fromEntries(quiz.map(q=>[q.id,q.answer]));assert.equal(grade(quiz,{}).complete,false);assert.equal(grade(quiz,correct).passed,true);assert.equal(grade(quiz,{...correct,q3:0}).passed,false);assert.equal(grade(quiz,{...correct,q1:1,q2:1}).passed,true);assert.equal(grade(quiz,{...correct,q1:1,q2:1,q8:0}).passed,false);assert.equal(grade(quiz,{...correct,q3:'1'}).complete,false);});

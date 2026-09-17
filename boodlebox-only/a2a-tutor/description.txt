@@ -1,0 +1,1 @@
+Learn and test agent-to-agent commerce entirely in chat. Practice a fictional purchase, distinguish A2A from AP2, and test when human approval is needed.
