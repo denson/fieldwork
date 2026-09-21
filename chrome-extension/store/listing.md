@@ -41,7 +41,7 @@ REQUIREMENTS
 
 Desktop Chrome 140 or later with split view available. BoodleBox sign-in and access to the selected guide are required. This extension does not supply a BoodleBox account or subscription; BoodleBox's own access requirements apply. Put the matching chat and activity in the same Chrome split view and refresh pages opened before installation.
 
-Supports the published Fieldwork activities and Colorado Weed Field Guide on denson.github.io. Business-plan draft actions and connection-choice controls are specific to Business Plan First Steps. The store version does not connect to localhost development sites.
+Supports the published Fieldwork activities and Colorado Plants & Practical Care on denson.github.io. Business-plan draft actions and connection-choice controls are specific to Business Plan First Steps. The store version does not connect to localhost development sites.
 
 PRIVACY
 

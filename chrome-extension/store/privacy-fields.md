@@ -16,7 +16,7 @@ The extension must identify the exact two tabs sharing a Chrome splitViewId and 
 
 ## Host permissions justification — paste
 
-https://box.boodle.ai/* is required to identify the matching guide and composer, display handoff controls, read recognized draft blocks and supported links, and prepare visitor-approved notes in that composer. https://denson.github.io/* is required for the published Fieldwork and Colorado Weed Field Guide activities. Activity content-script matches are restricted to /fieldwork/* and /colorado-weed-field-guide/*, and routing checks restrict supported destinations; Chrome host permissions operate at origin scope. No other origins, localhost sites, cookies, network interception or all-sites access are requested by the store build.
+https://box.boodle.ai/* is required to identify the matching guide and composer, display handoff controls, read recognized draft blocks and supported links, and prepare visitor-approved notes in that composer. https://denson.github.io/* is required for the published Fieldwork and Colorado Plants & Practical Care activities. Activity content-script matches are restricted to /fieldwork/* and /colorado-weed-field-guide/*, and routing checks restrict supported destinations; Chrome host permissions operate at origin scope. No other origins, localhost sites, cookies, network interception or all-sites access are requested by the store build.
 
 ## Remote code
 
