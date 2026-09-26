@@ -20,6 +20,11 @@ assert.equal(R.combo('https://denson.github.io/colorado-weed-field-guide/compani
 for(const url of ['https://denson.github.io/fieldwork-other/','https://denson.github.io/other/','https://evil.example/fieldwork/','https://user:pass@denson.github.io/fieldwork/','https://denson.github.io/fieldwork/%2fstart.html','https://denson.github.io/fieldwork/%2estart.html']){assert.equal(R.destination(url),null);assert.equal(R.isActivity(url),false);}
 assert.equal(R.destination(base+'lessons/budget.md'),null);
 assert.equal(R.destination(base+'assets/history-casebook.png'),null);
+assert.equal(R.destination(base+'device-support.html'),base+'device-support.html');
+assert.equal(R.combo(base+'device-support.html').companion,'DeviceSupportWorkspace');
+assert.equal(R.profileAlias('https://box.boodle.ai/a/@DeviceSupportWorkspace'),'DeviceSupportWorkspace');
+assert.equal(R.destination(base+'device-support.html/other'),null);
+assert.equal(R.destination('https://evil.example/fieldwork/device-support.html'),null);
 const m=JSON.parse(fs.readFileSync(require.resolve('../../chrome-extension/manifest.json'),'utf8'));
 assert.ok(m.content_scripts.some(s=>s.matches.includes(base+'*')));
 assert.deepEqual(m.permissions,['storage','tabs']);

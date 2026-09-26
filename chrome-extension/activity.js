@@ -93,7 +93,7 @@
   document.addEventListener('click',event=>{
     if(!enabled||!event.isTrusted||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
     const link=event.target instanceof Element?event.target.closest('a[href]'):null,next=R.combo(location.href);
-    if(!link)return;
+    if(!link||link.hasAttribute('data-fieldwork-plain-link'))return;
     const destination=link.hasAttribute('data-fieldwork-combo')&&R.combo(link.href)?link.href:next&&R.profileAlias(link.href)===next.companion?location.href:null;
     if(!destination)return;
     event.preventDefault();event.stopImmediatePropagation();

@@ -25,6 +25,10 @@ function setup({guard='safe-to-start',rePair=false,activityUrl=right.url}={}){
   assert.equal((await fromChooser.resume('fieldwork-transition-start')).status,'start-approved');fromChooser.tabs.get(7).url='https://box.boodle.ai/c/from-blank';
   assert.equal((await fromChooser.resume('fieldwork-transition-ready',{companion:'CommunityBudgetCoach'})).status,'combo-ready');assert.equal(fromChooser.tabs.get(8).url,destination);
   const sameFromChooser=setup({activityUrl:chooser,guard:'same-guide'});assert.equal((await sameFromChooser.start()).status,'routed');assert.deepEqual(sameFromChooser.updates,[{id:8,url:destination}]);
+  const supportUrl='http://127.0.0.1:4173/device-support.html';
+  const supportFromChooser=setup({activityUrl:chooser,guard:'same-guide'});
+  assert.equal((await supportFromChooser.t.start({boodle:{...left},activity:{...right,url:chooser},url:supportUrl})).status,'routed');
+  assert.deepEqual(supportFromChooser.updates,[{id:8,url:supportUrl}]);
   for(const activityUrl of ['chrome://extensions/',undefined,'https://bank.example/form']){if(activityUrl===undefined)continue;const unrelated=setup({activityUrl});assert.equal((await unrelated.start()).status,'no-chat');assert.equal(unrelated.updates.length,0);}
   const practiceReturn=R.combo('http://127.0.0.1:4173/start.html?step=return&pass=abcd1234&badge=lantern&topic=budget');
   assert.equal(practiceReturn.companion,'FieldworkFirstSteps');assert.equal(new URL(practiceReturn.url).searchParams.get('here'),'1');

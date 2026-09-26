@@ -33,6 +33,10 @@ function worker({peers=[source,target],enabled=true,moveOnRecheck=false}={}){
   for(const blank of blankPanes){
     w=worker({peers:[source,{...target,url:blank}]});assert.equal((await w.send()).status,'routed',blank);assert.deepEqual(w.updates,[{id:8,url:R.destination(url)}]);assert.equal(w.creates.length,0);
   }
+  const supportUrl='http://127.0.0.1:4173/device-support.html';
+  w=worker({peers:[source,{...target,url:blankPanes[3]}]});
+  assert.equal((await w.send({type:'fieldwork-open',url:supportUrl})).status,'routed');
+  assert.deepEqual(w.updates,[{id:8,url:supportUrl}]);assert.equal(w.creates.length,0);
   w=worker({peers:[source,{...target,url:blankPanes[3],pendingUrl:'https://bank.example/form'}]});assert.equal((await w.send()).status,'pair-changed');assert.equal(w.updates.length+w.creates.length,0);
   w=worker({peers:[source,{...target,url:blankPanes[3]}],moveOnRecheck:true});assert.equal((await w.send()).status,'pair-changed');assert.equal(w.updates.length+w.creates.length,0);
   w=worker({peers:[source,{...target,url:'https://bank.example/form'}]});assert.equal((await w.send()).status,'opened-new');assert.equal(w.updates.length,0);assert.equal(w.creates[0].openerTabId,7);
