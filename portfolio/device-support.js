@@ -126,7 +126,7 @@
     if(kind==='outlook')return `https://outlook.live.com/mail/0/deeplink/compose?to=${to}&subject=${title}${message}`;
     return C.mailto(subject,body);
   }
-  async function openEmail(kind){const body=emailText(),subject=C.subject(state);if(!state.goal&&!state.device&&!state.observations.length&&!state.checks.length){status('Add at least the problem or device before preparing an email.');return;}
+  async function openEmail(kind){const body=emailText(),subject=C.subject(state);if(!body||!state.goal&&!state.device&&!state.observations.length&&!state.checks.length){status('Add at least the problem or device before preparing an email.');return;}
     const full=compose(kind,subject,body),long=full.length>1800,url=long?compose(kind,subject,''):full;
     if(kind==='app'&&long){try{await navigator.clipboard.writeText(body);}catch{status('Clipboard unavailable. Copy the full email below, then paste it into your email app.');}location.href=url;return;}
     if(kind==='app')location.href=url;else window.open(url,'_blank','noopener');

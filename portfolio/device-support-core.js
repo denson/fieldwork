@@ -9,7 +9,7 @@
   const max = {short: 300, detail: 2000, items: 30, sources: 20};
   const clean = (value, limit = max.detail) => String(value || '').replace(/\r\n?/g, '\n').replace(/[\u0000-\u0009\u000b-\u001f\u007f]/g, ' ').trim().slice(0, limit);
   const cleanSubject = value => clean(value, 160).replace(/\n/g, ' ');
-  const cleanBody = value => clean(value, 30000);
+  const cleanBody = value => clean(value, 500000);
   const mailto = (subject, body) => `mailto:${recipient}?subject=${encodeURIComponent(cleanSubject(subject))}&body=${encodeURIComponent(cleanBody(body))}`;
   const blank = () => ({version: 1, goal: '', device: '', environment: '', observations: [], checks: [], sources: [], questions: [], nextStep: ''});
   const words = (list, limit = max.items) => Array.isArray(list) ? list.slice(0, limit).map(x => clean(x)).filter(Boolean) : [];
