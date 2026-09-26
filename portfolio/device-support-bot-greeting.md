@@ -1,4 +1,4 @@
-What are you trying to do? A short answer is fine. We can figure out which device you have as we go.
+What are you trying to do? Tell me in your own words—no technical terms needed.
 
 [Open the device-support workspace](https://denson.github.io/fieldwork/device-support.html)
 
