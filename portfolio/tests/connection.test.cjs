@@ -44,7 +44,7 @@ test('Open workspace reuses only a blank paired pane and preserves other pages',
 test('the new background channel rejects external, wrong-origin and child-frame senders',async()=>{
   const e=setup();let handler;
   e.chrome.runtime.onMessage={addListener:f=>handler=f};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   const message={type:'fieldwork-connection-state',chatUrl:chat.url};
   const send=sender=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});});
   assert.equal((await send({id:e.chrome.runtime.id,frameId:0,tab:chat,url:chat.url})).status,'connected');
@@ -57,7 +57,7 @@ test('new chats opened within BoodleBox can connect and open the workspace witho
   for(const code of [source,packaged])for(const originalUrl of ['https://box.boodle.ai/a/@BusinessPlanFirstSteps','https://box.boodle.ai/launch/chat','https://box.boodle.ai/']){
     const e=setup({peers:[chat,{...activity,url:'chrome://tab-search.top-chrome/split_new_tab_page.html'}]});let handler;
     e.chrome.runtime.onMessage={addListener:f=>handler=f};
-    vm.runInNewContext(code,{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+    vm.runInNewContext(code,{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
     const send=(type,chatUrl=chat.url)=>new Promise(resolve=>{if(handler({type,chatUrl},{id:e.chrome.runtime.id,frameId:0,tab:chat,url:originalUrl},resolve)!==true)resolve({status:'ignored'});});
     assert.equal((await send('fieldwork-connection-state')).status,'unconnected',originalUrl);
     assert.equal((await send('fieldwork-business-workspace-open')).status,'opened-paired',originalUrl);
@@ -81,7 +81,7 @@ test('a business note carries only the responding pair status and cancels a late
     e.chrome.tabs.get=async id=>{const tab=await get(id);if(changesPair&&checks&&id===activity.id)tab.splitViewId=999;return tab;};
     e.chrome.tabs.sendMessage=async(id,message)=>{if(message.type==='fieldwork-place-draft'){delivered={id,message};return {status:'draft-ready'};}throw Error('unexpected message');};
     const connection={status:'connected',protocol:C.protocol,extensionVersion:'0.10.0',checkedAt:fixed};
-    vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkConnection:{check:async args=>{checks++;assert.equal(args.sourceId,chat.id);assert.equal(args.chatUrl,chat.url);return connection;}},FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+    vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:{check:async args=>{checks++;assert.equal(args.sourceId,chat.id);assert.equal(args.chatUrl,chat.url);return connection;}},FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
     const text='FIELDWORK BUSINESS PLAN\nFictional test note';
     const result=await new Promise(resolve=>handler({type:'fieldwork-note',text,sourceUrl:activity.url,companion:'BusinessPlanFirstSteps'},{id:e.chrome.runtime.id,frameId:0,tab:activity,url:activity.url},resolve));
     if(changesPair){assert.equal(result.status,'pair-changed');assert.equal(delivered,undefined);}

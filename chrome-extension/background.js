@@ -1,6 +1,7 @@
-importScripts('routing.js','business-draft.js','connection.js','transition.js');
+importScripts('routing.js','business-draft.js','support-packet.js','connection.js','transition.js');
 const R=FieldworkRouting;
 const D=FieldworkBusinessDraft;
+const S=FieldworkSupportPacket;
 const transitions=FieldworkTransition.create({chrome,R});
 chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   if(!message||sender.frameId!==0||!sender.tab)return;
@@ -20,10 +21,11 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   const isGuide=message.type==='fieldwork-open-guide'&&R.isSharePage(sender.url);
   const isRevision=message.type==='fieldwork-business-revision'&&sender.id===chrome.runtime.id&&R.isBoodle(sender.url);
   const isBusinessDraft=(message.type==='fieldwork-business-draft'&&R.isBoodle(sender.url))||isRevision;
-  if(!isOpen&&!isNote&&!isLaunch&&!isGuide&&!isBusinessDraft)return;
+  const isSupport=message.type==='fieldwork-support-update'&&R.isBoodle(sender.url);
+  if(!isOpen&&!isNote&&!isLaunch&&!isGuide&&!isBusinessDraft&&!isSupport)return;
   (async()=>{
     const url=isOpen||isLaunch?R.destination(message.url):null;
-    if(isOpen?!url:isLaunch?!R.combo(url):isGuide?R.profileAlias(message.url)!==R.combo(message.sourceUrl)?.companion:isNote?!R.validNote(message):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
+    if(isOpen?!url:isLaunch?!R.combo(url):isGuide?R.profileAlias(message.url)!==R.combo(message.sourceUrl)?.companion:isNote?!R.validNote(message):isSupport?!S.valid(message.packet):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
     const settings=await chrome.storage.local.get({enabled:true});if(!settings.enabled)return {status:'disabled'};
     const source=await chrome.tabs.get(sender.tab.id);
     if(isGuide){
@@ -41,6 +43,16 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
       if(pair.reason==='page-changing')return {status:'pair-changed'};
       await chrome.tabs.create({url:message.url,openerTabId:source.id,active:true});
       return {status:'opened-new',reason:pair.reason};
+    }
+    if(isSupport){
+      if(source.url!==message.chatUrl||!R.isChat(source.url))return {status:'page-changed'};
+      const peers=await chrome.tabs.query({windowId:source.windowId});
+      const pair=R.paired(source,peers);if(pair.tabId===undefined)return {status:'no-chat',reason:pair.reason};
+      const target=peers.find(t=>t.id===pair.tabId);
+      if(R.combo(target.url)?.companion!=='DeviceSupportWorkspace')return {status:'wrong-guide'};
+      const [freshSource,freshTarget]=await Promise.all([chrome.tabs.get(source.id),chrome.tabs.get(target.id)]);
+      if(freshSource.url!==source.url||freshTarget.url!==target.url||R.paired(freshSource,[freshSource,freshTarget]).tabId!==target.id)return {status:'pair-changed'};
+      return await chrome.tabs.sendMessage(target.id,{type:'fieldwork-stage-support-update',packet:message.packet},{frameId:0});
     }
     if(isBusinessDraft){
       if(source.url!==message.chatUrl||!R.isChat(source.url))return {status:'page-changed'};

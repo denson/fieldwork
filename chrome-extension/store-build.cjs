@@ -3,7 +3,7 @@
 const fs=require('node:fs'),path=require('node:path');
 const publicHosts=['https://box.boodle.ai/*','https://denson.github.io/*'];
 const publicPages=['https://denson.github.io/fieldwork/*','https://denson.github.io/colorado-weed-field-guide/*'];
-const runtimeFiles=['background.js','routing.js','business-draft.js','draft.js','connection.js','connection-client.js','transition.js','transition-client.js','content.js','content.css','activity.js','activity.css','popup.html','popup.js','popup.css'];
+const runtimeFiles=['background.js','routing.js','business-draft.js','support-packet.js','draft.js','connection.js','connection-client.js','transition.js','transition-client.js','content.js','content.css','activity.js','activity.css','popup.html','popup.js','popup.css'];
 function buildFiles(root=__dirname){
   const manifest=JSON.parse(fs.readFileSync(path.join(root,'manifest.json'),'utf8'));
   manifest.host_permissions=publicHosts;

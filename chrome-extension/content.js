@@ -1,6 +1,6 @@
 (()=>{
   'use strict';
-  const R=FieldworkRouting,D=FieldworkBusinessDraft,buttons=new WeakMap(),businessDrafts=new WeakMap(),draftSources=new WeakMap(),draftCards=new Set();let enabled=true,scheduled=false;
+  const R=FieldworkRouting,D=FieldworkBusinessDraft,S=FieldworkSupportPacket,buttons=new WeakMap(),businessDrafts=new WeakMap(),supportPackets=new WeakMap(),draftSources=new WeakMap(),draftCards=new Set();let enabled=true,scheduled=false;
   let placing=false;
   const connectionUI=FieldworkConnectionUI.create({chrome,C:FieldworkConnection,R,document,location,findEditor:findBusinessEditor,isEnabled:()=>enabled,place:placeText,onState:state=>{
     for(const card of draftCards){const button=card.querySelector('.fw-use-business-draft');if(button)button.disabled=!enabled||!FieldworkConnection.fresh(state);}
@@ -49,6 +49,32 @@
   }
   async function copy(href){const url=R.destination(href);if(!url)return;try{await navigator.clipboard.writeText(url);announce('Link copied. Click the website side, press Ctrl+L, paste, and press Enter.');}catch{announce('Select and copy this link, then paste it into the website side’s address bar.',url);}}
   function businessGuideReady(){return [...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"]')].some(e=>e.getClientRects().length&&e.getAttribute('aria-label')==='Your prompt to '+R.companions.BusinessPlanFirstSteps);}
+  function supportGuideReady(){return [...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"]')].some(e=>e.getClientRects().length&&e.getAttribute('aria-label')==='Your prompt to '+R.companions.DeviceSupportWorkspace);}
+  function installSupportPackets(){
+    if(!supportGuideReady())return;
+    document.querySelectorAll('pre').forEach(pre=>{
+      if(supportPackets.has(pre))return;
+      const packet=S.parse(pre.innerText||pre.textContent);if(!packet)return;
+      const card=document.createElement('div');card.className='fw-support-packet';
+      const button=document.createElement('button');button.type='button';button.textContent='Review on workspace →';
+      const status=document.createElement('span');status.setAttribute('role','status');
+      button.addEventListener('click',async event=>{
+        if(!event.isTrusted||!enabled)return;button.disabled=true;status.textContent=' Opening the update for review…';
+        try{const result=await chrome.runtime.sendMessage({type:'fieldwork-support-update',packet,chatUrl:location.href});status.textContent={
+          'support-staged':' Ready on the workspace for your review.',
+          'support-busy':' Review or discard the previous update first.',
+          'no-chat':' Keep the matching workspace beside this chat.',
+          'wrong-guide':' Open the device-support workspace beside this chat.',
+          'pair-changed':' The paired pages changed. Try again.',
+          'page-changed':' The chat or workspace changed. Try again.'
+        }[result?.status]||' Could not transfer. Copy the update and paste it into the workspace.';}
+        catch{status.textContent=' Could not transfer. Copy the update and paste it into the workspace.';}
+        finally{button.disabled=false;}
+      });
+      const wrapper=pre.parentElement,source=wrapper?.matches('.markdown-code')&&wrapper.querySelectorAll('pre').length===1?wrapper:pre;
+      card.append(button,status);source.after(card);source.hidden=true;supportPackets.set(pre,card);draftSources.set(card,source);draftCards.add(card);
+    });
+  }
   function installBusinessDrafts(){
     if(!businessGuideReady())return;
     const stepNames={idea:'Your idea',customer:'Your customer',offer:'Your offer',rules:'Licenses, safety, and rules',numbers:'Your numbers',test:'Your next test'};
@@ -91,6 +117,7 @@
       b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();copy(a.href);});a.after(b);buttons.set(a,b);
     });
     installBusinessDrafts();
+    installSupportPackets();
   }
   new MutationObserver(()=>{if(!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;scan();});}}).observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['aria-label','contenteditable']});
   setInterval(()=>{if(document.visibilityState!=='hidden')connectionUI.refresh();},15000);

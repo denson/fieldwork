@@ -35,3 +35,4 @@
 
 
 .fw-use-business-draft:disabled{cursor:default!important}
+.fw-support-packet{display:flex;align-items:center;gap:8px;margin:8px 0 12px}.fw-support-packet button{border:1px solid #7b96ad;background:transparent;color:inherit;border-radius:6px;padding:6px 10px;font:inherit;font-weight:650;cursor:pointer}.fw-support-packet span{font-size:.85em}

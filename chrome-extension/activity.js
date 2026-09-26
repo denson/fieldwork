@@ -33,6 +33,12 @@
   }
   chrome.runtime.onMessage.addListener((message,sender,reply)=>{
     if(sender.id!==chrome.runtime.id||sender.tab)return;
+    if(message?.type==='fieldwork-stage-support-update'){
+      const input=document.getElementById('support-update-input'),stage=document.getElementById('support-update-stage');
+      if(!enabled||R.combo(location.href)?.companion!=='DeviceSupportWorkspace'||!FieldworkSupportPacket.valid(message.packet)||!input||!stage){reply({status:'rejected'});return;}
+      input.value=JSON.stringify(message.packet);input.dataset.accepted='0';stage.click();
+      reply({status:input.dataset.accepted==='1'?'support-staged':'support-busy'});return;
+    }
     if(message?.type==='fieldwork-business-workspace-probe'){
       chrome.storage.local.get({enabled:true}).then(settings=>{
         const ready=settings.enabled&&message.workspaceUrl===location.href&&R.combo(location.href)?.companion==='BusinessPlanFirstSteps'&&document.querySelector('#business-view [data-business-step="idea"]')&&document.querySelector('#business-stage');
@@ -85,7 +91,7 @@
     }
     for(const slot of document.querySelectorAll('[data-fieldwork-share]')){
       if(controls.has(slot))continue;
-      const button=document.createElement('button');button.type='button';button.className='button primary fw-place-note';button.textContent='Put note in BoodleBox ←';
+      const button=document.createElement('button');button.type='button';button.className='button primary fw-place-note';button.textContent=slot.dataset.shareLabel||'Put note in BoodleBox ←';
       const status=document.createElement('p');status.className='fw-note-status';status.setAttribute('role','status');
       slot.append(button,status);slot.hidden=!enabled;controls.set(slot,{button,status});
       button.addEventListener('click',async event=>{

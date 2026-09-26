@@ -2,63 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Device support — Stoagen</title>
-  <meta name="description" content="Gather your device details and prepare a support email for Stoagen.">
-  <link rel="stylesheet" href="device-support.css?v=20260926-1">
-  <script defer src="device-support-core.js?v=20260926-2"></script><script defer src="device-support.js?v=20260926-1"></script>
+  <title>Device support workspace — Stoagen</title>
+  <meta name="description" content="Work with a guide, review device-support findings, and prepare a case for help.">
+  <link rel="stylesheet" href="device-support.css?v=20260926-2">
+  <script defer src="device-support-core.js?v=20260926-3"></script><script defer src="device-support.js?v=20260926-2"></script>
 </head>
 <body>
-<header><a href="./?demo=home">Fieldwork / Stoagen</a><nav aria-label="Page navigation"><a href="#support-form">Prepare a request</a><a href="https://box.boodle.ai/a/@DeviceSupportGuide">Chat-only guide ↗</a></nav></header>
+<header><a href="./?demo=home">Fieldwork / Stoagen</a><nav aria-label="Page navigation"><a href="#case-board">Your case</a><a href="#escalate">Ask for help</a></nav></header>
 <main>
-  <p class="eyebrow">LET'S UNDERSTAND WHAT'S HAPPENING</p>
-  <h1>Your device.<br>Your next step.</h1>
-  <p class="lead">Describe a problem with any device. Use the guide to identify it, or fill in the form yourself. Then review an email you can send to Stoagen.</p>
-  <section class="guide-start" aria-labelledby="guide-start-title">
-    <h2 id="guide-start-title">Want the guide beside this page?</h2>
-    <p>If the guide is already beside this page, continue in that chat. Otherwise, open it below. It will ask one question at a time. When it prepares your email, copy the complete request and paste it into the review box below.</p>
-    <a class="button" href="https://box.boodle.ai/a/@DeviceSupportWorkspace" target="_blank" rel="noopener noreferrer" data-fieldwork-open-guide>Open the device support guide ↗</a>
-    <p class="hint">You can also use this page without BoodleBox. Nothing is sent until you review the draft in your email app and press Send.</p>
+  <p class="eyebrow">DEVICE SUPPORT WORKSPACE</p>
+  <h1>Let's figure out what is happening.</h1>
+  <p class="lead">Tell the guide what you need to do. It will help identify your device, ask one useful question at a time, and suggest a safe next check. This page keeps the facts and links you choose to save.</p>
+  <section class="guide-start" aria-labelledby="guide-title">
+    <div><h2 id="guide-title">Talk it through with the guide</h2><p>Keep this page beside BoodleBox if you like. After a useful answer, review its proposed update here. You can also edit this case directly.</p></div>
+    <a class="button" href="https://box.boodle.ai/a/@DeviceSupportWorkspace" target="_blank" rel="noopener noreferrer" data-fieldwork-open-guide>Open the guide ↗</a>
   </section>
-  <p>You don't need to know every answer. Leave blank what you don't know. Do not include passwords, recovery codes or payment details.</p>
-  <form id="support-form" aria-label="Device support request" action="" method="get">
-    <fieldset><legend>1. What do you need help with?</legend>
-      <label for="goal">What are you trying to do, or what is going wrong?</label>
-      <textarea id="goal" name="goal" rows="3" maxlength="4000" required></textarea>
-      <label for="device">Device brand and exact model</label><p class="hint" id="model-help">Check the label or an About screen. Your guide can help you find it. Include whether the model is confirmed or uncertain.</p>
-      <textarea id="device" name="device" rows="2" maxlength="1000" aria-describedby="model-help"></textarea>
-    </fieldset>
-    <fieldset><legend>2. Where is it happening?</legend>
-      <label for="environment">Software, connections and other equipment involved</label><p class="hint">Include relevant versions, apps or connected devices if known.</p>
-      <textarea id="environment" name="environment" rows="3" maxlength="4000"></textarea>
-      <label for="symptoms">What do you see or hear? Any exact error message?</label>
-      <textarea id="symptoms" name="symptoms" rows="3" maxlength="4000"></textarea>
-      <label for="changes">When did it start, and did anything change?</label>
-      <textarea id="changes" name="changes" rows="2" maxlength="2000"></textarea>
-    </fieldset>
-    <fieldset><legend>3. What have you already tried?</legend>
-      <label for="attempts">Steps you actually tried and what happened after each</label>
-      <textarea id="attempts" name="attempts" rows="3" maxlength="4000"></textarea>
-      <label for="unknowns">Anything else the support team needs to clarify?</label>
-      <textarea id="unknowns" name="unknowns" rows="2" maxlength="2000"></textarea>
-    </fieldset>
-    <button type="submit">Prepare my email →</button>
-  </form>
-  <details class="paste-panel" id="request"><summary>Already have a request from the chat guide or a saved copy?</summary>
-    <p>Paste the complete Recipient / Subject / Body request. You can also paste just the message body and edit the subject on the next screen.</p>
-    <label for="pasted">Paste the request here</label><textarea id="pasted" rows="8" maxlength="30000"></textarea>
-    <button id="use-pasted" type="button">Review this request →</button>
-  </details>
-  <section id="review" hidden aria-labelledby="review-heading">
-    <h2 id="review-heading" tabindex="-1">Review your email</h2>
-    <p>To: <strong>tech_support@stoagen.com</strong></p>
-    <label for="subject">Subject</label><input id="subject" maxlength="160">
-    <label for="body">Message — edit anything before sending</label><textarea id="body" rows="16" maxlength="30000"></textarea>
-    <p>If you change the form details above, choose Prepare my email again to replace this draft. Changes made directly to the draft will otherwise stay here.</p>
-    <div class="actions"><a id="open-email" class="button" href="mailto:tech_support@stoagen.com">Open email draft</a><button id="copy-request" type="button" class="secondary">Copy request</button><button id="download-request" type="button" class="secondary">Save a copy</button></div>
-    <p id="long-note" hidden>Your request is too long for a dependable email link. Use Copy request and paste the full text into your email app.</p>
-    <p>Your email app opens the draft; you press Send. Attach any relevant device photos or screenshots there. This page cannot confirm delivery.</p>
+  <div class="toolbar"><span data-fieldwork-share data-note-id="case-note" data-companion="DeviceSupportWorkspace" data-share-label="Discuss this case with the guide ←"></span><button id="copy-brief" class="secondary" type="button">Copy case note</button></div><textarea id="case-note" class="visually-offscreen" aria-hidden="true" tabindex="-1" readonly></textarea>
+  <section id="case-board" aria-labelledby="case-title">
+    <div class="section-heading"><h2 id="case-title">Your case</h2><p>Only what you confirm belongs here. “Unknown” is a useful answer.</p></div>
+    <div class="board-grid">
+      <section class="panel" aria-labelledby="identity-title"><h3 id="identity-title">Device and situation</h3>
+        <label for="goal">What are you trying to do or fix?</label><textarea id="goal" rows="2" maxlength="2000" placeholder="Tell us in your own words"></textarea>
+        <label for="device">Exact device and model, if known</label><textarea id="device" rows="2" maxlength="2000" placeholder="Unknown is fine"></textarea>
+        <label for="environment">Software, connections, and other equipment</label><textarea id="environment" rows="2" maxlength="2000" placeholder="Add only what matters"></textarea>
+      </section>
+      <section class="panel" aria-labelledby="next-title"><h3 id="next-title">Next step</h3><p>One thing to learn or try next. A suggestion is not a completed test.</p><textarea id="next-step" rows="4" maxlength="2000" placeholder="Ask the guide what matters next"></textarea>
+        <h4>Open questions</h4><div id="questions-list" class="item-list"></div><div class="add-row"><input id="question-new" aria-label="New open question" placeholder="Add a question"><button id="question-add" type="button" class="secondary">Add</button></div>
+      </section>
+      <section class="panel" aria-labelledby="observations-title"><h3 id="observations-title">What you observed</h3><p>Error messages, sounds, timing, and what the device actually did.</p><div id="observations-list" class="item-list"></div><div class="add-row"><input id="observation-new" aria-label="New observation" placeholder="Add an observation"><button id="observation-add" type="button" class="secondary">Add</button></div></section>
+      <section class="panel" aria-labelledby="checks-title"><h3 id="checks-title">Checks and outcomes</h3><p>Record what was suggested separately from what you tried.</p><div id="checks-list" class="item-list"></div><div class="add-row"><input id="check-new" aria-label="New check" placeholder="What did you check?"><button id="check-add" type="button" class="secondary">Add</button></div></section>
+      <section class="panel wide" aria-labelledby="sources-title"><h3 id="sources-title">Sources and links</h3><p>A candidate link is not a verified answer. Open the source and mark what you actually checked.</p><div id="sources-list" class="item-list"></div><div class="add-row"><input id="source-url" type="url" aria-label="Source URL" placeholder="https://…"><input id="source-title" aria-label="Source title" placeholder="Page title"><button id="source-add" type="button" class="secondary">Add link</button></div></section>
+    </div>
   </section>
+  <section id="proposal" class="proposal" hidden aria-labelledby="proposal-title"><h2 id="proposal-title">Review the guide's update</h2><p>Change or uncheck anything that does not match what you know. Checks arrive as suggestions; links arrive as candidates.</p><div id="proposal-items"></div><div class="actions"><button id="proposal-accept" type="button">Add selected items to case</button><button id="proposal-reject" class="secondary" type="button">Discard update</button></div></section>
+  <textarea id="support-update-input" hidden aria-hidden="true"></textarea><button id="support-update-stage" type="button" hidden>Stage update</button>
+  <details class="paste-panel"><summary>Paste a case update from chat</summary><p>If the extension is unavailable, ask the guide to “prepare a case update,” copy its complete <code>fieldwork-support-case-v1</code> block, and paste it here.</p><textarea id="pasted" rows="7" aria-label="Case update from chat" maxlength="18000"></textarea><button id="use-pasted" type="button" class="secondary">Review pasted update</button></details>
+  <section id="escalate" class="panel" aria-labelledby="escalate-title"><h2 id="escalate-title">Ask Stoagen for help</h2><p>Review the case below. The email contains your full Markdown case once. Your email service opens a draft; you decide whether to send it.</p><label for="case-markdown">Email body — edit before opening email</label><textarea id="case-markdown" rows="13" maxlength="30000"></textarea><div class="actions"><button id="refresh-email" type="button" class="secondary">Refresh from case</button><button id="gmail" type="button">Open Gmail draft ↗</button><button id="outlook" type="button">Open Outlook.com draft ↗</button><button id="email-app" type="button" class="secondary">Other email app ↗</button><button id="copy-email" type="button" class="secondary">Copy full email</button></div><p class="hint">For a long case, we copy the full text and open an addressed draft. Paste the text into that draft. Check the recipient, body, and any photos before pressing Send.</p></section>
+  <details class="save-panel"><summary>Save, restore, or clear this case</summary><p>This case is saved in this browser only. Avoid passwords, recovery codes, and payment details.</p><div class="actions"><button id="download-markdown" class="secondary" type="button">Download Markdown</button><button id="download-json" class="secondary" type="button">Download JSON</button><label class="file-button" for="import-json">Import JSON</label><input id="import-json" type="file" accept=".json,application/json"><button id="clear-case" class="danger" type="button">Clear this case</button></div></details>
   <p id="status" role="status" aria-live="polite"></p>
-  <footer>Your entries are not saved automatically. Use Save a copy before closing or reloading. If you return later, paste that saved text above to restore the email draft.</footer>
+  <footer>Suggestions and source links require your review. Nothing on this page sends an email or runs a device check for you.</footer>
 </main>
 </body></html>

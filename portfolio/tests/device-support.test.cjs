@@ -1,29 +1,46 @@
-const {test} = require('node:test');
-const assert = require('node:assert/strict');
-const core = require('../device-support-core.js');
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const C=require('../device-support-core.js');
+const S=require('../../chrome-extension/support-packet.js');
 
-test('site form makes a concise editable request without inventing device facts', () => {
-  const draft = core.formDraft({goal:'The screen stays black',device:'',environment:'',symptoms:'',changes:'',attempts:'',unknowns:''});
-  assert.equal(draft.subject,'[Stoagen support] The screen stays black');
-  assert.match(draft.body,/I need help with: The screen stays black/);
-  assert.match(draft.body,/Device and model: Unknown/);
-  assert.doesNotMatch(draft.body,/startup|battery|operating system|Not yet provided/i);
+const packet=value=>'```fieldwork-support-case-v1\n'+JSON.stringify({fieldwork:C.protocol,version:1,updateType:'proposal',...value})+'\n```';
+
+test('a generic, unknown device remains unknown and the case can be sent as Markdown',()=>{
+  const c=C.blank();c.goal='The screen stays black';c.observations=['The power light is on'];
+  const text=C.markdown(c);
+  assert.match(text,/Device: Not yet known|Not yet known/);
+  assert.match(text,/The power light is on/);
+  assert.doesNotMatch(text,/battery|startup procedure/i);
+  assert.equal(new URL(C.mailto(C.subject(c),text)).pathname,C.recipient);
 });
 
-test('guide request preserves its subject, body and supported recipient', () => {
-  const draft = core.parseGuideDraft('Recipient: tech_support@stoagen.com\nSubject: [Stoagen support] Printer — error 42\nBody:\nHello,\nThe printer says error 42.\nThank you.\nEND SUPPORT REQUEST');
-  assert.equal(draft.subject,'[Stoagen support] Printer — error 42');
-  assert.equal(draft.body,'Hello,\nThe printer says error 42.\nThank you.');
-  assert.deepEqual(core.parseGuideDraft(core.completeRequest(draft.subject,draft.body)),draft);
-  const link=new URL(core.mailto(draft.subject,draft.body));
-  assert.equal(link.pathname,'tech_support@stoagen.com');
-  assert.deepEqual([...link.searchParams.keys()],['subject','body']);
-  assert.equal(link.searchParams.get('body'),draft.body);
+test('reviewed update preserves source link and never upgrades a candidate or suggested check',()=>{
+  const raw=packet({device:'Printer X100',sources:[{title:'Maker support',url:'https://maker.example/manual',note:'Possible error guide',status:'read'}],checks:[{step:'Read the display',status:'tried',outcome:'Error 42'}]});
+  assert.ok(S.parse(raw));
+  const proposed=C.parsePacket(raw),caseFile=C.merge(C.blank(),proposed);
+  assert.equal(caseFile.sources[0].url,'https://maker.example/manual');
+  assert.equal(caseFile.sources[0].status,'candidate');
+  assert.equal(caseFile.checks[0].status,'tried');
+  assert.equal(caseFile.checks[0].outcome,'Error 42');
+  assert.match(C.markdown(caseFile),/CANDIDATE|candidate/);
 });
 
-test('guide paste rejects a different recipient and malformed headers', () => {
-  assert.throws(()=>core.parseGuideDraft('Recipient: stranger@example.com\nSubject: Help\nBody:\nHello'),/different recipient/);
-  assert.throws(()=>core.parseGuideDraft('Subject: Help\nNo body marker'),/complete request/);
-  assert.equal(core.parseGuideDraft('Just the problem description').body,'Just the problem description');
-  assert.equal(core.cleanSubject('Laptop\r\nBcc: stranger@example.com'),'Laptop  Bcc: stranger@example.com');
+test('new suggestions cannot overwrite a completed check or duplicate a source',()=>{
+  const c=C.blank();c.checks=[{step:'Restart once',status:'tried',outcome:'No change'}];c.sources=[{title:'Guide',url:'https://maker.example/guide',note:'',status:'user-confirmed'}];
+  const next=C.merge(c,C.normalize({version:1,checks:[{step:'Restart once',status:'suggested'}],sources:[{title:'Different',url:'https://maker.example/guide',status:'candidate'}]}));
+  assert.deepEqual(next.checks,c.checks);assert.deepEqual(next.sources,c.sources);
+});
+
+test('packets reject unsupported versions, unsafe links, and empty updates',()=>{
+  assert.throws(()=>C.parsePacket(packet({version:2,device:'Phone'})),/not a supported/);
+  assert.throws(()=>C.parsePacket(packet({})),/empty/);
+  assert.equal(S.parse(packet({device:'Phone',sources:[{url:'javascript:alert(1)'}]})),null);
+  assert.equal(C.parsePacket(packet({device:'Phone',sources:[{url:'javascript:alert(1)'}]})).sources.length,0);
+});
+
+test('JSON and Markdown carry the same human-confirmed case facts',()=>{
+  const c=C.normalize({version:1,goal:'Print a page',device:'Printer X100',environment:'Windows 11',observations:['Error 42'],checks:[{step:'Read display',status:'tried',outcome:'Error 42'}],sources:[{title:'Maker',url:'https://maker.example/manual',status:'read',note:'Error table'}],questions:['Which firmware?'],nextStep:'Check model label'});
+  const restored=C.normalize(JSON.parse(JSON.stringify(c))),markdown=C.markdown(restored);
+  assert.deepEqual(restored,c);
+  for(const value of ['Print a page','Printer X100','Windows 11','Error 42','https://maker.example/manual','Which firmware?','Check model label'])assert.ok(markdown.includes(value),value);
 });
