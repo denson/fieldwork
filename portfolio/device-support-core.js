@@ -40,9 +40,34 @@
     const text = clean(raw, 18000);
     const match = text.match(/```fieldwork-support-case-v1\s*\n([\s\S]*?)\n```/i);
     const body = match ? match[1] : text.trim().startsWith('{') ? text : null;
-    if (!body) throw Error('Paste the complete case-update block from the guide.');
+    if (!body) {
+      const lines=text.replace(/\r/g,'').split('\n'),start=lines.findIndex(line=>/^\s*\*{0,2}Case note for review\*{0,2}\s*$/i.test(line));
+      if(start<0)throw Error('Paste the complete “Case note for review” from the guide.');
+      const proposed=blank();
+      for(const line of lines.slice(start+1)){
+        const entry=line.match(/^\s*[-*•]\s+(?:\*\*)?([A-Za-z ]+):(?:\*\*)?\s*(.+?)\s*$/);
+        if(!entry){if(line.trim())break;continue;}
+        const label=entry[1].toLowerCase(),value=entry[2].trim();if(!value)continue;
+        if(label==='goal')proposed.goal=value;
+        else if(label==='device')proposed.device=value;
+        else if(label==='environment')proposed.environment=value;
+        else if(label==='observed')proposed.observations.push(value);
+        else if(label==='open question')proposed.questions.push(value);
+        else if(label==='next step')proposed.nextStep=value;
+        else if(label==='suggested check')proposed.checks.push({step:value,status:'suggested',outcome:''});
+        else if(label==='tried check'){
+          const parts=value.split(/\s+[—–-]\s+Result:\s*/i);proposed.checks.push({step:parts[0],status:'tried',outcome:parts[1]||''});
+        }else if(label==='source to check'){
+          const url=value.match(/https?:\/\/[^\s)<>]+/i)?.[0];
+          if(url)proposed.sources.push({title:'Source to check',url,note:value.replace(url,'').replace(/^[\s\[\]()—–-]+|[\s\[\]()—–-]+$/g,''),status:'candidate'});
+        }
+      }
+      const update=normalize(proposed);
+      if (!update.goal && !update.device && !update.environment && !update.nextStep && !update.observations.length && !update.checks.length && !update.sources.length && !update.questions.length) throw Error('That case note has no usable details yet.');
+      return update;
+    }
     let value;
-    try { value = JSON.parse(body); } catch { throw Error('The case update is not valid JSON. Ask the guide to prepare it again.'); }
+    try { value = JSON.parse(body); } catch { throw Error('That older case update could not be read. Ask the guide for a new case note.'); }
     if (value?.fieldwork !== protocol || value.version !== 1 || value.updateType !== 'proposal') throw Error('This is not a supported device-support update.');
     const update = normalize(value);
     if (!update.goal && !update.device && !update.environment && !update.nextStep && !update.observations.length && !update.checks.length && !update.sources.length && !update.questions.length) throw Error('The case update is empty.');

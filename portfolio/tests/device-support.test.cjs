@@ -25,6 +25,16 @@ test('reviewed update preserves source link and never upgrades a candidate or su
   assert.match(C.markdown(caseFile),/CANDIDATE|candidate/);
 });
 
+test('plain-language case note stages facts, attempted checks, and a candidate link',()=>{
+  const raw=`Here is the next question.\n\nCase note for review\n- Device: Printer, model unknown\n- Observed: Error 42 appears when printing\n- Tried check: Restarted once — Result: Error 42 remains\n- Source to check: https://maker.example/help — possible support page\n- Open question: What is the exact model?\n- Next step: Read the model label`;
+  const proposal=S.parse(raw),site=C.parsePacket(raw);
+  assert.ok(proposal);assert.equal(proposal.device,'Printer, model unknown');
+  assert.equal(site.checks[0].status,'tried');assert.equal(site.checks[0].outcome,'Error 42 remains');
+  assert.equal(site.sources[0].url,'https://maker.example/help');assert.equal(site.sources[0].status,'candidate');
+  assert.equal(site.questions[0],'What is the exact model?');
+  assert.doesNotMatch(raw,/```|\{\s*"fieldwork"/);
+});
+
 test('new suggestions cannot overwrite a completed check or duplicate a source',()=>{
   const c=C.blank();c.checks=[{step:'Restart once',status:'tried',outcome:'No change'}];c.sources=[{title:'Guide',url:'https://maker.example/guide',note:'',status:'user-confirmed'}];
   const next=C.merge(c,C.normalize({version:1,checks:[{step:'Restart once',status:'suggested'}],sources:[{title:'Different',url:'https://maker.example/guide',status:'candidate'}]}));

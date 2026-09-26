@@ -52,9 +52,7 @@
   function supportGuideReady(){return [...document.querySelectorAll('[data-lexical-editor="true"][role="textbox"]')].some(e=>e.getClientRects().length&&e.getAttribute('aria-label')==='Your prompt to '+R.companions.DeviceSupportWorkspace);}
   function installSupportPackets(){
     if(!supportGuideReady())return;
-    document.querySelectorAll('pre').forEach(pre=>{
-      if(supportPackets.has(pre))return;
-      const packet=S.parse(pre.innerText||pre.textContent);if(!packet)return;
+    function addButton(source,key,packet,hideSource){
       const card=document.createElement('div');card.className='fw-support-packet';
       const button=document.createElement('button');button.type='button';button.textContent='Review on workspace →';
       const status=document.createElement('span');status.setAttribute('role','status');
@@ -67,12 +65,24 @@
           'wrong-guide':' Open the device-support workspace beside this chat.',
           'pair-changed':' The paired pages changed. Try again.',
           'page-changed':' The chat or workspace changed. Try again.'
-        }[result?.status]||' Could not transfer. Copy the update and paste it into the workspace.';}
-        catch{status.textContent=' Could not transfer. Copy the update and paste it into the workspace.';}
+        }[result?.status]||' Could not transfer. Copy the case note and paste it into the workspace.';}
+        catch{status.textContent=' Could not transfer. Copy the case note and paste it into the workspace.';}
         finally{button.disabled=false;}
       });
+      card.append(button,status);source.after(card);if(hideSource){source.hidden=true;draftSources.set(card,source);}
+      supportPackets.set(key,card);draftCards.add(card);
+    }
+    document.querySelectorAll('pre').forEach(pre=>{
+      if(supportPackets.has(pre))return;
+      const packet=S.parse(pre.innerText||pre.textContent);if(!packet)return;
       const wrapper=pre.parentElement,source=wrapper?.matches('.markdown-code')&&wrapper.querySelectorAll('pre').length===1?wrapper:pre;
-      card.append(button,status);source.after(card);source.hidden=true;supportPackets.set(pre,card);draftSources.set(card,source);draftCards.add(card);
+      addButton(source,pre,packet,true);
+    });
+    document.querySelectorAll('.markdown-content p').forEach(heading=>{
+      if(heading.textContent.trim()!=='Case note for review'||supportPackets.has(heading))return;
+      const list=heading.nextElementSibling;if(list?.tagName!=='UL')return;
+      const raw='Case note for review\n'+[...list.children].filter(child=>child.tagName==='LI').map(child=>'- '+child.innerText).join('\n');
+      const packet=S.parse(raw);if(packet)addButton(list,heading,packet,false);
     });
   }
   function installBusinessDrafts(){

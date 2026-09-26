@@ -1,10 +1,34 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.FieldworkSupportPacket=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
   const protocol='fieldwork-support-case-v1';
+  function note(raw){
+    const lines=raw.replace(/\r/g,'').split('\n'),start=lines.findIndex(line=>/^\s*\*{0,2}Case note for review\*{0,2}\s*$/i.test(line));
+    if(start<0)return null;
+    const data={fieldwork:protocol,version:1,updateType:'proposal',observations:[],checks:[],sources:[],questions:[]};
+    for(const line of lines.slice(start+1)){
+      const match=line.match(/^\s*[-*•]\s+(?:\*\*)?([A-Za-z ]+):(?:\*\*)?\s*(.+?)\s*$/);
+      if(!match){if(line.trim())break;continue;}
+      const label=match[1].toLowerCase(),value=match[2].trim();if(!value)continue;
+      if(label==='goal')data.goal=value;
+      else if(label==='device')data.device=value;
+      else if(label==='environment')data.environment=value;
+      else if(label==='observed')data.observations.push(value);
+      else if(label==='open question')data.questions.push(value);
+      else if(label==='next step')data.nextStep=value;
+      else if(label==='suggested check')data.checks.push({step:value,status:'suggested',outcome:''});
+      else if(label==='tried check'){
+        const parts=value.split(/\s+[—–-]\s+Result:\s*/i);data.checks.push({step:parts[0],status:'tried',outcome:parts[1]||''});
+      }else if(label==='source to check'){
+        const url=value.match(/https?:\/\/[^\s)<>]+/i)?.[0];
+        if(url)data.sources.push({title:'Source to check',url,note:value.replace(url,'').replace(/^[\s\[\]()—–-]+|[\s\[\]()—–-]+$/g,''),status:'candidate'});
+      }
+    }
+    return valid(data)?data:null;
+  }
   function parse(raw){
     if(typeof raw!=='string'||raw.length>18000)return null;
     const fenced=raw.match(/```fieldwork-support-case-v1\s*\n([\s\S]*?)\n```/i),text=fenced?fenced[1]:raw.trim();
-    let data;try{data=JSON.parse(text);}catch{return null;}
+    let data;try{data=JSON.parse(text);}catch{return note(raw);}
     return valid(data)?data:null;
   }
   function valid(data){
