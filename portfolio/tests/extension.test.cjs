@@ -28,6 +28,16 @@ function worker({peers=[source,target],enabled=true,moveOnRecheck=false}={}){
   vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   return {updates,creates,send:(message={type:'fieldwork-open',url},sender={frameId:0,tab:source,url:source.url})=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
 }
+function guideWorker({site={id:3,windowId:1,splitViewId:12,url:'https://denson.github.io/fieldwork/device-support.html'},pane={id:4,windowId:1,splitViewId:12,url:'chrome://tab-search.top-chrome/split_new_tab_page.html'},moveOnRecheck=false}={}){
+  let handler,reads=0;const updates=[],creates=[],peers=[site,pane];
+  const chrome={runtime:{onMessage:{addListener:f=>handler=f}},storage:{local:{get:async()=>({enabled:true})}},tabs:{
+    get:async id=>{reads++;const tab=peers.find(t=>t.id===id);return moveOnRecheck&&reads>1&&id===pane.id?{...tab,splitViewId:99}:{...tab};},
+    query:async()=>peers,update:async(id,data)=>updates.push({id,...data}),create:async data=>creates.push(data)
+  }};
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkTransition:{create:()=>({start:async()=>({status:'starting-combo'})})},importScripts(){}});
+  const profile='https://box.boodle.ai/a/@DeviceSupportWorkspace';
+  return {updates,creates,send:(url=profile)=>new Promise(resolve=>{const message={type:'fieldwork-open-guide',url,sourceUrl:site.url},sender={frameId:0,tab:site,url:site.url};if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
+}
 (async()=>{
   let w=worker();assert.equal((await w.send()).status,'routed');assert.deepEqual(w.updates,[{id:8,url:R.destination(url)}]);assert.equal(w.creates.length,0);
   for(const blank of blankPanes){
@@ -43,6 +53,13 @@ function worker({peers=[source,target],enabled=true,moveOnRecheck=false}={}){
   w=worker({moveOnRecheck:true});assert.equal((await w.send()).status,'pair-changed');assert.equal(w.updates.length+w.creates.length,0);
   w=worker({enabled:false});assert.equal((await w.send()).status,'disabled');assert.equal(w.updates.length+w.creates.length,0);
   w=worker();assert.equal((await w.send({type:'fieldwork-open',url:'https://evil.example/'})).status,'rejected');assert.equal(w.updates.length+w.creates.length,0);
+  let g=guideWorker();assert.equal((await g.send()).status,'routed');assert.deepEqual(g.updates,[{id:4,url:'https://box.boodle.ai/a/@DeviceSupportWorkspace'}]);assert.equal(g.creates.length,0);
+  g=guideWorker({pane:{id:4,windowId:1,splitViewId:12,url:'https://box.boodle.ai/a/@DeviceSupportWorkspace'}});assert.equal((await g.send()).status,'already-open');assert.equal(g.updates.length+g.creates.length,0);
+  g=guideWorker({pane:{id:4,windowId:1,splitViewId:12,url:'https://box.boodle.ai/c/other-guide'}});assert.equal((await g.send()).status,'starting-combo');assert.equal(g.updates.length+g.creates.length,0);
+  g=guideWorker({site:{id:3,windowId:1,splitViewId:-1,url:'https://denson.github.io/fieldwork/device-support.html'}});assert.equal((await g.send()).status,'opened-new');assert.equal(g.creates.length,1);assert.equal(g.updates.length,0);
+  g=guideWorker({pane:{id:4,windowId:1,splitViewId:12,url:'https://example.com/notes'}});assert.equal((await g.send()).status,'opened-new');assert.equal(g.creates.length,1);assert.equal(g.updates.length,0);
+  g=guideWorker({moveOnRecheck:true});assert.equal((await g.send()).status,'pair-changed');assert.equal(g.updates.length+g.creates.length,0);
+  g=guideWorker();assert.equal((await g.send('https://box.boodle.ai/a/@BusinessPlanFirstSteps')).status,'rejected');assert.equal(g.updates.length+g.creates.length,0);
   assert.equal((await w.send(undefined,{frameId:0,tab:source,url:'https://evil.example/'})).status,'ignored');
   assert.equal((await w.send(undefined,{frameId:1,tab:source,url:source.url})).status,'ignored');
   console.log('Extension: exact split/window targeting, recheck races, unrelated pages preserved, origin/path validation, disabled mode, sender validation, and permissions passed.');

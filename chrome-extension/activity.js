@@ -60,6 +60,20 @@
     catch{status.textContent=launchMessages.failed;}
     finally{button.disabled=false;}
   }
+  async function openGuide(link,status){
+    status.textContent='Opening the guide…';
+    try{const result=await chrome.runtime.sendMessage({type:'fieldwork-open-guide',url:link.href,sourceUrl:location.href});
+      status.textContent={
+        'routed':'The guide opened in the other pane.',
+        'already-open':'The guide is already in the other pane.',
+        'starting-combo':'Opening the matching guide in the other pane…',
+        'opened-new':'The guide opened in a new tab.',
+        'draft-not-empty':'There is an unfinished message in the other pane. Send or clear it before changing guides.',
+        'pair-changed':'The split view changed. Try again.',
+        'page-changed':'This page changed. Try again.'
+      }[result?.status]||'The guide could not open. Reload this page and try again.';
+    }catch{status.textContent='The guide could not open. Reload this page and try again.';}
+  }
   function install(){
     document.documentElement.dataset.fieldworkCompanion=enabled?chrome.runtime.getManifest().version:'';
     document.documentElement.dataset.fieldworkLaunch=enabled?'1':'';
@@ -93,7 +107,12 @@
   document.addEventListener('click',event=>{
     if(!enabled||!event.isTrusted||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
     const link=event.target instanceof Element?event.target.closest('a[href]'):null,next=R.combo(location.href);
-    if(!link||link.hasAttribute('data-fieldwork-plain-link'))return;
+    if(!link)return;
+    if(link.hasAttribute('data-fieldwork-open-guide')&&next&&R.profileAlias(link.href)===next.companion){
+      event.preventDefault();event.stopImmediatePropagation();
+      let status=link.parentElement.querySelector('.fw-launch-link-status');if(!status){status=document.createElement('p');status.className='fw-note-status fw-launch-link-status';status.setAttribute('role','status');link.after(status);}
+      openGuide(link,status);return;
+    }
     const destination=link.hasAttribute('data-fieldwork-combo')&&R.combo(link.href)?link.href:next&&R.profileAlias(link.href)===next.companion?location.href:null;
     if(!destination)return;
     event.preventDefault();event.stopImmediatePropagation();

@@ -17,14 +17,31 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   const isOpen=message.type==='fieldwork-open'&&R.isBoodle(sender.url);
   const isNote=message.type==='fieldwork-note'&&R.isSharePage(sender.url);
   const isLaunch=message.type==='fieldwork-launch'&&R.isSharePage(sender.url);
+  const isGuide=message.type==='fieldwork-open-guide'&&R.isSharePage(sender.url);
   const isRevision=message.type==='fieldwork-business-revision'&&sender.id===chrome.runtime.id&&R.isBoodle(sender.url);
   const isBusinessDraft=(message.type==='fieldwork-business-draft'&&R.isBoodle(sender.url))||isRevision;
-  if(!isOpen&&!isNote&&!isLaunch&&!isBusinessDraft)return;
+  if(!isOpen&&!isNote&&!isLaunch&&!isGuide&&!isBusinessDraft)return;
   (async()=>{
     const url=isOpen||isLaunch?R.destination(message.url):null;
-    if(isOpen?!url:isLaunch?!R.combo(url):isNote?!R.validNote(message):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
+    if(isOpen?!url:isLaunch?!R.combo(url):isGuide?R.profileAlias(message.url)!==R.combo(message.sourceUrl)?.companion:isNote?!R.validNote(message):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
     const settings=await chrome.storage.local.get({enabled:true});if(!settings.enabled)return {status:'disabled'};
     const source=await chrome.tabs.get(sender.tab.id);
+    if(isGuide){
+      if(source.url!==message.sourceUrl||!R.isSharePage(source.url)||new URL(source.url).origin!==new URL(sender.url).origin)return {status:'page-changed'};
+      const peers=await chrome.tabs.query({windowId:source.windowId});
+      const pair=R.pairedGuide(source,peers);
+      if(pair.tabId!==undefined){
+        const target=peers.find(t=>t.id===pair.tabId);
+        if(R.isChat(target.url))return transitions.start({boodle:target,activity:source,url:source.url});
+        if(R.profileAlias(target.url)===R.combo(source.url).companion)return {status:'already-open'};
+        const [freshSource,freshTarget]=await Promise.all([chrome.tabs.get(source.id),chrome.tabs.get(target.id)]);
+        if(freshSource.url!==source.url||freshTarget.url!==target.url||R.pairedGuide(freshSource,[freshSource,freshTarget]).tabId!==target.id)return {status:'pair-changed'};
+        await chrome.tabs.update(target.id,{url:message.url});return {status:'routed'};
+      }
+      if(pair.reason==='page-changing')return {status:'pair-changed'};
+      await chrome.tabs.create({url:message.url,openerTabId:source.id,active:true});
+      return {status:'opened-new',reason:pair.reason};
+    }
     if(isBusinessDraft){
       if(source.url!==message.chatUrl||!R.isChat(source.url))return {status:'page-changed'};
       const peers=await chrome.tabs.query({windowId:source.windowId});

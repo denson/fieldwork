@@ -27,6 +27,16 @@
     if(source.pendingUrl&&source.pendingUrl!==source.url)return {reason:'page-changing'};
     return {tabId:target.id};
   }
+  function pairedGuide(source,tabs){
+    const current=source&&combo(source.url);
+    if(!current||!Number.isInteger(source.splitViewId)||source.splitViewId<0)return {reason:'no-split'};
+    const matches=tabs.filter(t=>t.id!==source.id&&t.windowId===source.windowId&&t.splitViewId===source.splitViewId);
+    if(matches.length!==1)return {reason:'no-unique-pair'};
+    const target=matches[0];
+    if(source.pendingUrl&&source.pendingUrl!==source.url||target.pendingUrl&&target.pendingUrl!==target.url)return {reason:'page-changing'};
+    if(!isBlankPane(target.url)&&!isChat(target.url)&&profileAlias(target.url)!==current.companion)return {reason:'different-site'};
+    return {tabId:target.id};
+  }
   function paired(source,tabs){
     if(!source||!isBoodle(source.url)||!Number.isInteger(source.splitViewId)||source.splitViewId<0)return {reason:'no-split'};
     const matches=tabs.filter(t=>t.id!==source.id&&t.windowId===source.windowId&&t.splitViewId===source.splitViewId);
@@ -36,5 +46,5 @@
     if(target.pendingUrl&&target.pendingUrl!==target.url)return {reason:'page-changing'};
     return {tabId:target.id};
   }
-  return {isBoodle,destination,isActivity,isBlankPane,isPaneTarget,paired,isSharePage,isChat,validNote,pairedChat,companions,combo,profileAlias};
+  return {isBoodle,destination,isActivity,isBlankPane,isPaneTarget,paired,isSharePage,isChat,validNote,pairedChat,pairedGuide,companions,combo,profileAlias};
 });
