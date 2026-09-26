@@ -23,7 +23,7 @@
       ['What still needs clarification', values.unknowns]
     ].filter(([label, value]) => label === 'Device and model' || cleanBody(value));
     const body = `Hello,\n\nI need help with: ${goal}\n\n${details.map(([label, value]) => `${label}: ${cleanBody(value)}`).join('\n')}\n\nPlease advise how to proceed. Thank you.`;
-    const shortDevice = cleanSubject(device).slice(0, 75);
+    const shortDevice = cleanSubject(device === 'Unknown' ? goal : device).slice(0, 75);
     return { subject: cleanSubject(`[Stoagen support] ${shortDevice}`), body };
   }
 

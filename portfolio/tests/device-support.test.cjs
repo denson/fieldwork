@@ -4,7 +4,7 @@ const core = require('../device-support-core.js');
 
 test('site form makes a concise editable request without inventing device facts', () => {
   const draft = core.formDraft({goal:'The screen stays black',device:'',environment:'',symptoms:'',changes:'',attempts:'',unknowns:''});
-  assert.equal(draft.subject,'[Stoagen support] Unknown');
+  assert.equal(draft.subject,'[Stoagen support] The screen stays black');
   assert.match(draft.body,/I need help with: The screen stays black/);
   assert.match(draft.body,/Device and model: Unknown/);
   assert.doesNotMatch(draft.body,/startup|battery|operating system|Not yet provided/i);
