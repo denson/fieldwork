@@ -14,6 +14,7 @@ Fieldwork is an independent portfolio of five learning activities and a short Fi
 - [Companion instructions](lessons/companion-instructions.md): The teaching loop and supported link parameters.
 - [Pueblo History Detective](lessons/history.md): Catalog facts, evidence limits, and discussion prompts for six Library of Congress photographs.
 - [Earthquake Explorer](lessons/earthquakes.md): Why rare tsunami disasters justify readiness; USGS/NOAA roles, taxpayer-funded sensor networks, historical evidence, and an optional live USGS investigation.
+- [A2A Commerce Lab](a2a.html): Interactive agent-commerce teaching simulation; the [complete lesson and sources](a2a-reference.md) are available without running the page.
 - [Site index](index.md): Human and agent entry points.
 - [Community Budget Challenge](lessons/budget.md): Exact fictional five-year model, upkeep, storm scenario, comparisons, and link parameters.
 - [Budget bot instructions](lessons/budget-bot.md): Coach priorities and draft a decision memo from the learner's calculated results.
