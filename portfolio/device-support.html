@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Device support workspace — Stoagen</title>
-  <meta name="description" content="Work with a guide, review device-support findings, and prepare a case for help.">
+  <title>Retired device-support prototype — Stoagen</title>
+  <meta name="description" content="The device-support prototype has been retired after failing source-checking tests.">
   <link rel="stylesheet" href="device-support.css?v=20260926-3">
   <script defer src="device-support-core.js?v=20260926-5"></script><script defer src="device-support.js?v=20260926-3"></script>
 </head>
 <body>
-<header><a href="./?demo=home">Fieldwork / Stoagen</a><nav aria-label="Page navigation"><a href="#case-board">Your case</a><a href="#escalate">Ask for help</a></nav></header>
+<header><a href="./?demo=home">Fieldwork / Stoagen</a></header>
 <main>
-  <p class="eyebrow">DEVICE SUPPORT WORKSPACE</p>
-  <h1>Let's figure out what is happening.</h1>
-  <p class="lead">Tell the guide what you need to do. It will help identify your device, ask one useful question at a time, and suggest a safe next check. This page keeps the facts and links you choose to save.</p>
-  <section class="guide-start" aria-labelledby="guide-title">
-    <div><h2 id="guide-title">Talk it through with the guide</h2><p>Keep this page beside BoodleBox if you like. After a useful answer, review its proposed update here. You can also edit this case directly.</p></div>
-    <a class="button" href="https://box.boodle.ai/a/@DeviceSupportWorkspace" target="_blank" rel="noopener noreferrer" data-fieldwork-open-guide>Open the guide ↗</a>
-  </section>
-  <div class="toolbar"><span data-fieldwork-share data-note-id="case-note" data-companion="DeviceSupportWorkspace" data-share-label="Discuss this case with the guide ←"></span><button id="copy-brief" class="secondary" type="button">Copy case note</button></div><textarea id="case-note" class="visually-offscreen" aria-hidden="true" tabindex="-1" readonly></textarea>
+  <p class="eyebrow">RETIRED PROTOTYPE</p>
+  <h1>This device-support experiment has been retired.</h1>
+  <p class="lead">Our tests found that the research bot could misattribute a repair instruction to the wrong source. That does not meet the standard for real device support. Please use your device manufacturer's official support channel or a qualified local professional.</p>
+  <p><a href="./?demo=home">Return to the Fieldwork learning examples →</a></p>
+  <details class="save-panel"><summary>Retrieve a case saved here earlier</summary><p>The earlier case board remains available so you can copy or download your own notes. Its AI suggestions were not independently verified; check every source before using them.</p>
+  <div class="toolbar"><button id="copy-brief" class="secondary" type="button">Copy saved case note</button></div><textarea id="case-note" class="visually-offscreen" aria-hidden="true" tabindex="-1" readonly></textarea>
   <section id="case-board" aria-labelledby="case-title">
     <div class="section-heading"><h2 id="case-title">Your case</h2><p>Only what you confirm belongs here. “Unknown” is a useful answer.</p></div>
     <div class="board-grid">
@@ -37,9 +35,10 @@
   <section id="proposal" class="proposal" hidden aria-labelledby="proposal-title"><h2 id="proposal-title">Review the guide's update</h2><p>Change or uncheck anything that does not match what you know. Checks arrive as suggestions; links arrive as candidates.</p><div id="proposal-items"></div><div class="actions"><button id="proposal-accept" type="button">Add selected items to case</button><button id="proposal-reject" class="secondary" type="button">Discard update</button></div></section>
   <textarea id="support-update-input" hidden aria-hidden="true"></textarea><button id="support-update-stage" type="button" hidden>Stage update</button>
   <details class="paste-panel"><summary>Paste a case note from chat</summary><p>If the extension is unavailable, copy the guide’s short “Case note for review” and paste it here. You can change or reject every item before adding it.</p><textarea id="pasted" rows="7" aria-label="Case note from chat" maxlength="18000"></textarea><button id="use-pasted" type="button" class="secondary">Review pasted note</button></details>
-  <section id="escalate" class="panel" aria-labelledby="escalate-title"><h2 id="escalate-title">Ask Stoagen for help</h2><p>Review the case below. Your email service opens a draft; you decide whether to send it.</p><label for="case-markdown">Email body — edit before opening email</label><textarea id="case-markdown" rows="13" maxlength="500000"></textarea><div class="actions"><button id="refresh-email" type="button" class="secondary">Refresh from case</button><button id="gmail" type="button">Open Gmail draft ↗</button><button id="outlook" type="button">Open Outlook.com draft ↗</button><button id="email-app" type="button" class="secondary">Other email app ↗</button><button id="copy-email" type="button" class="secondary">Copy full email</button></div><p class="hint">For a long case, we copy the full text and open an addressed draft. Paste the text into that draft. Check the recipient, body, and any photos before pressing Send.</p></section>
+  <section id="escalate" class="panel" hidden aria-labelledby="escalate-title"><h2 id="escalate-title">Archived email draft</h2><label for="case-markdown">Email body</label><textarea id="case-markdown" rows="13" maxlength="500000"></textarea><div class="actions"><button id="refresh-email" type="button" class="secondary">Refresh from case</button><button id="gmail" type="button">Open Gmail draft ↗</button><button id="outlook" type="button">Open Outlook.com draft ↗</button><button id="email-app" type="button" class="secondary">Other email app ↗</button><button id="copy-email" type="button" class="secondary">Copy full email</button></div></section>
   <details class="save-panel"><summary>Save, restore, or clear this case</summary><p>This case is saved in this browser only. Avoid passwords, recovery codes, and payment details.</p><div class="actions"><button id="download-markdown" class="secondary" type="button">Download readable case</button><button id="download-json" class="secondary" type="button">Download case backup</button><label class="file-button" for="import-json">Restore case backup</label><input id="import-json" type="file" accept=".json,application/json"><button id="clear-case" class="danger" type="button">Clear this case</button></div></details>
   <p id="status" role="status" aria-live="polite"></p>
-  <footer>Suggestions and source links require your review. Nothing on this page sends an email or runs a device check for you.</footer>
+  </details>
+  <footer>This prototype is retired. Saved case information stays in this browser until you clear it.</footer>
 </main>
 </body></html>
