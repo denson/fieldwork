@@ -81,7 +81,12 @@
     const entries=[];
     function item(label,value,kind,field,index){
       const row=element('div','proposal-row');const toggle=element('input');toggle.type='checkbox';toggle.checked=true;toggle.setAttribute('aria-label',`Include ${label}`);
-      const name=element('label','',label);const editor=input(value,label,()=>{},true);row.append(toggle,name,editor);container.append(row);entries.push({toggle,editor,kind,field,index});
+      const name=element('label','',label);const editor=input(value,label,()=>{},true);row.append(toggle,name,editor);
+      if(kind==='text'&&state[field]&&state[field]!==value){
+        toggle.checked=false;
+        row.append(element('small','existing-value',`Already in your case: ${state[field]}`));
+      }
+      container.append(row);entries.push({toggle,editor,kind,field,index});
     }
     for(const [field,label] of [['goal','Goal'],['device','Device'],['environment','Environment'],['nextStep','Next step']])if(update[field])item(label,update[field],'text',field);
     for(const [field,label] of [['observations','Observation'],['questions','Open question']])update[field].forEach((value,index)=>item(label,value,'word',field,index));
@@ -128,9 +133,12 @@
   }
   async function openEmail(kind){const body=emailText(),subject=C.subject(state);if(!body||!state.goal&&!state.device&&!state.observations.length&&!state.checks.length){status('Add at least the problem or device before preparing an email.');return;}
     const full=compose(kind,subject,body),long=full.length>1800,url=long?compose(kind,subject,''):full;
-    if(kind==='app'&&long){try{await navigator.clipboard.writeText(body);}catch{status('Clipboard unavailable. Copy the full email below, then paste it into your email app.');}location.href=url;return;}
+    if(long){
+      try{await navigator.clipboard.writeText(body);}
+      catch{status('The case is too long for an email link, and copying failed. Copy the email body above before opening a draft.');return;}
+    }
     if(kind==='app')location.href=url;else window.open(url,'_blank','noopener');
-    if(long){try{await navigator.clipboard.writeText(body);status('Full case copied. Paste it into the addressed email draft, then review and press Send.');}catch{status('The draft opened without the long body. Copy full email below, paste it into the draft, then review and press Send.');}}
+    if(long)status('Full case copied. Paste it into the addressed email draft, then review and press Send.');
     else status('Check the recipient, subject, and full case in the draft. Press Send in your email service when ready.');
   }
   for(const [id,kind] of [['gmail','gmail'],['outlook','outlook'],['email-app','app']])$(id).addEventListener('click',()=>openEmail(kind));
@@ -139,7 +147,7 @@
   $('download-markdown').addEventListener('click',()=>download('device-support-case.md',C.markdown(state),'text/markdown;charset=utf-8'));
   $('download-json').addEventListener('click',()=>download('device-support-case.json',JSON.stringify(state,null,2),'application/json;charset=utf-8'));
   $('import-json').addEventListener('change',async event=>{const file=event.target.files?.[0];if(!file)return;
-    try{const next=C.normalize(JSON.parse(await file.text()));if(!window.confirm('Replace the current case with this saved case?'))return;state=next;emailEdited=false;render();status('Saved case restored.');}
+    try{const raw=JSON.parse(await file.text());if(!C.isCaseFile(raw))throw Error('Unsupported case file');const next=C.normalize(raw);if(!window.confirm('Replace the current case with this saved case?'))return;state=next;emailEdited=false;render();status('Saved case restored.');}
     catch{status('This JSON file is not a supported device-support case. The current case was kept.');}finally{event.target.value='';}
   });
   $('clear-case').addEventListener('click',()=>{if(!window.confirm('Clear this case from this browser? Download it first if you want to keep it.'))return;state=C.blank();emailEdited=false;render();status('Case cleared.');});

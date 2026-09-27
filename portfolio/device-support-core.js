@@ -36,6 +36,14 @@
     result.sources = Array.isArray(value.sources) ? value.sources.slice(0,max.sources).map(source).filter(Boolean) : [];
     return result;
   }
+  function isCaseFile(value) {
+    if (!value || typeof value !== 'object' || Array.isArray(value) || value.version !== 1) return false;
+    if (['goal','device','environment','nextStep'].some(key => typeof value[key] !== 'string')) return false;
+    if (['observations','questions'].some(key => !Array.isArray(value[key]) || value[key].some(item => typeof item !== 'string'))) return false;
+    if (!Array.isArray(value.checks) || value.checks.some(item => !item || typeof item.step !== 'string' || typeof item.outcome !== 'string' || !['suggested','tried','skipped'].includes(item.status))) return false;
+    if (!Array.isArray(value.sources) || value.sources.some(item => !source(item))) return false;
+    return true;
+  }
   function parsePacket(raw) {
     const text = clean(raw, 18000);
     const match = text.match(/```fieldwork-support-case-v1\s*\n([\s\S]*?)\n```/i);
@@ -102,5 +110,5 @@
     return `# Device support case\n\n${section('Goal',[c.goal].filter(Boolean))}\n${section('Device and environment',[c.device&&`Device: ${c.device}`,c.environment&&`Environment: ${c.environment}`].filter(Boolean))}\n${section('What the person observed',c.observations)}\n${section('Checks and actual outcomes',c.checks.map(x => `${x.status.toUpperCase()}: ${x.step}${x.outcome ? ` — Outcome: ${x.outcome}` : ' — No outcome recorded'}`))}\n${section('Sources',c.sources.map(x => `[${x.title}](${x.url}) — ${x.status}${x.note ? `; ${x.note}` : ''}`))}\n${section('Open questions',c.questions)}\n${section('Next step',[c.nextStep].filter(Boolean))}\nAI suggestions and candidate links above are not confirmation that a check was performed or that a source was read. Please review the case and advise on the next step.\n`;
   }
   const subject = value => `[Stoagen support] ${cleanSubject(value.device || value.goal || 'Device help request').slice(0, 110)}`;
-  return {recipient,protocol,blank,normalize,parsePacket,merge,brief,markdown,subject,mailto,clean,cleanSubject,cleanBody};
+  return {recipient,protocol,blank,normalize,isCaseFile,parsePacket,merge,brief,markdown,subject,mailto,clean,cleanSubject,cleanBody};
 });

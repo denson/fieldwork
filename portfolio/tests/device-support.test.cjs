@@ -51,6 +51,13 @@ test('packets reject unsupported versions, unsafe links, and empty updates',()=>
 test('JSON and Markdown carry the same human-confirmed case facts',()=>{
   const c=C.normalize({version:1,goal:'Print a page',device:'Printer X100',environment:'Windows 11',observations:['Error 42'],checks:[{step:'Read display',status:'tried',outcome:'Error 42'}],sources:[{title:'Maker',url:'https://maker.example/manual',status:'read',note:'Error table'}],questions:['Which firmware?'],nextStep:'Check model label'});
   const restored=C.normalize(JSON.parse(JSON.stringify(c))),markdown=C.markdown(restored);
+  assert.equal(C.isCaseFile(restored),true);
   assert.deepEqual(restored,c);
   for(const value of ['Print a page','Printer X100','Windows 11','Error 42','https://maker.example/manual','Which firmware?','Check model label'])assert.ok(markdown.includes(value),value);
+});
+
+test('a partial or malformed backup cannot replace a working case',()=>{
+  assert.equal(C.isCaseFile({version:1}),false);
+  assert.equal(C.isCaseFile({...C.blank(),observations:'Error 42'}),false);
+  assert.equal(C.isCaseFile({...C.blank(),sources:[{url:'javascript:alert(1)'}]}),false);
 });
