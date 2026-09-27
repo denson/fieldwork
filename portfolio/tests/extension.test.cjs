@@ -36,8 +36,22 @@ function guideWorker({site={id:3,windowId:1,splitViewId:12,url:'https://denson.g
     query:async()=>peers,update:async(id,data)=>updates.push({id,...data}),create:async data=>creates.push(data)
   }};
   vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkSupportPacket:SupportPacket,FieldworkTransition:{create:()=>({start:async()=>({status:'starting-combo'})})},importScripts(){}});
-  const profile='https://box.boodle.ai/a/@DeviceSupportWorkspace';
+  const profile=R.combo(site.url)?.profileUrl||'https://box.boodle.ai/a/@DeviceSupportWorkspace';
   return {updates,creates,send:(url=profile)=>new Promise(resolve=>{const message={type:'fieldwork-open-guide',url,sourceUrl:site.url},sender={frameId:0,tab:site,url:site.url};if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
+}
+async function clickGuideOnPage({marked=false}={}){
+  let click,prevented=false,stopped=false;const sent=[];
+  class Element{}
+  const status={textContent:''},parent={querySelector:()=>status};
+  const link=Object.assign(new Element(),{href:'https://box.boodle.ai/a/@EarthquakeTsunamiGuide',parentElement:parent,closest(){return this;},hasAttribute(name){return name==='data-fieldwork-open-guide'&&marked;}});
+  const document={documentElement:{dataset:{}},body:{},querySelectorAll:()=>[],addEventListener:(name,handler)=>{if(name==='click')click=handler;}};
+  const chrome={runtime:{id:'test',getManifest:()=>({version:'0.10.10'}),onMessage:{addListener(){}},sendMessage:async message=>{sent.push(message);return {status:'opened-new'};}},storage:{local:{get:async()=>({enabled:true})},onChanged:{addListener(){}}}};
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/activity.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,document,location:{href:'https://denson.github.io/fieldwork/?demo=quakes'},Element,MutationObserver:class{observe(){}}});
+  await Promise.resolve();
+  click({isTrusted:true,button:0,target:link,ctrlKey:false,metaKey:false,shiftKey:false,altKey:false,preventDefault(){prevented=true;},stopImmediatePropagation(){stopped=true;}});
+  await Promise.resolve();
+  assert.equal(prevented,true);assert.equal(stopped,true);
+  assert.equal(sent.length,1);assert.equal(sent[0].type,'fieldwork-open-guide');assert.equal(sent[0].url,link.href);
 }
 (async()=>{
   let w=worker();assert.equal((await w.send()).status,'routed');assert.deepEqual(w.updates,[{id:8,url:R.destination(url)}]);assert.equal(w.creates.length,0);
@@ -61,6 +75,12 @@ function guideWorker({site={id:3,windowId:1,splitViewId:12,url:'https://denson.g
   g=guideWorker({pane:{id:4,windowId:1,splitViewId:12,url:'https://example.com/notes'}});assert.equal((await g.send()).status,'opened-new');assert.equal(g.creates.length,1);assert.equal(g.updates.length,0);
   g=guideWorker({moveOnRecheck:true});assert.equal((await g.send()).status,'pair-changed');assert.equal(g.updates.length+g.creates.length,0);
   g=guideWorker();assert.equal((await g.send('https://box.boodle.ai/a/@BusinessPlanFirstSteps')).status,'rejected');assert.equal(g.updates.length+g.creates.length,0);
+  for(const alias of ['EarthquakeTsunamiGuide','A2ACommerceLabGuide']){
+    const siteUrl=alias==='EarthquakeTsunamiGuide'?'https://denson.github.io/fieldwork/?demo=quakes':'https://denson.github.io/fieldwork/a2a.html';
+    g=guideWorker({site:{id:3,windowId:1,splitViewId:12,url:siteUrl}});assert.equal((await g.send()).status,'routed');assert.equal(g.updates[0].url,'https://box.boodle.ai/a/@'+alias);
+    g=guideWorker({site:{id:3,windowId:1,splitViewId:-1,url:siteUrl}});assert.equal((await g.send()).status,'opened-new');assert.equal(g.creates[0].url,'https://box.boodle.ai/a/@'+alias);
+  }
+  await clickGuideOnPage();await clickGuideOnPage({marked:true});
   assert.equal((await w.send(undefined,{frameId:0,tab:source,url:'https://evil.example/'})).status,'ignored');
   assert.equal((await w.send(undefined,{frameId:1,tab:source,url:source.url})).status,'ignored');
   console.log('Extension: exact split/window targeting, recheck races, unrelated pages preserved, origin/path validation, disabled mode, sender validation, and permissions passed.');

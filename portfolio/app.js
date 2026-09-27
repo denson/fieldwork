@@ -60,8 +60,8 @@
   function setCompanionLink(id) {
     const link = $(id), bot = companionBots[activeDemo];
     link.hidden = !bot;
-    if (bot) { link.href = `https://box.boodle.ai/a/@${bot.alias}`; link.textContent = `Open ${bot.name} ↗`; }
-    else link.removeAttribute('href');
+    if (bot) { link.href = `https://box.boodle.ai/a/@${bot.alias}`; link.textContent = `Open ${bot.name} ↗`; link.setAttribute('data-fieldwork-open-guide',''); }
+    else { link.removeAttribute('href'); link.removeAttribute('data-fieldwork-open-guide'); }
   }
   function openExport(title, text, filename) { $('export-title').textContent = title; $('export-text').value = text; $('copy-status').textContent = ''; exportName = filename; setCompanionLink('export-bot-link'); $('export-dialog').showModal(); }
   window.FieldworkBridge = {openExport, toast};

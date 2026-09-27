@@ -114,12 +114,15 @@
     if(!enabled||!event.isTrusted||event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
     const link=event.target instanceof Element?event.target.closest('a[href]'):null,next=R.combo(location.href);
     if(!link)return;
-    if(link.hasAttribute('data-fieldwork-open-guide')&&next&&R.profileAlias(link.href)===next.companion){
+    // A matching guide link opens the guide, never an activity transition.
+    // Treat ordinary links the same as marked links so a missing HTML marker
+    // cannot swallow a click when the page is not in split view.
+    if(next&&R.profileAlias(link.href)===next.companion){
       event.preventDefault();event.stopImmediatePropagation();
       let status=link.parentElement.querySelector('.fw-launch-link-status');if(!status){status=document.createElement('p');status.className='fw-note-status fw-launch-link-status';status.setAttribute('role','status');link.after(status);}
       openGuide(link,status);return;
     }
-    const destination=link.hasAttribute('data-fieldwork-combo')&&R.combo(link.href)?link.href:next&&R.profileAlias(link.href)===next.companion?location.href:null;
+    const destination=link.hasAttribute('data-fieldwork-combo')&&R.combo(link.href)?link.href:null;
     if(!destination)return;
     event.preventDefault();event.stopImmediatePropagation();
     let status=link.parentElement.querySelector('.fw-launch-link-status');if(!status){status=document.createElement('p');status.className='fw-note-status fw-launch-link-status';status.setAttribute('role','status');link.after(status);}
