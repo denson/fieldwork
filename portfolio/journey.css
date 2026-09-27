@@ -23,3 +23,20 @@
 .j-how-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.j-how-small{font-size:.88rem;line-height:1.55;color:#44576b;max-width:105ch;margin:12px 0 0}
 .j-how :is(button,a,summary):focus-visible{outline:3px solid #b66c13;outline-offset:4px}
 @media(max-width:800px){.j-how-steps{grid-template-columns:1fr;gap:19px}.j-how>summary{padding:18px}.j-how>summary>small{display:block;margin:6px 0 0 19px}.j-how-content{padding:0 18px 20px}.j-how-actions .button{white-space:normal;text-align:center}}
+
+.j-travel{margin-top:30px;padding:26px;border:1px solid #bad6d1;border-radius:10px;background:#edf5f2}
+.j-travel .eyebrow{margin:0 0 8px;color:#126c67}
+.j-travel h3{font:400 clamp(1.45rem,2.5vw,1.9rem)/1.2 Georgia,serif;margin:0 0 10px}
+.j-travel>div>p{max-width:68ch;margin:0}
+.j-travel-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:20px 0}
+.j-travel-controls>div{min-width:0;background:white;border:1px solid #c6d8d5;border-radius:8px;padding:14px 18px}
+.j-travel-controls label{margin:0 0 14px}
+.j-travel-controls output{color:#126c67;font-weight:750}
+.j-travel-controls input[type=range]{width:100%;accent-color:#126c67;cursor:pointer}
+.j-travel-answer{border-left:4px solid #126c67;padding:15px 20px;background:white}
+.j-travel-answer span{display:block;font-size:.85rem;color:#44576b}
+.j-travel-answer strong{display:block;font-size:1.65rem;margin:3px 0}
+.j-travel-answer p{margin:0}
+.j-travel-limit{max-width:82ch;margin:17px 0}
+.j-travel .button{margin-top:16px}
+@media(max-width:700px){.j-travel{padding:19px}.j-travel-controls{grid-template-columns:1fr;gap:12px}}
