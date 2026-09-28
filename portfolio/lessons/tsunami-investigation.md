@@ -2,6 +2,8 @@
 
 Lesson version: tsunami-investigation-4.0. Audience: curious adults and older teens. Suggested time: 10–15 minutes, untimed. This guide describes the five-stop activity. The accompanying earthquakes.md supplies the detailed historical, instrument, funding, safety, and image references.
 
+This is the public AI lesson guide linked from [the activity page](../tsunami.html) and [the Fieldwork AI index](../llms.txt). It can be read by Codex, Claude, or another assistant without a BoodleBox account or the Fieldwork Chrome extension. If browser tools are available and the human asks, an agent can explore the page with them. Otherwise, work from the lesson reference and only the answers the human deliberately shares. Do not claim to see their saved page state from this Markdown file.
+
 ## Route and learner state
 
 The human uses the website; the bot discusses what the human deliberately shares. The public entry is https://denson.github.io/fieldwork/tsunami.html?case=alaska1964&step=reach . The optional Companion Pane extension can place a chosen checkpoint in the paired chat draft; the learner reviews and presses Send. There is no automatic result sharing or private-site access. Preserve the public origin and directory.
