@@ -28,6 +28,12 @@
 .j-travel .eyebrow{margin:0 0 8px;color:#126c67}
 .j-travel h3{font:400 clamp(1.45rem,2.5vw,1.9rem)/1.2 Georgia,serif;margin:0 0 10px}
 .j-travel>div>p{max-width:68ch;margin:0}
+.j-travel-challenge{margin-top:22px;padding:20px;background:#fff;border:1px solid #c6d8d5;border-radius:8px}
+.j-travel-challenge p{margin:0 0 14px;line-height:1.55}
+.j-travel-predictions{display:flex;flex-wrap:wrap;gap:9px}
+.j-travel-predictions button{font:inherit;text-align:left;padding:10px 14px;border:1px solid #8baaa6;border-radius:7px;background:#fff;color:var(--ink);cursor:pointer}
+.j-travel-predictions button[aria-pressed=true]{border:2px solid #126c67;padding:9px 13px;background:#e2f3ed;font-weight:700}
+.j-travel-instruction{margin:20px 0 0;line-height:1.5}
 .j-travel-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:20px 0}
 .j-travel-controls>div{min-width:0;background:white;border:1px solid #c6d8d5;border-radius:8px;padding:14px 18px}
 .j-travel-controls label{margin:0 0 14px}
@@ -36,7 +42,9 @@
 .j-travel-answer{border-left:4px solid #126c67;padding:15px 20px;background:white}
 .j-travel-answer span{display:block;font-size:.85rem;color:#44576b}
 .j-travel-answer strong{display:block;font-size:1.65rem;margin:3px 0}
+.j-travel-answer strong+strong{font-size:1.4rem}
 .j-travel-answer p{margin:0}
+.j-travel-answer p+p{margin-top:12px;font-weight:650}
 .j-travel-limit{max-width:82ch;margin:17px 0}
 .j-travel .button{margin-top:16px}
 @media(max-width:700px){.j-travel{padding:19px}.j-travel-controls{grid-template-columns:1fr;gap:12px}}
