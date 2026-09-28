@@ -15,6 +15,20 @@
   margin-left: 0;
   white-space: nowrap;
 }
+.tsunami-page .page-heading .risk-intro,
+.tsunami-page .page-heading .risk-series {
+  max-width: 72ch;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.tsunami-page .page-heading .risk-series {
+  font-size: .92rem;
+  color: #44576b;
+}
+.tsunami-page .page-heading .agent-guide-link {
+  font-size: .84rem;
+  margin: 13px 0 0;
+}
 @media (max-width: 720px) {
   .tsunami-page .site-header {
     display: grid;
