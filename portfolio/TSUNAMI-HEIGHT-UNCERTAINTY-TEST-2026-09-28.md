@@ -13,7 +13,9 @@ The previous two-route arrival-time controls were understandable mathematically 
 - Automated journey, routing, and registry tests passed; browser state from the retired exercise retains other saved answers but resets its controls.
 - Local browser: initial range 0.8–5.0 m; mapped-harbor preset 2.1–2.9 m; widening offshore spread changes it to 1.9–3.2 m. The comparison status changed with the range. Writing an explanation enabled the authored explanation, and the reviewed Markdown note included the actual edited values and assumption caveats. Reset restored the initial range and cleared the explanation.
 - Narrow viewport: the three groups and background cards reduced to one column without page overflow. Desktop screenshot and accessibility tree showed labeled sliders, a textual range, and a described comparison line.
+- Public GitHub Pages: confirmed the revised exercise appears at the canonical URL. In the live page, the offshore-reading preset changed the displayed range to 1.4–3.8 m, detailed harbor mapping to 2.1–2.9 m, and reset restored 0.8–5.0 m.
+- Published BoodleBox guide: v4 knowledge is attached and the greeting names Harbor Point. A new author-account conversation initially explained all four presets at once and mistakenly treated the fourth as a tide-only change. I tightened the guide instructions and republished. A second new conversation then opened the correct Stop 1 link, introduced the fictional gauge, asked the learner to predict what an offshore reading narrows, and waited before preset 2.
 
 ## Still to verify
 
-After deployment, verify the public page has the new exercise and the published BoodleBox guide uses its v4 knowledge snapshot. Then test a new BoodleBox conversation and installed-extension note handoff. No independent recipient has evaluated this revision yet.
+The installed-extension note handoff, response to an actual learner note, complete five-stop walkthrough, and independent recipient experience still need testing.
