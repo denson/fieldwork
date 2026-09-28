@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="civic.css?v=20260928-height-range">
   <link rel="stylesheet" href="portfolio-home.css?v=20260928-height-range">
   <link rel="stylesheet" href="journey.css?v=20260928-discuss-button">
-  <link rel="stylesheet" href="tsunami-page.css?v=20260928-risk-framing">
+  <link rel="stylesheet" href="tsunami-page.css?v=20260928-agent-prompt">
   <link rel="alternate" type="text/plain" href="llms.txt" title="Fieldwork guide for AI assistants">
   <link rel="alternate" type="text/markdown" href="lessons/tsunami-investigation.md" title="Tsunami investigation for AI assistants">
   <script defer src="assets/land.js?v=20260928-height-range"></script>
@@ -19,7 +19,7 @@
   <script defer src="core.js?v=20260928-height-range"></script>
   <script defer src="journey-core.js?v=20260928-discuss-button"></script>
   <script defer src="journey.js?v=20260928-discuss-button"></script>
-  <script defer src="tsunami-page.js?v=20260928-height-range"></script>
+  <script defer src="tsunami-page.js?v=20260928-agent-prompt"></script>
 </head>
 <body class="tsunami-page">
   <a class="skip-link" href="#main">Skip to the investigation</a>
@@ -35,7 +35,8 @@
         <h1 id="quakes-title" tabindex="-1">Before the wave arrives.</h1>
         <p class="risk-intro">At an exposed coast, a destructive tsunami is unlikely in any given year, but its impact can be enormous. A small yearly chance can add up over a human lifetime. Bridges, dams, and city centers must also be planned for decades of exposure to rare hazards.</p>
         <p class="risk-series">This is one lesson in a planned series about four kinds of risk: frequent and minor, rare and minor, frequent and severe, or rare and severe. For a community in an ongoing war, serious disruption can be both likely and severe.</p>
-        <p class="agent-guide-link">Using another AI assistant? <a href="lessons/tsunami-agent-guide.html">Give it the AI lesson guide ↗</a></p>
+        <p class="agent-guide-link">This page works on its own or with an AI assistant. An assistant can explain the activity first; with your permission, one that has a browser can open this page and explore it with you. It sees answers saved here only when you share them or invite it to use this browser.</p>
+        <div class="agent-prompt"><label for="agent-prompt-text">Ask your AI assistant</label><div class="agent-prompt-row"><input id="agent-prompt-text" type="text" readonly value="Please read https://denson.github.io/fieldwork/llms.txt and discuss the tsunami lesson with me."><button class="button secondary" type="button" id="copy-agent-prompt">Copy prompt</button></div><span id="agent-prompt-status" role="status" aria-live="polite"></span></div>
       </div><span class="page-tag">Read · Connect · Explain</span></div>
       <details id="journey-how" class="j-how" open>
         <summary><span>How this lesson works</span><small>A quick guide to the website and BoodleBox</small></summary>

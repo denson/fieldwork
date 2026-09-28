@@ -10,10 +10,16 @@ Fieldwork is an independent portfolio with five core learning activities, a Firs
 
 ## Core activities
 - [Pueblo History Detective](./?demo=history) and [lesson reference](lessons/history.md): Separate observation from inference across historical photographs.
-- [Before the wave arrives](tsunami.html?case=alaska1964&step=reach), [browser-readable AI guide](lessons/tsunami-agent-guide.html), and [raw Markdown guide](lessons/tsunami-investigation.md): Five-stop tsunami investigation, including a fictional Harbor Point uncertainty exercise. [Detailed earthquake and tsunami sources](lessons/earthquakes.md).
+- [Before the wave arrives](tsunami.html?case=alaska1964&step=reach), [browser-readable AI guide](lessons/tsunami-agent-guide.html), and [raw Markdown guide](lessons/tsunami-investigation.md): Five-stop tsunami investigation, including a fictional Harbor Point uncertainty exercise. The site can be completed independently. An AI assistant can explain how it works; with the visitor's permission, a browser-capable assistant can also open the site and explore it with them. The site's introduction and guide describe these choices. [Detailed earthquake and tsunami sources](lessons/earthquakes.md).
 - [Community Budget Challenge](./?demo=budget) and [model reference](lessons/budget.md): Test fictional investment and upkeep choices.
 - [Public Hearing Detective](./?demo=hearing) and [case reference](lessons/hearing-case.md): Compare evidence and claims in a fictional hearing.
 - [Business Plan First Steps](./?demo=business) and [planning reference](lessons/business-plan.md): Build and review a first business-plan draft. [Example selection](business-plans.html).
+
+## How the tsunami lesson works with an assistant
+
+The tsunami page is an interactive five-stop lesson that a visitor can complete independently. It combines historical examples, source images, short written answers, and an optional fictional Harbor Point exercise about uncertainty in a water-level estimate. The page saves the visitor's answers in their own browser; reading this file does not reveal those answers. The [browser-readable AI guide](lessons/tsunami-agent-guide.html) describes the lesson in detail for an assistant that cannot display raw Markdown.
+
+There are two separate choices for a visitor using an assistant: whether to hear a short explanation of how the lesson works, and whether to invite the assistant to open the site in its in-app browser and explore it together. A courteous opening might be: “Would you like me to explain how this lesson works? If so, would you also like me to open the interactive page in my browser and explore it with you?” BoodleBox is one optional guide; browser-capable assistants can interact with the public page without its Chrome extension. A visitor can also share a written answer for discussion while keeping control of the page.
 
 ## Additional lab
 - [A2A Commerce Lab](a2a.html) and [complete lesson and sources](a2a-reference.md): Interactive agent-commerce teaching simulation.

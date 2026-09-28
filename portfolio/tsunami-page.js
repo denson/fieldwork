@@ -5,6 +5,16 @@
   const initial = C.config(new URLSearchParams(location.search));
   const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const dateUTC = ms => new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
+  $('copy-agent-prompt').addEventListener('click', async () => {
+    const prompt = $('agent-prompt-text');
+    try {
+      await navigator.clipboard.writeText(prompt.value);
+      $('agent-prompt-status').textContent = 'Copied. Paste it into your AI conversation.';
+    } catch {
+      prompt.focus(); prompt.select();
+      $('agent-prompt-status').textContent = 'Select the prompt and copy it with Ctrl+C (or Command+C).';
+    }
+  });
   let exportName = 'tsunami-learning-checkpoint.md';
   function updateAddress() {
     try {

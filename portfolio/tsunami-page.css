@@ -29,6 +29,33 @@
   font-size: .84rem;
   margin: 13px 0 0;
 }
+.tsunami-page .agent-prompt {
+  max-width: 72ch;
+  margin: 12px 0 18px;
+  font-size: .84rem;
+}
+.tsunami-page .agent-prompt label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.tsunami-page .agent-prompt-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tsunami-page .agent-prompt input {
+  flex: 1 1 260px;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid #b8c8d4;
+  border-radius: 5px;
+  background: #fff;
+  color: #14263b;
+  font: inherit;
+}
+.tsunami-page .agent-prompt button { white-space: nowrap; }
+.tsunami-page #agent-prompt-status:not(:empty) { display: block; margin-top: 5px; }
 @media (max-width: 720px) {
   .tsunami-page .site-header {
     display: grid;
