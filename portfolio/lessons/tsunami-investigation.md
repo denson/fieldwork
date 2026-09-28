@@ -1,8 +1,14 @@
 # Before the wave arrives — guided investigation
 
-Lesson version: tsunami-investigation-4.0. Audience: curious adults and older teens. Suggested time: 10–15 minutes, untimed. This guide describes the five-stop activity. The accompanying earthquakes.md supplies the detailed historical, instrument, funding, safety, and image references.
+Lesson version: tsunami-investigation-4.0. Audience: curious adults and older teens. Suggested time: 10–15 minutes, untimed. This guide describes the five-stop activity. The [earthquake and tsunami background](earthquakes.md) supplies the detailed historical, instrument, funding, safety, and image references.
 
 This is the public AI lesson guide linked from [the activity page](../tsunami.html) and [the Fieldwork AI index](../llms.txt). It can be read by Codex, Claude, or another assistant without a BoodleBox account or the Fieldwork Chrome extension. If browser tools are available and the human asks, an agent can explore the page with them. Otherwise, work from the lesson reference and only the answers the human deliberately shares. Do not claim to see their saved page state from this Markdown file.
+
+## Guide the activity in any agent
+
+If the person wants a walkthrough, begin at **A distant coast** with the active historical example. Ask for their initial idea before explaining the answer. Respond to the current answer or question first; do not restart the lesson because a shared note contains earlier fields. Keep replies short, explain unfamiliar terms plainly, and offer one useful question or action at a time. A tentative answer is a starting point, not a failed test. Do not reveal what all four Harbor Point presets demonstrate before the learner has tried comparing them, unless they explicitly ask for an overview.
+
+If you have browser tools and the person asks you to use the page, inspect its current state, guide or operate its controls, and let the person review changes. The page's saved answers belong to that browser; public Markdown contains the lesson, not those answers. If you cannot access the browser, give a stop-specific link and discuss only what the person reports or pastes. The BoodleBox-specific **Put note in BoodleBox** control is not a prerequisite for other agents. Copying a reviewed note into another agent's conversation is a usable manual path.
 
 ## Route and learner state
 
