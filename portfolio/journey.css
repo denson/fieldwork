@@ -47,3 +47,9 @@
 .j-survey :is(button,input):focus-visible{outline:3px solid #b66c13;outline-offset:3px}
 @media(max-width:850px){.j-height-controls{grid-template-columns:1fr 1fr}.j-height-controls>div:last-child{grid-column:1/-1}}
 @media(max-width:700px){.j-survey{padding:19px}.j-height-context,.j-height-controls{grid-template-columns:1fr}.j-height-controls>div:last-child{grid-column:auto}.j-height-context>div,.j-height-output,.j-height-controls>div,.j-survey-predict,.j-survey-result{padding:14px}.j-height-headline b{display:block}}
+
+/* Keep the start-over control available while the learner works farther down the page. */
+#tsunami-journey .j-status{position:sticky;top:8px;z-index:20;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 3px 14px #0d27321c;padding:9px 12px;margin:12px 0 20px;min-height:56px}
+#tsunami-journey .j-status .button{flex:none;white-space:nowrap;padding:9px 14px}
+#journey-reset-dialog .dialog-actions{align-items:center;flex-wrap:wrap}
+@media(max-width:520px){#tsunami-journey .j-status{gap:8px;padding:7px 9px;font-size:.72rem}#tsunami-journey .j-status .button{padding:8px 10px;font-size:.78rem;white-space:normal;text-align:center}}

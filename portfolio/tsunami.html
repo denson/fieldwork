@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="tsunami-figures.css?v=20260928-height-range">
   <link rel="stylesheet" href="civic.css?v=20260928-height-range">
   <link rel="stylesheet" href="portfolio-home.css?v=20260928-height-range">
-  <link rel="stylesheet" href="journey.css?v=20260928-height-range">
+  <link rel="stylesheet" href="journey.css?v=20260928-reset-controls">
   <link rel="stylesheet" href="tsunami-page.css?v=20260928-height-range">
   <link rel="alternate" type="text/markdown" href="lessons/tsunami-investigation.md" title="Tsunami investigation for AI assistants">
   <script defer src="assets/land.js?v=20260928-height-range"></script>
   <script defer src="tsunami.js?v=20260928-height-range"></script>
   <script defer src="core.js?v=20260928-height-range"></script>
   <script defer src="journey-core.js?v=20260928-height-range"></script>
-  <script defer src="journey.js?v=20260928-height-range"></script>
+  <script defer src="journey.js?v=20260928-reset-controls"></script>
   <script defer src="tsunami-page.js?v=20260928-height-range"></script>
 </head>
 <body class="tsunami-page">
@@ -128,7 +128,7 @@
       </div></details>
     </section>
   </main>
-  <footer class="site-footer"><p><b>fieldwork /</b> A standalone tsunami investigation with an optional BoodleBox guide.</p><div><a href="sources.html">Sources &amp; credits</a><a href="lessons/tsunami-investigation.md">Lesson reference</a></div></footer>  <dialog id="journey-reset-dialog" class="note-dialog" aria-labelledby="journey-reset-title"><h2 id="journey-reset-title">Start this lesson over?</h2><p>This clears the answers and saved place for this historical example and returns to the first stop. Notes for other historical examples remain available.</p><div class="dialog-actions"><form method="dialog"><button class="button secondary">Keep my notes</button></form><button class="button primary" type="button" id="journey-reset-confirm">Clear answers and start over</button></div></dialog>
+  <footer class="site-footer"><p><b>fieldwork /</b> A standalone tsunami investigation with an optional BoodleBox guide.</p><div><a href="sources.html">Sources &amp; credits</a><a href="lessons/tsunami-investigation.md">Lesson reference</a></div></footer>  <dialog id="journey-reset-dialog" class="note-dialog" aria-labelledby="journey-reset-title"><h2 id="journey-reset-title">Start fresh?</h2><p>Choose what to clear. Both options return to the first stop.</p><div class="dialog-actions"><button class="button secondary" type="button" id="journey-reset-confirm">Reset this historical example</button><button class="button primary" type="button" id="journey-reset-all">Clear all tsunami lesson work</button><form method="dialog"><button class="button secondary">Keep my work</button></form></div></dialog>
   <dialog id="export-dialog" class="note-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close evidence note">×</button></form><p class="eyebrow">Bring it back to the conversation</p><h2 id="export-title">Your evidence note</h2><p>Review the note below. With the companion extension, choose Put note in BoodleBox, then review the message on the left and press Send. Otherwise choose Copy note, paste into your chat, and send. Keep using that same conversation as you move through the lesson. If you have not opened a chat yet, use the companion link below and choose Start New Chat.</p><p class="small-note">If BoodleBox turns the pasted note into attached text, type <b>Discuss this checkpoint</b> in the message box and send it.</p><textarea id="export-text" readonly aria-label="Evidence note" rows="14" spellcheck="false"></textarea><div data-fieldwork-share data-note-id="export-text" data-companion-link="export-bot-link" hidden></div><div class="dialog-actions"><button class="button primary" id="copy-note">Copy note</button><button class="button secondary" id="download-note">Download .md</button></div><p><a class="button secondary" id="export-bot-link" target="_blank" rel="noopener noreferrer" hidden>Open companion bot ↗</a></p><p class="small-note">BoodleBox sign-in is required. Copying or downloading does not publish your responses on this website.</p><p id="copy-status" aria-live="polite"></p></dialog>
   <div id="toast" class="toast" role="status" hidden></div>
 </body>
