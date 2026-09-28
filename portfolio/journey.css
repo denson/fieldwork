@@ -54,5 +54,7 @@
 /* Keep the start-over control available while the learner works farther down the page. */
 #tsunami-journey .j-status{position:sticky;top:8px;z-index:20;background:#fff;border:1px solid var(--line);border-radius:9px;box-shadow:0 3px 14px #0d27321c;padding:9px 12px;margin:12px 0 20px;min-height:56px}
 #tsunami-journey .j-status .button{flex:none;white-space:nowrap;padding:9px 14px}
+#tsunami-journey .j-status-actions{display:flex;align-items:center;gap:8px}
 #journey-reset-dialog .dialog-actions{align-items:center;flex-wrap:wrap}
+@media(max-width:700px){#tsunami-journey .j-status{flex-wrap:wrap}#tsunami-journey .j-status-actions{width:100%}#tsunami-journey .j-status-actions .button{flex:1}}
 @media(max-width:520px){#tsunami-journey .j-status{gap:8px;padding:7px 9px;font-size:.72rem}#tsunami-journey .j-status .button{padding:8px 10px;font-size:.78rem;white-space:normal;text-align:center}}
