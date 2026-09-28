@@ -44,7 +44,7 @@
   gap: 8px;
   flex-wrap: wrap;
 }
-.tsunami-page .agent-prompt input {
+.tsunami-page .agent-prompt textarea {
   flex: 1 1 260px;
   min-width: 0;
   padding: 9px 10px;
@@ -53,6 +53,7 @@
   background: #fff;
   color: #14263b;
   font: inherit;
+  resize: none;
 }
 .tsunami-page .agent-prompt button { white-space: nowrap; }
 .tsunami-page #agent-prompt-status:not(:empty) { display: block; margin-top: 5px; }
