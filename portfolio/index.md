@@ -5,7 +5,7 @@
 Start at [the website homepage](./), which opens the First Steps tutorial. Finish the 3–5 minute practice, then explore the [portfolio](./?demo=home) and its five core learning activities. Returning visitors may go straight to the portfolio. Every companion can return the learner to that menu. See [the portfolio guide](lessons/portfolio.md) for paired navigation.
 
 1. **Pueblo History Detective** — `?demo=history&case=flood-camp`. Observe six historical photographs, separate inference from evidence, and make an evidence note. See [history lesson](lessons/history.md).
-2. **Before the wave arrives** — `tsunami.html?case=alaska1964&step=reach`. A five-stop tsunami investigation about warnings, measurements, and readiness, with an optional live USGS feed. See the [AI lesson guide](lessons/tsunami-investigation.md) and [detailed background](lessons/earthquakes.md).
+2. **Before the wave arrives** — `tsunami.html?case=alaska1964&step=reach`. A five-stop tsunami investigation about warnings, measurements, and readiness, with an optional live USGS feed. See the [browser-readable AI guide](lessons/tsunami-agent-guide.html), [raw Markdown](lessons/tsunami-investigation.md), and [detailed background](lessons/earthquakes.md).
 
 3. **Community Budget Challenge** — `?demo=budget&preset=balanced&event=none`. Allocate investments, fund upkeep, test a storm, and compare five-year reserves. See [model rules](lessons/budget.md) and [budget bot instructions](lessons/budget-bot.md).
 4. **Public Hearing Detective** — `?demo=hearing&exhibit=E09&witness=director`. Compare nine fictional exhibits, pin evidence, prepare witness questions, and assess claims. See [the complete case](lessons/hearing-case.md) and [hearing bot instructions](lessons/hearing-bot.md).

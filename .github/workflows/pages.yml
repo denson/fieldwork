@@ -18,6 +18,8 @@ jobs:
           node-version: '22'
       - name: Check activity and extension behavior
         run: node --test portfolio/tests/*.test.cjs
+      - name: Check browser-readable lesson guide
+        run: node portfolio/build-agent-guide.cjs --check
       - uses: actions/upload-pages-artifact@v4
         with:
           path: portfolio
