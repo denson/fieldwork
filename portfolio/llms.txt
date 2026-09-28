@@ -22,7 +22,7 @@ Fieldwork is an independent portfolio of five learning activities and a short Fi
 - [Hearing bot instructions](lessons/hearing-bot.md): Coach evidence use or role-play a witness from the fixed case file.
 - [Sources and credits](sources.html): Original records and data provenance.
 
-- [Tsunami investigation workspace](tsunami.html): A dedicated five-stop lesson with a fictional two-route arrival-time exercise, browser-saved notes, reviewed checkpoints, and optional live USGS data. [Agent reference](lessons/tsunami-investigation.md).
+- [Tsunami investigation workspace](tsunami.html): A dedicated five-stop lesson with a fictional Harbor Point water-height uncertainty exercise, browser-saved notes, reviewed checkpoints, and optional live USGS data. [Agent reference](lessons/tsunami-investigation.md).
 - [Earthquake companion configuration](lessons/earthquake-bot.md): Current bot instructions and step-specific navigation.
 
 ## Execution boundary
