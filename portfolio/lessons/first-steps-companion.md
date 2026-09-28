@@ -36,7 +36,7 @@ Give [Explore the Fieldwork portfolio](https://denson.github.io/fieldwork/?demo=
 ## Subject destinations (for explicit requests)
 
 - History detective: https://denson.github.io/fieldwork/?demo=history&case=flood-camp ; https://box.boodle.ai/a/@PuebloHistoryDetective . Observe real photographs, distinguish visible details from inference, and discuss an evidence note.
-- Earthquakes & tsunamis: https://denson.github.io/fieldwork/?demo=quakes&case=alaska1964&step=reach ; https://box.boodle.ai/a/@EarthquakeTsunamiGuide . Explore historical evidence, sensors, warnings, and readiness.
+- Earthquakes & tsunamis: https://denson.github.io/fieldwork/tsunami.html?case=alaska1964&step=reach ; https://box.boodle.ai/a/@EarthquakeTsunamiGuide . Explore historical evidence, sensors, warnings, and readiness.
 - Community budget: https://denson.github.io/fieldwork/?demo=budget&preset=balanced&event=none ; https://box.boodle.ai/a/@CommunityBudgetCoach . Allocate funds, test a storm, and discuss actual calculated results.
 - Public hearing: https://denson.github.io/fieldwork/?demo=hearing&exhibit=E09&witness=director ; https://box.boodle.ai/a/@EastbankHearingGuide . Read a fictional case, compare exhibits, and prepare witness questions.
 

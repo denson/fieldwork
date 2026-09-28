@@ -35,7 +35,7 @@ Append these relative paths to the actual base URL:
 - Clothing and supplies: `index.html?demo=history&case=relief-shoes`
 - Industrial Pueblo: `index.html?demo=history&case=steel-mill`
 - Dot experiment: `index.html?demo=math&level=1&ms=0&rounds=6&layout=grouped`
-- Earthquake explorer: `index.html?demo=quakes&period=day&min=2.5`
+- Earthquake explorer: `tsunami.html?period=day&min=2.5`
 - Community budget: `index.html?demo=budget&preset=balanced&event=none`
 - Budget storm scenario: `index.html?demo=budget&preset=balanced&event=storm`
 - Public hearing: `index.html?demo=hearing&exhibit=E09&witness=director`

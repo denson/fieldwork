@@ -69,13 +69,13 @@
     s.updated=typeof value.updated==='string'&&/^\d{4}-\d{2}-\d{2}T/.test(value.updated)?clean(value.updated,30):null;
     return s;
   }
-  function entry(saved,params){const s=normalize(saved);if(params.get('demo')==='quakes'){
+  function entry(saved,params,dedicated=false){const s=normalize(saved);if(dedicated||params.get('demo')==='quakes'){
     if([...steps.map(x=>x[0]),'review'].includes(params.get('step')))s.step=params.get('step');
     if(Object.hasOwn(cases,params.get('case')))s.case=params.get('case');
   }return s;}
   function choose(s,id,value){const c=checks[id];if(!c||!c.options.some(o=>o[0]===value))return false;s.choices[id]=value;s.attempts[id]=[...(s.attempts[id]||[]),value].slice(-8);return true;}
   function result(s,id){const c=checks[id];return c&&Object.hasOwn(s.choices,id)?{correct:s.choices[id]===c.correct,choice:c.options.find(o=>o[0]===s.choices[id])?.[1],feedback:c.feedback}:null;}
-  function url(base,s,step=s.step){const u=new URL(base);u.search='';u.hash='';u.searchParams.set('demo','quakes');u.searchParams.set('case',s.case);u.searchParams.set('step',step);return u.href;}
+  function url(base,s,step=s.step){const u=new URL(base);u.search='';u.hash='';if(!u.pathname.endsWith('/tsunami.html'))u.searchParams.set('demo','quakes');u.searchParams.set('case',s.case);u.searchParams.set('step',step);return u.href;}
   const gapText={ocean:'gapOcean',message:'gapMessage',access:'gapAccess'};
   function surveyLines(s){
     const probes=s.survey.probes.map(x=>`${x} km: ${surveyDepth(x).toLocaleString()} m`).join('; ')||'None';

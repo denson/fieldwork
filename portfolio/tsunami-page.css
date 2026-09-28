@@ -1,0 +1,35 @@
+.tsunami-page .site-header {
+  display: flex;
+  align-items: center;
+  gap: 18px 28px;
+  flex-wrap: wrap;
+}
+.tsunami-page .site-header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-left: auto;
+}
+.tsunami-page .site-header > .text-button {
+  margin-left: 0;
+  white-space: nowrap;
+}
+@media (max-width: 720px) {
+  .tsunami-page .site-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tsunami-page .site-header nav {
+    order: initial;
+    width: auto;
+    margin: 0;
+    gap: 10px 18px;
+    white-space: normal;
+  }
+  .tsunami-page .site-header > .text-button {
+    justify-self: start;
+    margin: 0;
+  }
+}

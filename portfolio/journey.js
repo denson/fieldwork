@@ -7,16 +7,17 @@
   let storageOK=true;
   function read(key){try{return localStorage.getItem(prefix+key);}catch{storageOK=false;return null;}}
   function savedFor(key){try{return JSON.parse(read(key));}catch{return null;}}
-  const requested=params.get('demo')==='quakes'&&Object.hasOwn(J.cases,params.get('case'))?params.get('case'):read('last-case');
+  const onTsunamiPage=location.pathname.endsWith('/tsunami.html');
+  const requested=(onTsunamiPage||params.get('demo')==='quakes')&&Object.hasOwn(J.cases,params.get('case'))?params.get('case'):read('last-case');
   const initialCase=Object.hasOwn(J.cases,requested)?requested:'alaska1964';
-  let state=J.entry(savedFor(initialCase)||{...J.blank(),case:initialCase},params);
+  let state=J.entry(savedFor(initialCase)||{...J.blank(),case:initialCase},params,onTsunamiPage);
   let restored=Boolean(state.updated);
   const hintOpen=new Set();
   const caseLabel=()=>J.cases[state.case].title;
   function save(){state.updated=new Date().toISOString();try{localStorage.setItem(prefix+state.case,JSON.stringify(state));localStorage.setItem(prefix+'last-case',state.case);storageOK=true;}catch{storageOK=false;}
     const status=$('journey-save');if(status)status.textContent=storageOK?'Saved in this browser.':'Browser saving is unavailable. Copy a checkpoint before leaving.';
   }
-  function address(){if(new URLSearchParams(location.search).get('demo')!=='quakes')return;try{const u=new URL(location.href);u.searchParams.set('case',state.case);u.searchParams.set('step',state.step);u.hash='';history.replaceState(null,'',u.href);}catch{}}
+  function address(){if(!onTsunamiPage&&new URLSearchParams(location.search).get('demo')!=='quakes')return;try{const u=new URL(location.href);u.searchParams.set('case',state.case);u.searchParams.set('step',state.step);u.hash='';history.replaceState(null,'',u.href);}catch{}}
   function visit(){if(state.step!=='review'&&!state.visited.includes(state.step))state.visited.push(state.step);}
   function navigate(step){if(![...J.steps.map(s=>s[0]),'review'].includes(step))return;state.step=step;visit();save();address();render();$('journey-heading').focus();$('tsunami-journey').scrollIntoView({block:'start',behavior:'instant'});}
   const link=(url,label)=>`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`;

@@ -3,7 +3,7 @@
   const badges={compass:'Compass',lantern:'Lantern',magnifier:'Magnifying glass'};
   const topics={
     history:{name:'History detective',title:'Pueblo History Detective',query:'?demo=history&case=flood-camp',alias:'PuebloHistoryDetective',description:'Inspect a real photograph, write what you notice, and discuss what it can prove.'},
-    quakes:{name:'Earthquakes & tsunamis',title:'Before the wave arrives',query:'?demo=quakes&case=alaska1964&step=reach',alias:'EarthquakeTsunamiGuide',description:'Explore how observations, warnings, and community action can save lives.'},
+    quakes:{name:'Earthquakes & tsunamis',title:'Before the wave arrives',query:'tsunami.html?case=alaska1964&step=reach',alias:'EarthquakeTsunamiGuide',description:'Explore how observations, warnings, and community action can save lives.'},
     budget:{name:'Community budget',title:'Community Budget Challenge',query:'?demo=budget&preset=balanced&event=none',alias:'CommunityBudgetCoach',description:'Try a town spending plan, test a storm, and discuss the tradeoffs.'},
     hearing:{name:'Public hearing',title:'Public Hearing Detective',query:'?demo=hearing&exhibit=E09&witness=director',alias:'EastbankHearingGuide',description:'Compare a fictional case’s exhibits and bring your questions to a witness.'}
   };

@@ -4,7 +4,7 @@ Lesson version: tsunami-investigation-2.0. Audience: curious adults and older te
 
 ## Route and learner state
 
-The human uses the website; the bot discusses what the human deliberately shares. The public entry is https://denson.github.io/fieldwork/?demo=quakes&case=alaska1964&step=reach . The optional Companion Pane extension can place a chosen checkpoint in the paired chat draft; the learner reviews and presses Send. There is no automatic result sharing or private-site access. Preserve the public origin and directory.
+The human uses the website; the bot discusses what the human deliberately shares. The public entry is https://denson.github.io/fieldwork/tsunami.html?case=alaska1964&step=reach . The optional Companion Pane extension can place a chosen checkpoint in the paired chat draft; the learner reviews and presses Send. There is no automatic result sharing or private-site access. Preserve the public origin and directory.
 
 Supported case values: alaska1964, indian2004, japan2011. Supported step values: reach, instruments, missing, readiness, explain, review. The last is an optional return visit. Use step-specific links when navigation helps. The optional live feed also supports period=day|week and min=2.5|4.5. A link contains the selected case and stop, not answers or proof of learning.
 

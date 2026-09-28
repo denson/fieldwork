@@ -10,7 +10,7 @@ Five hands-on activities for curious adults and older teens, with a BoodleBox gu
 | --- | --- | --- |
 | Learn how the two sides work | [First Steps, 3–5 minutes](../start.html) | [Fieldwork First Steps](https://box.boodle.ai/a/@FieldworkFirstSteps) |
 | Pictures and evidence | [Pueblo History Detective](../?demo=history) | [Pueblo History Detective](https://box.boodle.ai/a/@PuebloHistoryDetective) |
-| Science and public investment | [Before the wave arrives, 10–15 minutes](../?demo=quakes&case=alaska1964&step=reach) | [Earthquake & Tsunami Guide](https://box.boodle.ai/a/@EarthquakeTsunamiGuide) |
+| Science and public investment | [Before the wave arrives, 10–15 minutes](../tsunami.html?case=alaska1964&step=reach) | [Earthquake & Tsunami Guide](https://box.boodle.ai/a/@EarthquakeTsunamiGuide) |
 | Decisions and tradeoffs | [Community Budget Challenge](../?demo=budget) | [Community Budget Coach](https://box.boodle.ai/a/@CommunityBudgetCoach) |
 | Claims and contradictions | [Public Hearing Detective](../?demo=hearing) | [Eastbank Hearing Guide](https://box.boodle.ai/a/@EastbankHearingGuide) |
 | A first business plan | [Business Plan First Steps, 15–20 minutes](../?demo=business) | [Business Plan First Steps](https://box.boodle.ai/a/@BusinessPlanFirstSteps) |

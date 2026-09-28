@@ -55,6 +55,10 @@ assert.ok(!note.includes('undefined')&&!note.includes('plan='));
 assert.equal(new URL(J.url(base,s)).pathname,'/portfolio/');
 assert.equal(new URL(J.url(base,s)).searchParams.get('case'),'alaska1964');
 assert.equal(new URL(J.url(base,s)).hash,'');
+const dedicated='https://denson.github.io/fieldwork/tsunami.html';
+assert.equal(new URL(J.url(dedicated,s)).pathname,'/fieldwork/tsunami.html');
+assert.equal(new URL(J.url(dedicated,s)).searchParams.has('demo'),false);
+assert.equal(J.entry(null,new URLSearchParams('case=japan2011&step=missing'),true).step,'missing');
 
 s.text.maintenancePower='Keep sensors powered.';
 s.text.maintenancePeople='Prepare accessible evacuation plans.';
