@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
-const R=require('../../chrome-extension/routing.js');
+const R=require('./registry-fixture.cjs');
 const BusinessDraft=require('../../chrome-extension/business-draft.js');
 const SupportPacket=require('../../chrome-extension/support-packet.js');
 const source={id:7,windowId:1,splitViewId:12,url:'https://box.boodle.ai/c/practice'};
@@ -26,7 +26,7 @@ function worker({peers=[source,target],enabled=true,moveOnRecheck=false}={}){
     get:async id=>{getCalls++;return moveOnRecheck&&getCalls>1?{...(id===source.id?source:target),splitViewId:44+id}:id===source.id?source:peers.find(t=>t.id===id);},
     query:async()=>peers,update:async(id,data)=>updates.push({id,...data}),create:async data=>creates.push(data),sendMessage:async()=>({status:'same-guide'})
   }};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkSupportPacket:SupportPacket,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:BusinessDraft,FieldworkSupportPacket:SupportPacket,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   return {updates,creates,send:(message={type:'fieldwork-open',url},sender={frameId:0,tab:source,url:source.url})=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
 }
 function guideWorker({site={id:3,windowId:1,splitViewId:12,url:'https://denson.github.io/fieldwork/device-support.html'},pane={id:4,windowId:1,splitViewId:12,url:'chrome://tab-search.top-chrome/split_new_tab_page.html'},moveOnRecheck=false}={}){
@@ -35,7 +35,7 @@ function guideWorker({site={id:3,windowId:1,splitViewId:12,url:'https://denson.g
     get:async id=>{reads++;const tab=peers.find(t=>t.id===id);return moveOnRecheck&&reads>1&&id===pane.id?{...tab,splitViewId:99}:{...tab};},
     query:async()=>peers,update:async(id,data)=>updates.push({id,...data}),create:async data=>creates.push(data)
   }};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,FieldworkSupportPacket:SupportPacket,FieldworkTransition:{create:()=>({start:async()=>({status:'starting-combo'})})},importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:BusinessDraft,FieldworkSupportPacket:SupportPacket,FieldworkTransition:{create:()=>({start:async()=>({status:'starting-combo'})})},importScripts(){}});
   const profile=R.combo(site.url)?.profileUrl||'https://box.boodle.ai/a/@DeviceSupportWorkspace';
   return {updates,creates,send:(url=profile)=>new Promise(resolve=>{const message={type:'fieldwork-open-guide',url,sourceUrl:site.url},sender={frameId:0,tab:site,url:site.url};if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});})};
 }
@@ -45,9 +45,9 @@ async function clickGuideOnPage({marked=false}={}){
   const status={textContent:''},parent={querySelector:()=>status};
   const link=Object.assign(new Element(),{href:'https://box.boodle.ai/a/@EarthquakeTsunamiGuide',parentElement:parent,closest(){return this;},hasAttribute(name){return name==='data-fieldwork-open-guide'&&marked;}});
   const document={documentElement:{dataset:{}},body:{},querySelectorAll:()=>[],addEventListener:(name,handler)=>{if(name==='click')click=handler;}};
-  const chrome={runtime:{id:'test',getManifest:()=>({version:'0.10.10'}),onMessage:{addListener(){}},sendMessage:async message=>{sent.push(message);return {status:'opened-new'};}},storage:{local:{get:async()=>({enabled:true})},onChanged:{addListener(){}}}};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/activity.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkBusinessDraft:BusinessDraft,document,location:{href:'https://denson.github.io/fieldwork/?demo=quakes'},Element,MutationObserver:class{observe(){}}});
-  await Promise.resolve();
+  const chrome={runtime:{id:'test',getManifest:()=>({version:'0.10.12'}),onMessage:{addListener(){}},sendMessage:async message=>{if(message.type==='fieldwork-pairing-registry')return require('../companion-registry.json');sent.push(message);return {status:'opened-new'};}},storage:{local:{get:async()=>({enabled:true})},onChanged:{addListener(){}}}};
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/activity.js'),'utf8'),{chrome,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:BusinessDraft,document,location:{href:'https://denson.github.io/fieldwork/?demo=quakes'},Element,MutationObserver:class{observe(){}}});
+  await new Promise(resolve=>setImmediate(resolve));
   click({isTrusted:true,button:0,target:link,ctrlKey:false,metaKey:false,shiftKey:false,altKey:false,preventDefault(){prevented=true;},stopImmediatePropagation(){stopped=true;}});
   await Promise.resolve();
   assert.equal(prevented,true);assert.equal(stopped,true);

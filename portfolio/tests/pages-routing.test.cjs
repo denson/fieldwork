@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
-const R=require('../../chrome-extension/routing.js');
+const R=require('./registry-fixture.cjs');
 const E=require('../entry.js');
 const base='https://denson.github.io/fieldwork/';
 const portfolioHtml=fs.readFileSync(require.resolve('../index.html'),'utf8');

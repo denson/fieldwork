@@ -3,7 +3,7 @@ const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const vm=require('node:vm');
 const D=require('../../chrome-extension/business-draft.js');
-const R=require('../../chrome-extension/routing.js');
+const R=require('./registry-fixture.cjs');
 
 const idea={fieldwork:'business-plan-draft-v1',step:'idea',fields:{name:'SafeStart Property Testing',idea:'Property testing with office review and accredited laboratory analysis.'}};
 
@@ -37,7 +37,7 @@ test('paired Business Plan chat can deliver an approved draft only to its exact 
   const chrome={runtime:{onMessage:{addListener:f=>handler=f}},storage:{local:{get:async()=>({enabled:true})},session:{get:async()=>({})}},tabs:{
     get:async id=>id===chat.id?chat:activity,query:async()=>[chat,activity],update:async()=>{},create:async()=>{},sendMessage:async(id,message,options)=>{deliveries.push({id,message,options});return {status:'draft-applied',count:2};}
   }};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:D,FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome,URL,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:D,FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   const send=(message,sender={frameId:0,tab:chat,url:chat.url})=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});});
   const result=await send({type:'fieldwork-business-draft',...idea,chatUrl:chat.url});assert.equal(result.status,'draft-applied');assert.equal(deliveries.length,1);assert.equal(deliveries[0].id,activity.id);assert.equal(deliveries[0].options.frameId,0);assert.deepEqual(deliveries[0].message.fields,idea.fields);
   const rules={fieldwork:D.marker,step:'rules',fields:{checks:'Confirm before launch',impact:'Insurance quote unknown'}};

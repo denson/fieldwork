@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "routes": [
+    {"site":"fieldwork","path":"/","demo":"home","alias":"FieldworkPortfolioGuide","name":"Fieldwork Portfolio Guide","launch":true},
+    {"site":"fieldwork","path":"/index.html","demo":"home","alias":"FieldworkPortfolioGuide","name":"Fieldwork Portfolio Guide"},
+    {"site":"fieldwork","path":"/","demo":"business","alias":"BusinessPlanFirstSteps","name":"Business Plan First Steps","launch":true},
+    {"site":"fieldwork","path":"/index.html","demo":"business","alias":"BusinessPlanFirstSteps","name":"Business Plan First Steps"},
+    {"site":"fieldwork","path":"/","demo":"history","alias":"PuebloHistoryDetective","name":"Pueblo History Detective","launch":true},
+    {"site":"fieldwork","path":"/index.html","demo":"history","alias":"PuebloHistoryDetective","name":"Pueblo History Detective"},
+    {"site":"fieldwork","path":"/","demo":"quakes","alias":"EarthquakeTsunamiGuide","name":"Earthquake & Tsunami Guide"},
+    {"site":"fieldwork","path":"/index.html","demo":"quakes","alias":"EarthquakeTsunamiGuide","name":"Earthquake & Tsunami Guide"},
+    {"site":"fieldwork","path":"/","demo":"budget","alias":"CommunityBudgetCoach","name":"Community Budget Coach","launch":true},
+    {"site":"fieldwork","path":"/index.html","demo":"budget","alias":"CommunityBudgetCoach","name":"Community Budget Coach"},
+    {"site":"fieldwork","path":"/","demo":"hearing","alias":"EastbankHearingGuide","name":"Eastbank Hearing Guide","launch":true},
+    {"site":"fieldwork","path":"/index.html","demo":"hearing","alias":"EastbankHearingGuide","name":"Eastbank Hearing Guide"},
+    {"site":"fieldwork","path":"/","alias":"FieldworkFirstSteps","name":"Fieldwork First Steps","redirect":"/start.html"},
+    {"site":"fieldwork","path":"/index.html","alias":"FieldworkFirstSteps","name":"Fieldwork First Steps","redirect":"/start.html"},
+    {"site":"fieldwork","path":"/start.html","alias":"FieldworkFirstSteps","name":"Fieldwork First Steps","launch":true},
+    {"site":"fieldwork","path":"/tsunami.html","alias":"EarthquakeTsunamiGuide","name":"Earthquake & Tsunami Guide","launch":true},
+    {"site":"fieldwork","path":"/a2a.html","alias":"A2ACommerceLabGuide","name":"A2A Commerce Lab Guide","launch":true},
+    {"site":"fieldwork","path":"/device-support.html","alias":"DeviceSupportWorkspace","name":"Device Support with Workspace","launch":true},
+    {"site":"plants","path":"/","prefix":true,"alias":"ColoradoWeedGuide","name":"Colorado Plants & Practical Care","launch":true}
+  ]
+}

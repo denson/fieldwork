@@ -1,4 +1,10 @@
-# Fieldwork Companion Pane — 0.10.3
+# Fieldwork Companion Pane
+
+## Version 0.10.12 — website-owned pairing registry
+
+Activity paths and BoodleBox guide names now live in the published [companion registry](../portfolio/companion-registry.json), not in the extension routing code. After installing this version once, add or move an activity under an already approved website by updating the registry, page links, and bot knowledge. The extension refreshes validated JSON and keeps its last valid copy for temporary offline use. The [pairing inventory](../portfolio/COMPANION-PAIRING-INVENTORY.md) lists the current guides and workspaces. A new website origin, permission, or transfer behavior still needs an extension release.
+
+## Earlier behavior (0.10.3)
 
 The chat controls now use plain text and small underlined actions. Drafts sit outside BoodleBox's code-block container, inherit the chat theme, and no longer appear as boxed cards. The workspace controls start folded into a single text disclosure; they expand only when opened and close after preparing a mode-choice message. Failed preparation keeps the explanation visible. Disabling the extension restores the original code block.
 

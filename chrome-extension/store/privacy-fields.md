@@ -20,7 +20,7 @@ https://box.boodle.ai/* is required to identify the matching guide and composer,
 
 ## Remote code
 
-Select **No, I am not using remote code**. All extension JavaScript is inside the upload ZIP. It does not fetch or execute scripts from the websites. A chat draft is parsed as bounded JSON data and validated against known step fields; it is never executed as code. BoodleBox's own website/model runs separately from the extension.
+Select **No, I am not using remote code**. All extension JavaScript is inside the upload ZIP. The extension fetches a public JSON file from the approved Fieldwork website to learn which page matches each guide; it validates that file as data and does not execute it as code. It does not fetch or execute website scripts. A chat draft is parsed as bounded JSON data and validated against known step fields; it is never executed as code. BoodleBox's own website/model runs separately from the extension.
 
 ## Data categories
 

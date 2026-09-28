@@ -1,7 +1,7 @@
 const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const B=require('../business-core.js');
-const routing=require('../../chrome-extension/routing.js');
+const routing=require('./registry-fixture.cjs');
 test('business guide routes the exact public and local companion',()=>{
  for(const origin of ['https://denson.github.io/fieldwork/','http://127.0.0.1:4173/']){
   const combo=routing.combo(origin+'?demo=business&step=review');assert.equal(combo.companion,'BusinessPlanFirstSteps');assert.equal(combo.profileUrl,'https://box.boodle.ai/a/@BusinessPlanFirstSteps');

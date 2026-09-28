@@ -1,4 +1,4 @@
-const assert=require('node:assert/strict'),E=require('../entry.js'),R=require('../../chrome-extension/routing.js'),F=require('../start-core.js');
+const assert=require('node:assert/strict'),E=require('../entry.js'),R=require('./registry-fixture.cjs'),F=require('../start-core.js');
 for(const input of ['http://127.0.0.1:4173/','http://127.0.0.1:4173/index.html','http://localhost:4173/?demo=']){
   const expected=new URL('/start.html',input).href;
   assert.equal(E.tutorialURL(input),expected);assert.equal(R.combo(input).url,expected);assert.equal(R.combo(input).companion,'FieldworkFirstSteps');

@@ -1,14 +1,22 @@
-importScripts('routing.js','business-draft.js','support-packet.js','connection.js','transition.js');
+importScripts('routing.js','registry-service.js','business-draft.js','support-packet.js','connection.js','transition.js');
 const R=FieldworkRouting;
 const D=FieldworkBusinessDraft;
 const S=FieldworkSupportPacket;
+const registry=FieldworkRegistryService.create({chrome,R});
 const transitions=FieldworkTransition.create({chrome,R});
 chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   if(!message||sender.frameId!==0||!sender.tab)return;
+  registry.load().then(data=>{
+    if(message.type==='fieldwork-pairing-registry'){reply(data);return;}
+    handleMessage(message,sender,reply);
+  }).catch(()=>reply({status:'pairing-registry-unavailable'}));
+  return true;
+});
+function handleMessage(message,sender,reply){
   if(['fieldwork-connection-state','fieldwork-business-workspace-open'].includes(message.type)){
     // BoodleBox can start a chat without reloading the original profile document.
     // Check the sender's origin here; check/open verify the current tab URL and guide.
-    if(sender.id!==chrome.runtime.id||!R.isBoodle(sender.url)||!R.isChat(message.chatUrl))return;
+    if(sender.id!==chrome.runtime.id||!R.isBoodle(sender.url)||!R.isChat(message.chatUrl)){reply({status:'ignored'});return;}
     const action=message.type==='fieldwork-connection-state'?FieldworkConnection.check:FieldworkConnection.open;
     action({chrome,R,sourceId:sender.tab.id,chatUrl:message.chatUrl}).then(reply).catch(()=>reply({status:'unavailable'}));return true;
   }
@@ -22,10 +30,10 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
   const isRevision=message.type==='fieldwork-business-revision'&&sender.id===chrome.runtime.id&&R.isBoodle(sender.url);
   const isBusinessDraft=(message.type==='fieldwork-business-draft'&&R.isBoodle(sender.url))||isRevision;
   const isSupport=message.type==='fieldwork-support-update'&&R.isBoodle(sender.url);
-  if(!isOpen&&!isNote&&!isLaunch&&!isGuide&&!isBusinessDraft&&!isSupport)return;
+  if(!isOpen&&!isNote&&!isLaunch&&!isGuide&&!isBusinessDraft&&!isSupport){reply({status:'ignored'});return;}
   (async()=>{
     const url=isOpen||isLaunch?R.destination(message.url):null;
-    if(isOpen?!url:isLaunch?!R.combo(url):isGuide?R.profileAlias(message.url)!==R.combo(message.sourceUrl)?.companion:isNote?!R.validNote(message):isSupport?!S.valid(message.packet):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
+    if(isOpen?!url:isLaunch?!R.combo(url):isGuide?R.profileAlias(message.url)!==R.combo(message.sourceUrl)?.companion:isNote?!R.validNote(message)||message.companion!==R.combo(message.sourceUrl)?.companion:isSupport?!S.valid(message.packet):isRevision?!D.normalizeRevision(message):!D.valid(message))return {status:'rejected'};
     const settings=await chrome.storage.local.get({enabled:true});if(!settings.enabled)return {status:'disabled'};
     const source=await chrome.tabs.get(sender.tab.id);
     if(isGuide){
@@ -107,4 +115,4 @@ chrome.runtime.onMessage.addListener((message,sender,reply)=>{
     return {status:'opened-new',reason:pair.reason||'pair-changed'};
   })().then(reply).catch(()=>reply({status:'failed'}));
   return true;
-});
+}

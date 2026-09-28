@@ -1,4 +1,4 @@
-const assert=require('node:assert/strict'),R=require('../../chrome-extension/routing.js'),T=require('../../chrome-extension/transition.js');
+const assert=require('node:assert/strict'),R=require('./registry-fixture.cjs'),T=require('../../chrome-extension/transition.js');
 const left={id:7,windowId:1,splitViewId:12,url:'https://box.boodle.ai/c/orientation'};
 const right={id:8,windowId:1,splitViewId:12,url:'http://127.0.0.1:4173/start.html?step=return'};
 const destination='http://127.0.0.1:4173/?demo=budget&preset=balanced&event=none';

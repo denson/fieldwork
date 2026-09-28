@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.FieldworkConnection=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   'use strict';
-  const protocol='fieldwork-connection-v1',workspace='https://denson.github.io/fieldwork/?demo=business&step=idea';
+  const protocol='fieldwork-connection-v1';
   const steps=['idea','customer','offer','rules','numbers','test','review'];
   async function check({chrome,R,sourceId,chatUrl,now=()=>new Date().toISOString()}){
     try{
@@ -37,6 +37,7 @@
   function chatNote(){return 'FIELDWORK CONNECTION — Business Plan First Steps\nRequested experience: chat only.\n\nKeep our latest shared plan and continue entirely in this chat. Stop website directions and draft-transfer blocks unless I choose the website again.';}
   async function open({chrome,R,sourceId,chatUrl}){
     try{
+      const workspace=R.workspace('BusinessPlanFirstSteps',{step:'idea'});if(!workspace)return {status:'unavailable'};
       if(!R.isChat(chatUrl)||!(await chrome.storage.local.get({enabled:true})).enabled)return {status:'unavailable'};
       const source=await chrome.tabs.get(sourceId);
       if(source.url!==chatUrl||source.pendingUrl&&source.pendingUrl!==source.url)return {status:'changed'};
@@ -61,5 +62,5 @@
     if(state?.status==='unavailable'||state?.status==='changed'||state?.status==='chat-unavailable')return {title:'Connection not confirmed',help:'Check the matching pages in Chrome split view, then check again. Reload this chat if the extension was updated.'};
     return {title:'Extension active · workspace not connected',help:'Open the Business Plan workspace, then pair it with this conversation in Chrome split view. Other pages will not be replaced.'};
   }
-  return {protocol,workspace,check,fresh,note,chatNote,describe,open};
+  return {protocol,check,fresh,note,chatNote,describe,open};
 });

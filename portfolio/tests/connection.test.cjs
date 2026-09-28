@@ -1,9 +1,10 @@
 const {test}=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm');
-const R=require('../../chrome-extension/routing.js'),C=require('../../chrome-extension/connection.js');
+const R=require('./registry-fixture.cjs'),C=require('../../chrome-extension/connection.js');
 const fixed='2026-09-13T22:00:00.000Z';
 const chat={id:7,windowId:1,splitViewId:12,url:'https://box.boodle.ai/c/business'};
-const activity={id:8,windowId:1,splitViewId:12,url:C.workspace};
+const workspace=R.workspace('BusinessPlanFirstSteps',{step:'idea'});
+const activity={id:8,windowId:1,splitViewId:12,url:workspace};
 function setup(options={}){
   const calls=[],mutations=[];let gets=0,settings=0,chatChecks=0;
   const peers=options.peers||[chat,activity];
@@ -36,7 +37,7 @@ test('connection messages are explicit choices, bounded and expire locally',asyn
   assert.ok(C.chatNote().includes('Requested experience: chat only'));assert.ok(C.chatNote().includes('Keep our latest shared plan'));
 });
 test('Open workspace reuses only a blank paired pane and preserves other pages',async()=>{
-  let e=setup({peers:[chat,{...activity,url:'about:blank'}]});assert.equal((await C.open(e.args)).status,'opened-paired');assert.equal(e.mutations[0][0],'update');assert.equal(e.mutations[0][1],8);assert.equal(e.mutations[0][2].url,C.workspace);
+  let e=setup({peers:[chat,{...activity,url:'about:blank'}]});assert.equal((await C.open(e.args)).status,'opened-paired');assert.equal(e.mutations[0][0],'update');assert.equal(e.mutations[0][1],8);assert.equal(e.mutations[0][2].url,workspace);
   for(const url of ['https://example.com/','https://denson.github.io/fieldwork/?demo=history']){e=setup({peers:[chat,{...activity,url}]});assert.equal((await C.open(e.args)).status,'opened-new');assert.equal(e.mutations.length,1);assert.equal(e.mutations[0][0],'create');}
   e=setup();assert.equal((await C.open(e.args)).status,'already-open');assert.equal(e.mutations.length,0);
   for(const options of [{enabled:false},{wrongGuide:true},{changeURL:true}]){e=setup(options);await C.open(e.args);assert.equal(e.mutations.length,0);}
@@ -44,7 +45,7 @@ test('Open workspace reuses only a blank paired pane and preserves other pages',
 test('the new background channel rejects external, wrong-origin and child-frame senders',async()=>{
   const e=setup();let handler;
   e.chrome.runtime.onMessage={addListener:f=>handler=f};
-  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+  vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
   const message={type:'fieldwork-connection-state',chatUrl:chat.url};
   const send=sender=>new Promise(resolve=>{if(handler(message,sender,resolve)!==true)resolve({status:'ignored'});});
   assert.equal((await send({id:e.chrome.runtime.id,frameId:0,tab:chat,url:chat.url})).status,'connected');
@@ -57,11 +58,11 @@ test('new chats opened within BoodleBox can connect and open the workspace witho
   for(const code of [source,packaged])for(const originalUrl of ['https://box.boodle.ai/a/@BusinessPlanFirstSteps','https://box.boodle.ai/launch/chat','https://box.boodle.ai/']){
     const e=setup({peers:[chat,{...activity,url:'chrome://tab-search.top-chrome/split_new_tab_page.html'}]});let handler;
     e.chrome.runtime.onMessage={addListener:f=>handler=f};
-    vm.runInNewContext(code,{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+    vm.runInNewContext(code,{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:C,FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
     const send=(type,chatUrl=chat.url)=>new Promise(resolve=>{if(handler({type,chatUrl},{id:e.chrome.runtime.id,frameId:0,tab:chat,url:originalUrl},resolve)!==true)resolve({status:'ignored'});});
     assert.equal((await send('fieldwork-connection-state')).status,'unconnected',originalUrl);
     assert.equal((await send('fieldwork-business-workspace-open')).status,'opened-paired',originalUrl);
-    assert.equal(e.mutations.length,1);assert.equal(e.mutations[0][1],activity.id);assert.equal(e.mutations[0][2].url,C.workspace);
+    assert.equal(e.mutations.length,1);assert.equal(e.mutations[0][1],activity.id);assert.equal(e.mutations[0][2].url,workspace);
     e.chrome.tabs.query=async()=>[chat,activity];
     e.chrome.tabs.get=async id=>({... (id===chat.id?chat:activity)});
     assert.equal((await send('fieldwork-connection-state')).status,'connected');
@@ -81,7 +82,7 @@ test('a business note carries only the responding pair status and cancels a late
     e.chrome.tabs.get=async id=>{const tab=await get(id);if(changesPair&&checks&&id===activity.id)tab.splitViewId=999;return tab;};
     e.chrome.tabs.sendMessage=async(id,message)=>{if(message.type==='fieldwork-place-draft'){delivered={id,message};return {status:'draft-ready'};}throw Error('unexpected message');};
     const connection={status:'connected',protocol:C.protocol,extensionVersion:'0.10.0',checkedAt:fixed};
-    vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:{check:async args=>{checks++;assert.equal(args.sourceId,chat.id);assert.equal(args.chatUrl,chat.url);return connection;}},FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
+    vm.runInNewContext(fs.readFileSync(require.resolve('../../chrome-extension/background.js'),'utf8'),{chrome:e.chrome,URL,FieldworkRouting:R,FieldworkRegistryService:{create:()=>({load:async()=>require('../companion-registry.json')})},FieldworkBusinessDraft:require('../../chrome-extension/business-draft.js'),FieldworkSupportPacket:require('../../chrome-extension/support-packet.js'),FieldworkConnection:{check:async args=>{checks++;assert.equal(args.sourceId,chat.id);assert.equal(args.chatUrl,chat.url);return connection;}},FieldworkTransition:require('../../chrome-extension/transition.js'),importScripts(){}});
     const text='FIELDWORK BUSINESS PLAN\nFictional test note';
     const result=await new Promise(resolve=>handler({type:'fieldwork-note',text,sourceUrl:activity.url,companion:'BusinessPlanFirstSteps'},{id:e.chrome.runtime.id,frameId:0,tab:activity,url:activity.url},resolve));
     if(changesPair){assert.equal(result.status,'pair-changed');assert.equal(delivered,undefined);}

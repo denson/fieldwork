@@ -1,6 +1,7 @@
 (()=>{
   'use strict';
   const R=FieldworkRouting,visible=el=>el.getClientRects().length>0;
+  const ready=chrome.runtime.sendMessage({type:'fieldwork-pairing-registry'}).then(data=>R.setRegistry(data)).catch(()=>false);
   function guard(message){
     if(location.href!==message.chatUrl)return {status:'page-changed'};
     if(R.profileAlias(location.href))return {status:'safe-to-start'};
@@ -16,9 +17,10 @@
   }
   chrome.runtime.onMessage.addListener((message,sender,reply)=>{
     if(sender.id!==chrome.runtime.id||sender.tab||message?.type!=='fieldwork-transition-check')return;
-    chrome.storage.local.get({enabled:true}).then(s=>reply(s.enabled?guard(message):{status:'disabled'})).catch(()=>reply({status:'failed'}));return true;
+    Promise.all([ready,chrome.storage.local.get({enabled:true})]).then(([loaded,s])=>reply(!loaded?{status:'pairing-registry-unavailable'}:s.enabled?guard(message):{status:'disabled'})).catch(()=>reply({status:'failed'}));return true;
   });
   (async()=>{
+    if(!await ready)return;
     let job;try{job=await chrome.runtime.sendMessage({type:'fieldwork-transition-state',url:location.href});}catch{return;}
     if(job?.status!=='transition-pending')return;
     let busy=false,stopped=false,timer;

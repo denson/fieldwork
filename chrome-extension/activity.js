@@ -1,6 +1,8 @@
-(()=>{
+ (async()=>{
   'use strict';
-  const R=FieldworkRouting,D=FieldworkBusinessDraft;if(!R.isSharePage(location.href))return;
+  const R=FieldworkRouting,D=FieldworkBusinessDraft;
+  try{if(!R.setRegistry(await chrome.runtime.sendMessage({type:'fieldwork-pairing-registry'})))return;}catch{return;}
+  if(!R.isSharePage(location.href))return;
   let enabled=true;const controls=new Map(),launchControls=new Map();
   const messages={
     'draft-ready':'Your note is in BoodleBox on the left. Review it, then press Send there.',

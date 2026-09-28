@@ -1,6 +1,7 @@
-(()=>{
+ (async()=>{
   'use strict';
   const R=FieldworkRouting,D=FieldworkBusinessDraft,S=FieldworkSupportPacket,buttons=new WeakMap(),businessDrafts=new WeakMap(),supportPackets=new WeakMap(),draftSources=new WeakMap(),draftCards=new Set();let enabled=true,scheduled=false;
+  try{if(!R.setRegistry(await chrome.runtime.sendMessage({type:'fieldwork-pairing-registry'})))return;}catch{return;}
   let placing=false;
   const connectionUI=FieldworkConnectionUI.create({chrome,C:FieldworkConnection,R,document,location,findEditor:findBusinessEditor,isEnabled:()=>enabled,place:placeText,onState:state=>{
     for(const card of draftCards){const button=card.querySelector('.fw-use-business-draft');if(button)button.disabled=!enabled||!FieldworkConnection.fresh(state);}

@@ -1,5 +1,5 @@
 const assert=require('node:assert/strict');
-const R=require('../../chrome-extension/routing.js');
+const R=require('./registry-fixture.cjs');
 const base='https://denson.github.io/colorado-weed-field-guide/';
 for(const path of ['', 'companion/?plant=poison-hemlock&compare=western-water-hemlock','plants/poison-hemlock/','safety/#weed-lists','coverage/']){
   assert.equal(R.destination(base+path),base+path);

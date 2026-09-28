@@ -2,11 +2,13 @@ const {test}=require('node:test'),assert=require('node:assert/strict'),vm=requir
 const {buildFiles}=require('../../chrome-extension/store-build.cjs');
 const files=buildFiles(),manifest=JSON.parse(files.get('manifest.json'));
 test('store build limits access and routing to the published websites',()=>{
-  assert.equal(manifest.version,'0.10.11');assert.equal(manifest.manifest_version,3);assert.ok(manifest.description.length<=132);
+  assert.equal(manifest.version,'0.10.12');assert.equal(manifest.manifest_version,3);assert.ok(manifest.description.length<=132);
   assert.deepEqual(manifest.permissions,['storage','tabs']);
   assert.deepEqual(manifest.host_permissions,['https://box.boodle.ai/*','https://denson.github.io/*']);
   assert.ok(manifest.content_scripts.flatMap(s=>s.matches).every(s=>s.startsWith('https://')));
   const context={URL,module:{exports:{}}};vm.runInNewContext(files.get('routing.js').toString(),context);const R=context.module.exports;
+  assert.equal(R.setRegistry(require('../companion-registry.json')),true);
+  assert.doesNotMatch(files.get('routing.js').toString(),/tsunami\.html|device-support\.html|demo=business/);
   assert.equal(R.combo('https://denson.github.io/fieldwork/?demo=business').companion,'BusinessPlanFirstSteps');
   assert.equal(R.combo('https://denson.github.io/colorado-weed-field-guide/').companion,'ColoradoWeedGuide');
   assert.equal(R.combo('https://denson.github.io/fieldwork/device-support.html').companion,'DeviceSupportWorkspace');
@@ -16,7 +18,8 @@ test('store build limits access and routing to the published websites',()=>{
 test('store runtime is complete, readable and contains no build files or remote script loading',()=>{
   for(const [name,bytes] of files){assert.ok(!name.includes('..'));assert.ok(!/store-build|package-store|README|\.md$|\.py$/.test(name));if(name.endsWith('.js')){
     const source=bytes.toString();new vm.Script(source,{filename:name});
-    assert.doesNotMatch(source,/\beval\s*\(|new\s+Function\s*\(|\bfetch\s*\(|XMLHttpRequest|WebSocket|sendBeacon/);
+    assert.doesNotMatch(source,/\beval\s*\(|new\s+Function\s*\(|XMLHttpRequest|WebSocket|sendBeacon/);
+    if(name!=='registry-service.js')assert.doesNotMatch(source,/\bfetch\s*\(/);
     for(const match of source.matchAll(/importScripts\(([^)]+)\)/g))for(const quoted of match[1].matchAll(/'([^']+)'/g))assert.ok(files.has(quoted[1]),quoted[1]);
   }}
   for(const match of files.get('popup.html').toString().matchAll(/(?:src|href)="([^"#]+)"/g))if(!match[1].startsWith('https://'))assert.ok(files.has(match[1]),match[1]);
