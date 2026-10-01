@@ -4,6 +4,8 @@
   "blocks": [
     "fieldwork-f1c.3"
   ],
+  "closed_at": "2026-10-01T05:15:46Z",
+  "close_reason": "Configuration and knowledge recovery complete under Denson accepted platform-operation assumption; independent byte equivalence not claimed.",
   "created": "2026-10-01T04:28:31Z",
   "description": "Outcome: retain exact published greeting, instructions, attached knowledge, displayed model, account/coaching modes and bot revision with recoverable version identifiers/hashes.\nRequired tools: supported authenticated BoodleBox browser/editor read access or an authorized exact prior export; do not assume desktop/cloud authentication is shared.\nAcceptance: snapshot matches the active published revision and source attachments; draft versus published evidence is explicit; no settings or bot content changed; provenance and uncertainty documented. Knowledge attachment identity must reconcile with recovered source task.\nCurrent state: NOT RUN. Pages report WOOT dedicated Free account and ChatGPT 5-mini; active editor settings/attachments not independently inspected here. Exact final snapshot unavailable; supported browser tools absent.\nExact next action: verify a supported read-only editor/account route or obtain an exact prior export, then request/receive the bounded configuration-recovery assignment before saving evidence. Do not edit the bot.\nAuthorization for this phase: local ledger setup and records only, followed by separately launched fresh-worker recovery. No source/config recovery, repository file edits, code commits, sync/push, bot changes, global installation or documentation-bot resumption. Task descriptions of future work are not execution authorization. Source branch main remains df69a7aef8c7190ae445183e88fa25b8e615a65d with unrelated existing dirty/untracked work preserved. Local skill: skills/use-beadwork/SKILL.md (uncommitted shared source). Beadwork 0.13.3 verified. No due dates or wakeups established.\nProject next steps: https://chatgpt.com/space/page_e793e4be4e70819189b9c40b2366e896\nCoordination audit and results: https://chatgpt.com/space/page_473869829d9c8191909377a68169c0d9\nRecorded menu evidence: https://chatgpt.com/space/page_6abc97ada4f88191824dd90c64c44cef\nRelease fixtures: https://chatgpt.com/space/page_7c02d4b359208191814a0836a93b5b2d\nPublished bot: https://box.boodle.ai/a/@October2026Menu\nEditor: https://box.boodle.ai/bots/8163d5f0-8353-4d1a-91f2-6a811dbca62c/configure",
   "id": "fieldwork-f1c.2",
@@ -24,7 +26,7 @@
     }
   ],
   "priority": 2,
-  "status": "in_progress",
+  "status": "closed",
   "title": "Recover exact published October Menu configuration snapshot",
   "type": "task",
   "updated_at": "2026-10-01T05:15:46Z"
