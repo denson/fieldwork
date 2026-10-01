@@ -1,7 +1,8 @@
 {
   "assignee": "desktop-worker-pending",
   "blocked_by": [
-    "fieldwork-f1c.1"
+    "fieldwork-f1c.1",
+    "fieldwork-f1c.2"
   ],
   "blocks": [],
   "created": "2026-10-01T04:28:32Z",
