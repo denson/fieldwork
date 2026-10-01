@@ -1,5 +1,5 @@
 {
-  "assignee": "desktop-worker-pending",
+  "assignee": "desktop-menu-evidence-worker",
   "blocked_by": [],
   "blocks": [
     "fieldwork-f1c.3"
@@ -10,8 +10,8 @@
   "labels": [],
   "parent": "fieldwork-f1c",
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Recover and version October source PDF and checked Markdown",
   "type": "task",
-  "updated_at": "2026-10-01T04:28:32Z"
+  "updated_at": "2026-10-01T04:39:44Z"
 }
