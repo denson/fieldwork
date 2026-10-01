@@ -1,5 +1,5 @@
 {
-  "assignee": "desktop-worker-pending",
+  "assignee": "desktop-menu-evidence-worker",
   "blocked_by": [
     "fieldwork-f1c.1",
     "fieldwork-f1c.2"
@@ -17,8 +17,8 @@
     }
   ],
   "priority": 2,
-  "status": "open",
+  "status": "in_progress",
   "title": "Map October release evidence into evaluation ledger",
   "type": "task",
-  "updated_at": "2026-10-01T05:08:00Z"
+  "updated_at": "2026-10-01T05:15:46Z"
 }
