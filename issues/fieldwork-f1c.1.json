@@ -9,6 +9,12 @@
   "id": "fieldwork-f1c.1",
   "labels": [],
   "parent": "fieldwork-f1c",
+  "comments": [
+    {
+      "text": "Denson authorized recovery/versioning of menu sources, configuration and test evidence on 1 October 2026. Desktop owns repository packaging and ledger; concurrent cloud worker owns source/editor/transcript recovery. Current scope permits a selective local evidence commit, not push/sync, bot changes or fresh runtime prompts. Original source Library IDs resolved; official Library materialization helper failed on Windows os.setxattr. No successful local source bytes yet; await supported handoff and verify hashes. Package will live under portfolio/october-2026-menu/releases/2026-10-01/ and link from portfolio/BOT-EVALUATIONS.md. Historical test/config associations must remain explicitly uncertain.",
+      "timestamp": "2026-10-01T04:39:44Z"
+    }
+  ],
   "priority": 2,
   "status": "in_progress",
   "title": "Recover and version October source PDF and checked Markdown",
