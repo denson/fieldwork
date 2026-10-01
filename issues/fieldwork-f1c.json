@@ -14,11 +14,15 @@
     {
       "text": "Setup verification: epic is now in_progress to expose its child frontier in ready/blocked queries; all four child tasks remain open and unexecuted. Initial empty-list output was null, not an empty array; corrected validation and reused the same ledger without reinitialization. Fresh-worker recovery has not been run.",
       "timestamp": "2026-10-01T04:29:11Z"
+    },
+    {
+      "text": "Checkpoint 1 October 2026: independent local handoff/recovery test passed per WOOT-reported thread 01a0f5ba-63b6-74ea-baf1-15ca8cfe70e8 turn 01a0f5ba-6a79-7504-aba7-eb1175f0b8af. Detailed evidence in fieldwork-f1c.4; only that child closed. Source/config/evidence maintenance remains open, epic in_progress. No remote sync or distribution tested; no bot or source-code change.",
+      "timestamp": "2026-10-01T04:34:16Z"
     }
   ],
   "priority": 1,
   "status": "in_progress",
   "title": "October Menu maintenance evidence and local recovery trial",
   "type": "epic",
-  "updated_at": "2026-10-01T04:29:11Z"
+  "updated_at": "2026-10-01T04:34:16Z"
 }
