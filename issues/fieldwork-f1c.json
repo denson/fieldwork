@@ -6,9 +6,15 @@
   "description": "Outcome: durable, locally recoverable October Menu maintenance plan with source/config version evidence, a ledger mapping observed tests, and an independently observed fresh-worker recovery report.\nOwner: WOOT coordinates; desktop executor is assigned per bounded task; Denson controls scope.\nAcceptance: children have verified deliverables and actual evidence; completion of setup alone does not complete this epic. Fresh-worker recovery can pass while maintenance children remain open.\nKnown as recorded by Pages: published Free ChatGPT 5-mini bot; 31 date sections, 21 meals, 126 nutrition values; selected runtime results and signed-in cross-account opening. Independently observed in prior audit: ledger has no October entry; no PDF/checked Markdown/final configuration found in inspected directories; current worker lacks supported browser tools.\nUnverified: exact active source/config hashes, complete final-version regression, anonymous/mobile access, monthly refresh owner/source/schedule. Documentation bot remains paused.\nAuthorization for this phase: local ledger setup and records only, followed by separately launched fresh-worker recovery. No source/config recovery, repository file edits, code commits, sync/push, bot changes, global installation or documentation-bot resumption. Task descriptions of future work are not execution authorization. Source branch main remains df69a7aef8c7190ae445183e88fa25b8e615a65d with unrelated existing dirty/untracked work preserved. Local skill: skills/use-beadwork/SKILL.md (uncommitted shared source). Beadwork 0.13.3 verified. No due dates or wakeups established.\nProject next steps: https://chatgpt.com/space/page_e793e4be4e70819189b9c40b2366e896\nCoordination audit and results: https://chatgpt.com/space/page_473869829d9c8191909377a68169c0d9\nRecorded menu evidence: https://chatgpt.com/space/page_6abc97ada4f88191824dd90c64c44cef\nRelease fixtures: https://chatgpt.com/space/page_7c02d4b359208191814a0836a93b5b2d\nPublished bot: https://box.boodle.ai/a/@October2026Menu\nEditor: https://box.boodle.ai/bots/8163d5f0-8353-4d1a-91f2-6a811dbca62c/configure",
   "id": "fieldwork-f1c",
   "labels": [],
+  "comments": [
+    {
+      "text": "Setup checkpoint 1 October 2026: CLI version verified 0.13.3; initial local refs and list showed no ledger, and successful live ls-remote probe found no origin beadwork branch. Initialized local ledger and created bounded records/dependencies only. No maintenance executed, no runtime test passed, no tasks closed, no sync/push. Source working tree and existing config/index checked for preservation. Fresh-worker phase pending independent execution; no scheduling established.",
+      "timestamp": "2026-10-01T04:28:32Z"
+    }
+  ],
   "priority": 1,
   "status": "open",
   "title": "October Menu maintenance evidence and local recovery trial",
   "type": "epic",
-  "updated_at": "2026-10-01T04:28:31Z"
+  "updated_at": "2026-10-01T04:28:32Z"
 }
