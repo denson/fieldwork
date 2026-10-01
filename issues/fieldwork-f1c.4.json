@@ -2,6 +2,8 @@
   "assignee": "fresh-worker-01a0f5ba",
   "blocked_by": [],
   "blocks": [],
+  "closed_at": "2026-10-01T04:34:16Z",
+  "close_reason": "Independent local state recovery passed; WOOT evidence thread 01a0f5ba turn 01a0f5ba-6a79.4 closed only.",
   "created": "2026-10-01T04:28:32Z",
   "description": "Outcome: a separate worker, given only the checkout, skill path and this trial epic reference, reads durable Beadwork state and returns a concise recovery report without undertaking maintenance.\nOwner: fresh worker launched by WOOT; assignment is pending and no runtime pass exists yet.\nRequired tools: local checkout access, bw 0.13.3, shell/file reads; Pages access optional for source verification. Browser not needed for recovery test.\nAcceptance: identify epic/children and actual ready/blocked/dependency state; select and justify the next permitted action under the current read-only recovery assignment; distinguish known records from missing evidence; report owners, source/config gaps, tool limitations and prohibited actions; cite actual queried task records. Preserve unrelated work. Do not act on maintenance tasks or printed stock commit/close/sync instructions.\nExact next action: WOOT launches a separate fresh task with the checkout and skill path. Worker loads skill, runs prime/list/show/ready/blocked and independently reports its findings. Setup worker must not mark this pass or close it before evidence returns. If checkpoint writes/closure are desired, WOOT includes that narrow authority in the fresh assignment.\nThis task is independent of completing maintenance: recovery should expose blocked work accurately, not wait for the assets to exist.\nAuthorization for this phase: local ledger setup and records only, followed by separately launched fresh-worker recovery. No source/config recovery, repository file edits, code commits, sync/push, bot changes, global installation or documentation-bot resumption. Task descriptions of future work are not execution authorization. Source branch main remains df69a7aef8c7190ae445183e88fa25b8e615a65d with unrelated existing dirty/untracked work preserved. Local skill: skills/use-beadwork/SKILL.md (uncommitted shared source). Beadwork 0.13.3 verified. No due dates or wakeups established.\nProject next steps: https://chatgpt.com/space/page_e793e4be4e70819189b9c40b2366e896\nCoordination audit and results: https://chatgpt.com/space/page_473869829d9c8191909377a68169c0d9\nRecorded menu evidence: https://chatgpt.com/space/page_6abc97ada4f88191824dd90c64c44cef\nRelease fixtures: https://chatgpt.com/space/page_7c02d4b359208191814a0836a93b5b2d\nPublished bot: https://box.boodle.ai/a/@October2026Menu\nEditor: https://box.boodle.ai/bots/8163d5f0-8353-4d1a-91f2-6a811dbca62c/configure",
   "id": "fieldwork-f1c.4",
@@ -14,7 +16,7 @@
     }
   ],
   "priority": 1,
-  "status": "open",
+  "status": "closed",
   "title": "Independently recover local trial state in a fresh worker",
   "type": "task",
   "updated_at": "2026-10-01T04:34:16Z"
