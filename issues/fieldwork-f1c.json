@@ -10,6 +10,10 @@
     {
       "text": "Setup checkpoint 1 October 2026: CLI version verified 0.13.3; initial local refs and list showed no ledger, and successful live ls-remote probe found no origin beadwork branch. Initialized local ledger and created bounded records/dependencies only. No maintenance executed, no runtime test passed, no tasks closed, no sync/push. Source working tree and existing config/index checked for preservation. Fresh-worker phase pending independent execution; no scheduling established.",
       "timestamp": "2026-10-01T04:28:32Z"
+    },
+    {
+      "text": "Setup verification: epic is now in_progress to expose its child frontier in ready/blocked queries; all four child tasks remain open and unexecuted. Initial empty-list output was null, not an empty array; corrected validation and reused the same ledger without reinitialization. Fresh-worker recovery has not been run.",
+      "timestamp": "2026-10-01T04:29:11Z"
     }
   ],
   "priority": 1,
