@@ -1,0 +1,280 @@
+{
+  "schema_version": 2,
+  "research_as_of": "2026-10-16",
+  "site_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/",
+  "published_script_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/presenter",
+  "instructions": "Use this as the route, not the numeric order of all speaking beats. Speak one section, then stop. No automatic feedback or continuation prompt. Wait for viewer instruction; remember covered sections and do not repeat them. No live checkpoint writes or publication between sections.",
+  "default_route": [
+    {
+      "id": "welcome",
+      "title": "AI guide and purpose",
+      "anchor": "top",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=welcome",
+      "beat_numbers": [
+        1
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#top"
+    },
+    {
+      "id": "boodlebot",
+      "title": "The Boodlebot Research Guide",
+      "anchor": "top",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=boodlebot",
+      "beat_numbers": [
+        2,
+        3
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#top"
+    },
+    {
+      "id": "research-watch",
+      "title": "Weekly research watch",
+      "anchor": "agent-handoff",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=research-watch",
+      "beat_numbers": [
+        27,
+        28
+      ],
+      "narration_overrides": {
+        "27": "The project’s research monitor is scheduled for Mondays at nine in the morning, Mountain Time. It covers all the approaches on this page and looks for credible new lines of lymphedema research."
+      },
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#agent-handoff"
+    },
+    {
+      "id": "landscape",
+      "title": "Treatment landscape",
+      "anchor": "treatments",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=landscape",
+      "beat_numbers": [
+        5
+      ],
+      "branch_rule": "Viewer may explore any optional treatment topic or move on to acebilustat. Do not force the ointment as the next section; do not append a spoken choice prompt.",
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#treatments"
+    },
+    {
+      "id": "acebilustat",
+      "title": "Why focus on acebilustat?",
+      "anchor": "acebilustat-focus",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=acebilustat",
+      "beat_numbers": [
+        11,
+        12
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#acebilustat-focus"
+    },
+    {
+      "id": "leg-study",
+      "title": "Leg-study findings and limitations",
+      "anchor": "leg-study",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=leg-study",
+      "beat_numbers": [
+        15,
+        16
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#leg-study"
+    },
+    {
+      "id": "arm-study",
+      "title": "Arm-study design and missing results",
+      "anchor": "arm-study",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=arm-study",
+      "beat_numbers": [
+        17,
+        18
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#arm-study"
+    },
+    {
+      "id": "studies-together",
+      "title": "How the studies fit and the conditional Phase 3 pathway",
+      "anchor": "phase3-path",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=studies-together",
+      "beat_numbers": [
+        19,
+        20
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#phase3-path"
+    },
+    {
+      "id": "trial-preparation",
+      "title": "Preparing for a possible trial",
+      "anchor": "eligibility",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=trial-preparation",
+      "beat_numbers": [
+        21,
+        22
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#eligibility"
+    },
+    {
+      "id": "timeline",
+      "title": "Illustrative approval timeline",
+      "anchor": "outlook",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=timeline",
+      "beat_numbers": [
+        23,
+        24,
+        25
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#outlook"
+    },
+    {
+      "id": "sources",
+      "title": "Check the original evidence",
+      "anchor": "sources",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=sources",
+      "beat_numbers": [
+        30
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#sources"
+    },
+    {
+      "id": "closing",
+      "title": "Offer a detailed doctor brief in this chat",
+      "anchor": "sources",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=closing",
+      "beat_numbers": [
+        31
+      ],
+      "email_offer_requires_verified_gmail": true,
+      "narration_without_verified_gmail": "The aim is to make this research useful in a conversation about your care. I can prepare a detailed research brief for your doctor right here in this chat, including study findings, uncertainties, original sources, and questions about treatments or clinical trials. We can choose the level of detail and review it together so you can take it to your appointment.",
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#sources"
+    }
+  ],
+  "optional_topics": [
+    {
+      "id": "why-agents",
+      "title": "Why use agents?",
+      "anchor": "top",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=why-agents",
+      "beat_numbers": [
+        4
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#top",
+      "parent_section": "research-watch"
+    },
+    {
+      "id": "tacrolimus",
+      "title": "Tacrolimus ointment",
+      "anchor": "tacrolimus",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=tacrolimus",
+      "beat_numbers": [
+        6
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#tacrolimus",
+      "parent_section": "landscape"
+    },
+    {
+      "id": "pump",
+      "title": "Implanted lymphatic pump",
+      "anchor": "lymphatic-pump",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=pump",
+      "beat_numbers": [
+        7
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#lymphatic-pump",
+      "parent_section": "landscape"
+    },
+    {
+      "id": "biobridge",
+      "title": "BioBridge and repair approaches",
+      "anchor": "biobridge",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=biobridge",
+      "beat_numbers": [
+        8
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#biobridge",
+      "parent_section": "landscape"
+    },
+    {
+      "id": "lymfactin",
+      "title": "Lymfactin results",
+      "anchor": "lymfactin",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=lymfactin",
+      "beat_numbers": [
+        9
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#lymfactin",
+      "parent_section": "landscape"
+    },
+    {
+      "id": "surgery",
+      "title": "Specialist surgery",
+      "anchor": "lymphovenous-bypass",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=surgery",
+      "beat_numbers": [
+        10
+      ],
+      "additional_anchor": "lymph-node-transfer",
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#lymphovenous-bypass",
+      "parent_section": "landscape"
+    },
+    {
+      "id": "milestones",
+      "title": "Three acebilustat milestones",
+      "anchor": "trial-status",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=milestones",
+      "beat_numbers": [
+        13
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#trial-status",
+      "parent_section": "acebilustat"
+    },
+    {
+      "id": "mechanism",
+      "title": "The scientific idea",
+      "anchor": "evidence",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=mechanism",
+      "beat_numbers": [
+        14
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#evidence",
+      "parent_section": "acebilustat"
+    },
+    {
+      "id": "bot-demo",
+      "title": "Optional Boodlebot example",
+      "anchor": "research-guide",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=bot-demo",
+      "beat_numbers": [
+        26
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#research-guide",
+      "parent_section": "boodlebot"
+    },
+    {
+      "id": "attention",
+      "title": "What deserves attention?",
+      "anchor": "agent-handoff",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=attention",
+      "beat_numbers": [
+        29
+      ],
+      "anchor_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/#agent-handoff",
+      "parent_section": "research-watch"
+    }
+  ],
+  "previous_run": {
+    "state": "completed",
+    "last_section": "closing",
+    "resume_rule": "Wait for a new-tour request or a named section; do not auto-restart."
+  },
+  "canonical_beats": "presentation-plan.json",
+  "gmail": "Verify this laptop’s connector/account before offering email delivery from Denson. No recipient, draft, or send is pending.",
+  "navigation": {
+    "query_parameter": "section",
+    "map_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/presentation-sections.json",
+    "state_selector": "#presentation-state",
+    "visible_status_selector": "#presentation-status",
+    "webmcp_tools": [
+      "list_presentation_sections",
+      "get_presentation_state",
+      "show_presentation_section",
+      "next_presentation_section",
+      "previous_presentation_section"
+    ],
+    "preferred_action": "Use show_presentation_section with a known id if WebMCP is available; otherwise navigate directly to the section url. Read the resulting tool state or visible status once; do not hunt for headings or scroll by pixels.",
+    "history": "Section URLs survive reload and support browser back/forward. Original content anchors still work.",
+    "presentation_rule": "Navigation does not speak or automatically advance the narration. Wait for the viewer after each spoken section."
+  }
+}
