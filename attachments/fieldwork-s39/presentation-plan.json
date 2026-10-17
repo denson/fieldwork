@@ -1,0 +1,316 @@
+{
+  "title": "Lymphedema Research — Guided Presentation",
+  "as_of": "2026-10-16",
+  "site_url": "https://acebilustat-lymphedema-research.denson.chatgpt.site",
+  "delivery": {
+    "speaker": "AI guide",
+    "human_supervisor": "Denson",
+    "style": "General audience; conversational; one section at a time. Speak related beats together when they form one section.",
+    "interruptions": "Answer interruptions briefly, retain the current place, and resume only when the viewer asks. Do not restart completed sections.",
+    "scrolling": "Use the existing desktop Chrome Site tab and presentation-sections.json. Prefer the page’s show_presentation_section WebMCP action with a known section id. Otherwise navigate once to ?section=<id>. Check the returned target_in_view/heading_in_view or the visible section status once. Direct URLs position the content below both navigation bars in portrait or landscape. No heading hunting, fixed pixel scrolling, or repeated inventories. Preserve the tab.",
+    "stage_directions": "Titles, source labels, and screen cues are not spoken. End each section after its explanation and wait for the viewer. Do not append invitations for questions, comments, feedback, or permission to continue. Do not insert long artificial pauses.",
+    "research_caution": "Describe unavailable arm results as unavailable. Phase 3 is conditional, approval dates illustrative. No direct comparative evidence establishes a best approach.",
+    "doctor_note_delivery": "Offer to prepare a detailed research brief for the doctor in this chat, with findings, uncertainties, original sources, and discussion questions. Let the person choose the depth. With the recipient address and approval of the reviewed content, email the copy from Denson using the connected Gmail account. This is presenter assistance, not a Boodlebot email capability. Do not send an email merely because the script offers one.",
+    "live_pacing": "Use the prepared script and remember the current section during live delivery. Do only the necessary browser navigation and outcome check. Do not save checkpoints, regenerate files, or publish between spoken sections. Batch revisions when Denson asks to save or after the presentation. No long artificial waits.",
+    "treatment_choice": "After the treatment landscape, the viewer may explore any treatment on the page or move on to the acebilustat focus. Do not force the ointment as the only next choice. Do not append a spoken choice prompt; wait for the viewer to choose."
+  },
+  "beats": [
+    {
+      "number": 1,
+      "title": "Opening",
+      "anchor": "top",
+      "say": "Hi, I’m the AI guide for this website. This site looks at new and emerging treatments for lymphatic care. We’ll explore what seems promising, what is still early, and where the evidence comes from. Denson supervises the research and reviews the evidence. We’ll take one section at a time, and you can interrupt or tell me when to move on.",
+      "sources": [],
+      "section_id": "welcome"
+    },
+    {
+      "title": "The Boodlebot Research Guide",
+      "anchor": "top",
+      "say": "Near the top of the page is our Boodlebot Research Guide. It offers a low-cost, AI-assisted way to interact with this research from a smartphone or laptop. You’ll need internet access and a free BoodleBox account.",
+      "sources": [],
+      "number": 2,
+      "section_id": "boodlebot"
+    },
+    {
+      "title": "A conversation in your own words",
+      "anchor": "top",
+      "say": "Instead of reading the whole website, you can ask a question in your own words. Ask about a treatment, compare approaches, find an original source, or request a shorter explanation. The button labeled Ask the Boodlebot Research Guide opens that conversation.",
+      "sources": [],
+      "number": 3,
+      "section_id": "boodlebot"
+    },
+    {
+      "number": 4,
+      "title": "Why use agents?",
+      "anchor": "top",
+      "say": "There are two kinds of AI help here. The Boodlebot explains our dated research snapshot. Separately, agents are scheduled to check research sources weekly, so humans don’t have to repeat those searches. Denson supervises the work, and humans remain in charge of decisions.",
+      "sources": [],
+      "section_id": "why-agents"
+    },
+    {
+      "number": 5,
+      "title": "The treatment landscape",
+      "anchor": "treatments",
+      "say": "Let’s start with the range of approaches. Researchers are exploring medicines, devices, and ways to support lymphatic repair. There are also specialist operations already offered to selected patients. These approaches are at different stages.",
+      "sources": [],
+      "section_id": "landscape"
+    },
+    {
+      "number": 6,
+      "title": "A medicine applied to the skin",
+      "anchor": "tacrolimus",
+      "say": "One approach uses tacrolimus ointment on the skin. A study is testing it for arm lymphedema after breast cancer treatment. A published study plan tells us what researchers intend to test; it is not a successful result.",
+      "sources": [
+        "R05",
+        "R06"
+      ],
+      "section_id": "tacrolimus"
+    },
+    {
+      "number": 7,
+      "title": "A small implanted pump",
+      "anchor": "lymphatic-pump",
+      "say": "Another approach uses an implanted pump to help move fluid. The early human work described here is small, so it is a reason for further investigation rather than evidence for routine use.",
+      "sources": [
+        "R07"
+      ],
+      "section_id": "pump"
+    },
+    {
+      "number": 8,
+      "title": "Supporting lymphatic repair",
+      "anchor": "biobridge",
+      "say": "BioBridge is a collagen scaffold being studied alongside lymph node transfer surgery. The hope is to support new drainage pathways. Lymfactin takes a different approach, using gene therapy intended to encourage lymphatic growth.",
+      "sources": [
+        "R08",
+        "R09",
+        "R10"
+      ],
+      "section_id": "biobridge"
+    },
+    {
+      "number": 9,
+      "title": "What happened with Lymfactin?",
+      "anchor": "lymfactin",
+      "say": "The Lymfactin study described here did not show a significant advantage on its main measures. It reminds us that a promising biological idea still needs to demonstrate useful benefits in people.",
+      "sources": [
+        "R10"
+      ],
+      "section_id": "lymfactin"
+    },
+    {
+      "number": 10,
+      "title": "Specialist surgical options",
+      "anchor": "lymphovenous-bypass",
+      "say": "Lymphovenous bypass connects lymphatic vessels to small veins to give fluid another route out. Lymph node transfer moves functioning lymphatic tissue. Specialists offer these operations to selected patients; suitability depends on the person and their condition.",
+      "sources": [
+        "R11",
+        "R12",
+        "R14"
+      ],
+      "section_id": "surgery"
+    },
+    {
+      "number": 11,
+      "title": "Why focus on a pill?",
+      "anchor": "acebilustat-focus",
+      "say": "Within this landscape, acebilustat deserves close attention. An effective pill could make daily care less burdensome. Its early findings are encouraging, and researchers have described a possible path to a larger trial.",
+      "sources": [
+        "R01",
+        "R02"
+      ],
+      "section_id": "acebilustat"
+    },
+    {
+      "number": 12,
+      "title": "Why it matters",
+      "anchor": "acebilustat-focus",
+      "say": "That potential impact is why this project follows acebilustat closely. The different approaches have not been directly compared, so we cannot use these separate studies to rank one as the best.",
+      "sources": [
+        "R02"
+      ],
+      "section_id": "acebilustat"
+    },
+    {
+      "number": 13,
+      "title": "Three milestones",
+      "anchor": "trial-status",
+      "say": "The page separates three milestones: the leg-study findings have been published; the arm Phase 2 study has completed; and recruitment for a Phase 3 trial has not been confirmed in the sources reviewed.",
+      "sources": [
+        "R01",
+        "R02",
+        "R03"
+      ],
+      "section_id": "milestones"
+    },
+    {
+      "number": 14,
+      "title": "The scientific idea",
+      "anchor": "evidence",
+      "say": "Acebilustat targets an inflammatory signal involved in lymphedema. Researchers hope that reducing this signal can improve affected tissue. That is the scientific rationale behind testing the pill.",
+      "sources": [
+        "R02"
+      ],
+      "section_id": "mechanism"
+    },
+    {
+      "number": 15,
+      "title": "The leg-study findings",
+      "anchor": "leg-study",
+      "say": "In the leg study, twenty-three people completed a year of treatment. Researchers reported less swelling and better quality of life, with an average reduction of about one liter in affected-leg volume. Participants continued their usual care.",
+      "sources": [
+        "R01",
+        "R02"
+      ],
+      "section_id": "leg-study"
+    },
+    {
+      "number": 16,
+      "title": "The limit of the leg study",
+      "anchor": "leg-study",
+      "say": "There was no placebo comparison, and everyone received the drug. Those encouraging observations do not, by themselves, establish how much improvement acebilustat caused.",
+      "sources": [
+        "R01",
+        "R02"
+      ],
+      "section_id": "leg-study"
+    },
+    {
+      "number": 17,
+      "title": "The arm study: what was different?",
+      "anchor": "arm-study",
+      "say": "The arm study added a placebo: a lookalike pill without the active medicine. Participants weren’t told which pill they were taking. That helps reduce the influence of expectations when researchers assess improvement.",
+      "sources": [
+        "R04"
+      ],
+      "section_id": "arm-study"
+    },
+    {
+      "number": 18,
+      "title": "The arm study: its results",
+      "anchor": "arm-study",
+      "say": "We have not found published arm-study results in the sources checked. Stanford’s September report said researchers were analyzing them. A completed study is not automatically a positive study.",
+      "sources": [
+        "R02",
+        "R03"
+      ],
+      "section_id": "arm-study"
+    },
+    {
+      "number": 19,
+      "title": "How the two studies fit",
+      "anchor": "phase3-path",
+      "say": "The leg study offers an encouraging signal. The arm study adds a placebo comparison in a different affected limb. They complement each other by answering different questions; we do not yet have two confirmed positive results.",
+      "sources": [
+        "R01",
+        "R02",
+        "R04"
+      ],
+      "section_id": "studies-together"
+    },
+    {
+      "number": 20,
+      "title": "Why Phase 3 could follow",
+      "anchor": "phase3-path",
+      "say": "Stanford describes an international Phase 3 trial as the next step if the arm results support the leg findings. That gives us a concrete reason to watch for another study, while its launch and recruitment remain to be confirmed.",
+      "sources": [
+        "R02"
+      ],
+      "section_id": "studies-together"
+    },
+    {
+      "number": 21,
+      "title": "Preparing for a future trial",
+      "anchor": "eligibility",
+      "say": "If a relevant trial opens, an interested person can prepare a clear diagnosis summary and a private list of treatments, medications, and relevant health history. Those details help the research team assess eligibility.",
+      "sources": [
+        "R04"
+      ],
+      "section_id": "trial-preparation"
+    },
+    {
+      "number": 22,
+      "title": "Rules and personal choice",
+      "anchor": "eligibility",
+      "say": "The checklist here belongs to the earlier arm study. A future trial may have different rules. The research team decides who qualifies, and each person decides whether the uncertain benefits, risks, visits, and travel are acceptable with advice from their clinician.",
+      "sources": [
+        "R04"
+      ],
+      "section_id": "trial-preparation"
+    },
+    {
+      "number": 23,
+      "title": "Returning to the pill’s timeline",
+      "anchor": "outlook",
+      "say": "We began with the wider landscape, then followed the evidence for this pill. That brings us to the practical question: if development succeeds, when might an approved treatment become available?",
+      "sources": [],
+      "section_id": "timeline"
+    },
+    {
+      "number": 24,
+      "title": "The illustrative date range",
+      "anchor": "outlook",
+      "say": "The page includes twenty twenty-nine to twenty thirty-two as an illustrative possibility. That is not a sponsor timetable or a reliable prediction. Further trials must succeed before a regulator can review an application.",
+      "sources": [
+        "R13"
+      ],
+      "section_id": "timeline"
+    },
+    {
+      "number": 25,
+      "title": "What could change the timing?",
+      "anchor": "outlook",
+      "say": "Delays or disappointing results could move approval later or prevent it. The useful near-term milestone is a confirmed new trial and its recruitment details, rather than a promised approval year.",
+      "sources": [],
+      "section_id": "timeline"
+    },
+    {
+      "title": "Try the Boodlebot",
+      "anchor": "research-guide",
+      "say": "Here is the Boodlebot in practice. We asked for another promising treatment besides acebilustat. It explained tacrolimus ointment, the placebo comparison, and the remaining uncertainty, with a source link. That is the kind of short conversation someone can have on their own phone.",
+      "sources": [],
+      "number": 26,
+      "section_id": "bot-demo"
+    },
+    {
+      "number": 27,
+      "title": "The weekly research watch",
+      "anchor": "agent-handoff",
+      "say": "I’ve set up the project’s research monitor for Mondays at nine in the morning, Mountain Time. It covers every approach we discussed and looks for credible new lines of lymphedema research.",
+      "sources": [],
+      "section_id": "research-watch"
+    },
+    {
+      "number": 28,
+      "title": "What the monitor reports",
+      "anchor": "agent-handoff",
+      "say": "It checks official trial registries, original papers, academic research centers, and sponsor announcements. It is configured to report meaningful findings, relevant trials and recruitment changes, important safety or approval news, and failures that need attention. It stays quiet otherwise.",
+      "sources": [],
+      "section_id": "research-watch"
+    },
+    {
+      "title": "What deserves attention?",
+      "anchor": "agent-handoff",
+      "say": "We look for changes that could matter to people: a trial accepting volunteers, new study results, or an important safety finding. Disappointing results matter too. Original studies and official records carry more weight than promotional headlines. The agents flag the developments and bring the sources; Denson reviews their significance.",
+      "sources": [],
+      "number": 29,
+      "section_id": "attention"
+    },
+    {
+      "number": 30,
+      "title": "Checking the evidence ourselves",
+      "anchor": "sources",
+      "say": "The source library gives us links to the original studies and records, with notes about what each supports and where its limits are. We can open a source, search a topic, or revisit any part of the presentation.",
+      "sources": [],
+      "section_id": "sources"
+    },
+    {
+      "number": 31,
+      "title": "Close",
+      "anchor": "sources",
+      "say": "The aim is to make this research useful in a conversation about your care. I can prepare a detailed research brief for your doctor right here in this chat, including study findings, uncertainties, original sources, and questions about treatments or clinical trials. We can choose the level of detail and review it together. Then, with your approval and the address you choose, I can email you a copy from Denson’s Gmail account to take to your appointment.",
+      "sources": [],
+      "section_id": "closing"
+    }
+  ]
+}
