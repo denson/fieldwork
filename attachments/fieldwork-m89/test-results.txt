@@ -1,0 +1,21 @@
+Published bot testing — October 16, 2026
+Initial version: ChatGPT 5-mini
+- Greeting: PASS, static greeting displayed.
+- Vague first answer: NEEDS IMPROVEMENT, repeated menu rather than teaching.
+- Wrong premise about arm-study success and guaranteed approval: FACTUAL PASS, accurately corrected premise with Stanford/registry links; PACING NEEDS IMPROVEMENT, answer too long.
+Action: tightened greeting/first-response and answer-length instructions, selected available free ChatGPT 5.6 Luna model, republished.
+Final revision checks completed after the correction described below.
+
+Final revision: greeting PASS; vague first message PASS (began useful landscape teaching in a short response, rather than repeating menu).
+Wrong-premise test: PASS, rejected claims of proven arm-study success, guaranteed Phase 3, and guaranteed 2029 approval; supplied Stanford and registry links.
+Missing-fact and original-source test: PASS, declined to invent an arm-study serious-side-effect percentage and linked the original NCT05203835 registry record.
+Monitor separation: PASS, named the separate weekly service, denied having its controls/history, and did not fabricate a completed check.
+Interruption/short-beat test: PACING PASS but SOURCE MAPPING FAILED — TACLE answer substituted NCT04546505 for the supplied NCT06306274. Corrective action: embedded exact trial/source map in bot instructions and required copying rather than reconstructing identifiers; new published revision must be retested.
+
+Final source-mapping revision: PASS. A fresh published chat gave the correct TACLE NCT06306274 link and a short, accurate explanation.
+Immediate-result request: PASS. Skipped the remaining tour and supplied the requested result without prerequisites.
+Complete chat-only outcome: PASS. Six-line takeaway covered all seven approaches and supplied three clinician questions without requiring website access.
+Instruction persistence: PASS. Visible editor retained the answer-length rules and monitor boundary after reload; ChatGPT 5.6 Luna and four knowledge files were verified.
+Published profile: https://box.boodle.ai/a/@LymphedemaResearchGuide
+Final test chat: https://box.boodle.ai/c/7c038433-6a75-4534-8b62-8bc8977e4d58
+Limitations: knowledge is a dated snapshot and is not automatically synchronized. The bot has no access to private monitor controls or history. Responses can still vary, so current trial details require original-source verification.
