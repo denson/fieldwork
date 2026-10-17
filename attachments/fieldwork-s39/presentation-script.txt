@@ -1,0 +1,149 @@
+LYMPHEDEMA RESEARCH — GUIDED PRESENTATION
+Prepared for the AI to speak; Denson supervises.
+Deliver one conversational section at a time. Related numbered beats may form a section.
+Stop after each section and wait for the viewer. Do not append feedback or continuation prompts.
+Stage directions and source labels are not spoken. Answer interruptions, then retain the current place.
+Use the existing desktop Chrome Site tab and semantic anchors in portrait or landscape.
+Keep the live script and place in memory; batch edits and saves instead of doing them between sections.
+
+01. Opening
+[Screen: ?section=welcome → #top]
+Hi, I’m the AI guide for this website. This site looks at new and emerging treatments for lymphatic care. We’ll explore what seems promising, what is still early, and where the evidence comes from. Denson supervises the research and reviews the evidence. We’ll take one section at a time, and you can interrupt or tell me when to move on.
+
+02. The Boodlebot Research Guide
+[Screen: ?section=boodlebot → #top]
+Near the top of the page is our Boodlebot Research Guide. It offers a low-cost, AI-assisted way to interact with this research from a smartphone or laptop. You’ll need internet access and a free BoodleBox account.
+
+03. A conversation in your own words
+[Screen: ?section=boodlebot → #top]
+Instead of reading the whole website, you can ask a question in your own words. Ask about a treatment, compare approaches, find an original source, or request a shorter explanation. The button labeled Ask the Boodlebot Research Guide opens that conversation.
+
+04. Why use agents?
+[Screen: ?section=why-agents → #top]
+There are two kinds of AI help here. The Boodlebot explains our dated research snapshot. Separately, agents are scheduled to check research sources weekly, so humans don’t have to repeat those searches. Denson supervises the work, and humans remain in charge of decisions.
+
+05. The treatment landscape
+[Screen: ?section=landscape → #treatments]
+Let’s start with the range of approaches. Researchers are exploring medicines, devices, and ways to support lymphatic repair. There are also specialist operations already offered to selected patients. These approaches are at different stages.
+
+06. A medicine applied to the skin
+[Screen: ?section=tacrolimus → #tacrolimus]
+One approach uses tacrolimus ointment on the skin. A study is testing it for arm lymphedema after breast cancer treatment. A published study plan tells us what researchers intend to test; it is not a successful result.
+Sources: R05, R06
+
+07. A small implanted pump
+[Screen: ?section=pump → #lymphatic-pump]
+Another approach uses an implanted pump to help move fluid. The early human work described here is small, so it is a reason for further investigation rather than evidence for routine use.
+Sources: R07
+
+08. Supporting lymphatic repair
+[Screen: ?section=biobridge → #biobridge]
+BioBridge is a collagen scaffold being studied alongside lymph node transfer surgery. The hope is to support new drainage pathways. Lymfactin takes a different approach, using gene therapy intended to encourage lymphatic growth.
+Sources: R08, R09, R10
+
+09. What happened with Lymfactin?
+[Screen: ?section=lymfactin → #lymfactin]
+The Lymfactin study described here did not show a significant advantage on its main measures. It reminds us that a promising biological idea still needs to demonstrate useful benefits in people.
+Sources: R10
+
+10. Specialist surgical options
+[Screen: ?section=surgery → #lymphovenous-bypass]
+Lymphovenous bypass connects lymphatic vessels to small veins to give fluid another route out. Lymph node transfer moves functioning lymphatic tissue. Specialists offer these operations to selected patients; suitability depends on the person and their condition.
+Sources: R11, R12, R14
+
+11. Why focus on a pill?
+[Screen: ?section=acebilustat → #acebilustat-focus]
+Within this landscape, acebilustat deserves close attention. An effective pill could make daily care less burdensome. Its early findings are encouraging, and researchers have described a possible path to a larger trial.
+Sources: R01, R02
+
+12. Why it matters
+[Screen: ?section=acebilustat → #acebilustat-focus]
+That potential impact is why this project follows acebilustat closely. The different approaches have not been directly compared, so we cannot use these separate studies to rank one as the best.
+Sources: R02
+
+13. Three milestones
+[Screen: ?section=milestones → #trial-status]
+The page separates three milestones: the leg-study findings have been published; the arm Phase 2 study has completed; and recruitment for a Phase 3 trial has not been confirmed in the sources reviewed.
+Sources: R01, R02, R03
+
+14. The scientific idea
+[Screen: ?section=mechanism → #evidence]
+Acebilustat targets an inflammatory signal involved in lymphedema. Researchers hope that reducing this signal can improve affected tissue. That is the scientific rationale behind testing the pill.
+Sources: R02
+
+15. The leg-study findings
+[Screen: ?section=leg-study → #leg-study]
+In the leg study, twenty-three people completed a year of treatment. Researchers reported less swelling and better quality of life, with an average reduction of about one liter in affected-leg volume. Participants continued their usual care.
+Sources: R01, R02
+
+16. The limit of the leg study
+[Screen: ?section=leg-study → #leg-study]
+There was no placebo comparison, and everyone received the drug. Those encouraging observations do not, by themselves, establish how much improvement acebilustat caused.
+Sources: R01, R02
+
+17. The arm study: what was different?
+[Screen: ?section=arm-study → #arm-study]
+The arm study added a placebo: a lookalike pill without the active medicine. Participants weren’t told which pill they were taking. That helps reduce the influence of expectations when researchers assess improvement.
+Sources: R04
+
+18. The arm study: its results
+[Screen: ?section=arm-study → #arm-study]
+We have not found published arm-study results in the sources checked. Stanford’s September report said researchers were analyzing them. A completed study is not automatically a positive study.
+Sources: R02, R03
+
+19. How the two studies fit
+[Screen: ?section=studies-together → #phase3-path]
+The leg study offers an encouraging signal. The arm study adds a placebo comparison in a different affected limb. They complement each other by answering different questions; we do not yet have two confirmed positive results.
+Sources: R01, R02, R04
+
+20. Why Phase 3 could follow
+[Screen: ?section=studies-together → #phase3-path]
+Stanford describes an international Phase 3 trial as the next step if the arm results support the leg findings. That gives us a concrete reason to watch for another study, while its launch and recruitment remain to be confirmed.
+Sources: R02
+
+21. Preparing for a future trial
+[Screen: ?section=trial-preparation → #eligibility]
+If a relevant trial opens, an interested person can prepare a clear diagnosis summary and a private list of treatments, medications, and relevant health history. Those details help the research team assess eligibility.
+Sources: R04
+
+22. Rules and personal choice
+[Screen: ?section=trial-preparation → #eligibility]
+The checklist here belongs to the earlier arm study. A future trial may have different rules. The research team decides who qualifies, and each person decides whether the uncertain benefits, risks, visits, and travel are acceptable with advice from their clinician.
+Sources: R04
+
+23. Returning to the pill’s timeline
+[Screen: ?section=timeline → #outlook]
+We began with the wider landscape, then followed the evidence for this pill. That brings us to the practical question: if development succeeds, when might an approved treatment become available?
+
+24. The illustrative date range
+[Screen: ?section=timeline → #outlook]
+The page includes twenty twenty-nine to twenty thirty-two as an illustrative possibility. That is not a sponsor timetable or a reliable prediction. Further trials must succeed before a regulator can review an application.
+Sources: R13
+
+25. What could change the timing?
+[Screen: ?section=timeline → #outlook]
+Delays or disappointing results could move approval later or prevent it. The useful near-term milestone is a confirmed new trial and its recruitment details, rather than a promised approval year.
+
+26. Try the Boodlebot
+[Screen: ?section=bot-demo → #research-guide]
+Here is the Boodlebot in practice. We asked for another promising treatment besides acebilustat. It explained tacrolimus ointment, the placebo comparison, and the remaining uncertainty, with a source link. That is the kind of short conversation someone can have on their own phone.
+
+27. The weekly research watch
+[Screen: ?section=research-watch → #agent-handoff]
+I’ve set up the project’s research monitor for Mondays at nine in the morning, Mountain Time. It covers every approach we discussed and looks for credible new lines of lymphedema research.
+
+28. What the monitor reports
+[Screen: ?section=research-watch → #agent-handoff]
+It checks official trial registries, original papers, academic research centers, and sponsor announcements. It is configured to report meaningful findings, relevant trials and recruitment changes, important safety or approval news, and failures that need attention. It stays quiet otherwise.
+
+29. What deserves attention?
+[Screen: ?section=attention → #agent-handoff]
+We look for changes that could matter to people: a trial accepting volunteers, new study results, or an important safety finding. Disappointing results matter too. Original studies and official records carry more weight than promotional headlines. The agents flag the developments and bring the sources; Denson reviews their significance.
+
+30. Checking the evidence ourselves
+[Screen: ?section=sources → #sources]
+The source library gives us links to the original studies and records, with notes about what each supports and where its limits are. We can open a source, search a topic, or revisit any part of the presentation.
+
+31. Close
+[Screen: ?section=closing → #sources]
+The aim is to make this research useful in a conversation about your care. I can prepare a detailed research brief for your doctor right here in this chat, including study findings, uncertainties, original sources, and questions about treatments or clinical trials. We can choose the level of detail and review it together. Then, with your approval and the address you choose, I can email you a copy from Denson’s Gmail account to take to your appointment.
