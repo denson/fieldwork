@@ -1,0 +1,25 @@
+{
+  "name": "Lymphedema Research Guide",
+  "alias": "LymphedemaResearchGuide",
+  "builder_url": "https://box.boodle.ai/bots/e8890c90-0d9b-4242-8ed7-72229bb7d4b0/configure",
+  "knowledge_as_of": "2026-10-16",
+  "delivery": "standalone chat; optional website",
+  "audience": "general audience including senior-center visitors",
+  "task": "understand research and prepare questions",
+  "retained_output": "copyable summary / clinician and trial-team question checklist",
+  "acceptance": "complete a useful summary in chat using loaded sources, with accurate uncertainty and no unperformed tool claims",
+  "status": "published",
+  "knowledge_files": [
+    "01-research-overview.txt",
+    "02-sources-and-limitations.txt",
+    "03-guided-presentation.txt",
+    "04-monitoring-context.txt"
+  ],
+  "test_status": "core published-version acceptance checks passed after source-link correction",
+  "public_url": "https://box.boodle.ai/a/@LymphedemaResearchGuide",
+  "published_test_chat": "https://box.boodle.ai/c/7c038433-6a75-4534-8b62-8bc8977e4d58",
+  "verification_date_local": "2026-10-16",
+  "limitations": ["Dated knowledge; no automatic synchronization with website or monitor", "No access to private task controls or execution history", "Model responses can vary; current trial details need original-source verification"],
+  "model_observed": "ChatGPT 5.6 Luna",
+  "knowledge_files_attached": 4
+}
