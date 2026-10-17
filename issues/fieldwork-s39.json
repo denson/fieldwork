@@ -10,9 +10,15 @@
     "laptop",
     "lymphedema"
   ],
+  "comments": [
+    {
+      "text": "Handoff ready for laptop pickup. Source main pushed at 85afb8d8dacce779fb86a42080ee4dd338841156. Read https://github.com/denson/lymphedema-research/blob/main/BEADWORK-LAPTOP-HANDOFF.md and LAPTOP-HANDOFF.md. Full handoff, canonical plan, plain script, section map and startup prompt attached. Website last published at 84e8f4ecfd3cdc27cdc4f7f18a477da907bf8b64; all eight illustrations and named section navigation verified in desktop Chrome. Laptop browser/voice/authentication readiness is still to be checked on that machine. Task intentionally left open and unassigned for the laptop agent. No website redeployment, monitor change or email was needed for this documentation handoff.",
+      "timestamp": "2026-10-17T21:41:58Z"
+    }
+  ],
   "priority": 2,
   "status": "open",
   "title": "Laptop takeover: edit and present the lymphedema research guide",
   "type": "task",
-  "updated_at": "2026-10-17T21:41:57Z"
+  "updated_at": "2026-10-17T21:41:58Z"
 }
