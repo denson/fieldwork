@@ -18,11 +18,15 @@
     {
       "text": "fieldwork-v3b website change is published. Pull lymphedema-research main at 4d1a698fa8744f8fbf789ecfe3bdf028a4e8ad85 (website deployed source 03c575a699ff95e5d5118ee66f8d21901794b6a7). Live landscape now shows all six choices and separate acebilustat option together at readable 100% zoom in tested 1366x768 and 1536x864 viewports; details, sources, icons and artwork preserved. Desktop Chrome keyboard, six detail round trips, mobile overflow and tour navigation passed. See verification/fieldwork-v3b-receipt.md and attached screenshots on fieldwork-v3b. Retain PAUSED landscape. Before resuming narration, verify actual physical laptop readability with Denson. Then, once all choices are visible, ask exactly: Would you like to take a closer look at any particular treatment? Stop and wait. This is the sole exception to the general no-prompts rule. No monitor or Gmail work is pending.",
       "timestamp": "2026-10-19T06:09:22Z"
+    },
+    {
+      "text": "Denson changed the tour order: follow the webpage from top to bottom. fieldwork-q7r is published and verified. Pull latest lymphedema-research main; load the updated 14-stop route, renumbered 31-beat script and handoff. Boodlebot and monitoring now occur at their page sections after the timeline; milestones and scientific idea are main-tour stops. All stable URLs, landscape prompt and Gmail/monitor limits remain. Live Next walk passed all 14 targets/headings with nondecreasing page positions. Keep PAUSED at landscape; do not restart. See verification/fieldwork-q7r-receipt.md and attached evidence.",
+      "timestamp": "2026-10-19T06:28:04Z"
     }
   ],
   "priority": 2,
   "status": "open",
   "title": "Laptop takeover: edit and present the lymphedema research guide",
   "type": "task",
-  "updated_at": "2026-10-19T06:09:22Z"
+  "updated_at": "2026-10-19T06:28:04Z"
 }
