@@ -1,0 +1,213 @@
+{
+  "scope": "Published Site in desktop Chrome",
+  "options": [
+    {
+      "id": "welcome",
+      "title": "AI guide and purpose"
+    },
+    {
+      "id": "landscape",
+      "title": "Treatment landscape"
+    },
+    {
+      "id": "acebilustat",
+      "title": "Why focus on acebilustat?"
+    },
+    {
+      "id": "milestones",
+      "title": "Three acebilustat milestones"
+    },
+    {
+      "id": "mechanism",
+      "title": "The scientific idea"
+    },
+    {
+      "id": "leg-study",
+      "title": "Leg-study findings and limitations"
+    },
+    {
+      "id": "arm-study",
+      "title": "Arm-study design and missing results"
+    },
+    {
+      "id": "studies-together",
+      "title": "How the studies fit and the conditional Phase 3 pathway"
+    },
+    {
+      "id": "trial-preparation",
+      "title": "Preparing for a possible trial"
+    },
+    {
+      "id": "timeline",
+      "title": "Illustrative approval timeline"
+    },
+    {
+      "id": "boodlebot",
+      "title": "The Boodlebot Research Guide"
+    },
+    {
+      "id": "research-watch",
+      "title": "Weekly research watch"
+    },
+    {
+      "id": "sources",
+      "title": "Check the original evidence"
+    },
+    {
+      "id": "closing",
+      "title": "Offer a detailed doctor brief in this chat"
+    }
+  ],
+  "forward": [
+    {
+      "absoluteTop": 138,
+      "heading_in_view": true,
+      "id": "welcome",
+      "next": "landscape",
+      "previous": null,
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 1119.484375,
+      "heading_in_view": true,
+      "id": "landscape",
+      "next": "acebilustat",
+      "previous": "welcome",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 3014.375,
+      "heading_in_view": true,
+      "id": "acebilustat",
+      "next": "milestones",
+      "previous": "landscape",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 3410.46875,
+      "heading_in_view": true,
+      "id": "milestones",
+      "next": "mechanism",
+      "previous": "acebilustat",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 4200.390625,
+      "heading_in_view": true,
+      "id": "mechanism",
+      "next": "leg-study",
+      "previous": "milestones",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 4701.765625,
+      "heading_in_view": true,
+      "id": "leg-study",
+      "next": "arm-study",
+      "previous": "mechanism",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 4701.765625,
+      "heading_in_view": true,
+      "id": "arm-study",
+      "next": "studies-together",
+      "previous": "leg-study",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 5043.828125,
+      "heading_in_view": true,
+      "id": "studies-together",
+      "next": "trial-preparation",
+      "previous": "arm-study",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 5339.390625,
+      "heading_in_view": true,
+      "id": "trial-preparation",
+      "next": "timeline",
+      "previous": "studies-together",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 6429.734375,
+      "heading_in_view": true,
+      "id": "timeline",
+      "next": "boodlebot",
+      "previous": "trial-preparation",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 7083.671875,
+      "heading_in_view": true,
+      "id": "boodlebot",
+      "next": "research-watch",
+      "previous": "timeline",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 7968.453125,
+      "heading_in_view": true,
+      "id": "research-watch",
+      "next": "sources",
+      "previous": "boodlebot",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 9196.765625,
+      "heading_in_view": true,
+      "id": "sources",
+      "next": "closing",
+      "previous": "research-watch",
+      "target_in_view": true
+    },
+    {
+      "absoluteTop": 9196.765625,
+      "heading_in_view": true,
+      "id": "closing",
+      "next": null,
+      "previous": "sources",
+      "target_in_view": true
+    }
+  ],
+  "previous": {
+    "ready": true,
+    "section": {
+      "id": "sources",
+      "title": "Check the original evidence",
+      "anchor": "sources"
+    },
+    "target_in_view": true,
+    "heading_in_view": true,
+    "previous_section": "research-watch",
+    "next_section": "closing",
+    "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=sources",
+    "url_error": null,
+    "webmcp": {
+      "supported": false,
+      "registered_tools": 0,
+      "error": null
+    }
+  },
+  "optionalReturn": {
+    "ready": true,
+    "section": {
+      "id": "landscape",
+      "title": "Treatment landscape",
+      "anchor": "treatments"
+    },
+    "target_in_view": true,
+    "heading_in_view": true,
+    "previous_section": "welcome",
+    "next_section": "acebilustat",
+    "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=landscape",
+    "url_error": null,
+    "webmcp": {
+      "supported": false,
+      "registered_tools": 0,
+      "error": null
+    }
+  }
+}
