@@ -1,0 +1,431 @@
+{
+  "scope": "Live desktop Chrome with viewport overrides; physical laptop display not verified.",
+  "zoom": "Ctrl+0 reset to 100%; viewport devicePixelRatio 1, visualViewport.scale 1, body CSS zoom 1.",
+  "viewportChecks": [
+    {
+      "bodyZoom": "1",
+      "choices": [
+        {
+          "bottom": 392.796875,
+          "descriptionFont": "16px",
+          "name": "Tacrolimus ointment",
+          "right": 483.5,
+          "top": 288.03125
+        },
+        {
+          "bottom": 392.796875,
+          "descriptionFont": "16px",
+          "name": "Implantable lymphatic pump",
+          "right": 855.5,
+          "top": 288.03125
+        },
+        {
+          "bottom": 392.796875,
+          "descriptionFont": "16px",
+          "name": "BioBridge collagen matrix",
+          "right": 1227.5,
+          "top": 288.03125
+        },
+        {
+          "bottom": 509.5625,
+          "descriptionFont": "16px",
+          "name": "Lymfactin / VEGF-C",
+          "right": 483.5,
+          "top": 404.796875
+        },
+        {
+          "bottom": 509.5625,
+          "descriptionFont": "16px",
+          "name": "Lymphovenous bypass",
+          "right": 855.5,
+          "top": 404.796875
+        },
+        {
+          "bottom": 509.5625,
+          "descriptionFont": "16px",
+          "name": "Lymph node transfer",
+          "right": 1227.5,
+          "top": 404.796875
+        }
+      ],
+      "dpr": 1,
+      "height": 768,
+      "overflow": false,
+      "overviewBottom": 626.109375,
+      "scale": 1,
+      "width": 1366
+    },
+    {
+      "bodyZoom": "1",
+      "choices": [
+        {
+          "bottom": 392.828125,
+          "descriptionFont": "16px",
+          "name": "Tacrolimus ointment",
+          "right": 568.5,
+          "top": 288.0625
+        },
+        {
+          "bottom": 392.828125,
+          "descriptionFont": "16px",
+          "name": "Implantable lymphatic pump",
+          "right": 940.5,
+          "top": 288.0625
+        },
+        {
+          "bottom": 392.828125,
+          "descriptionFont": "16px",
+          "name": "BioBridge collagen matrix",
+          "right": 1312.5,
+          "top": 288.0625
+        },
+        {
+          "bottom": 509.59375,
+          "descriptionFont": "16px",
+          "name": "Lymfactin / VEGF-C",
+          "right": 568.5,
+          "top": 404.828125
+        },
+        {
+          "bottom": 509.59375,
+          "descriptionFont": "16px",
+          "name": "Lymphovenous bypass",
+          "right": 940.5,
+          "top": 404.828125
+        },
+        {
+          "bottom": 509.59375,
+          "descriptionFont": "16px",
+          "name": "Lymph node transfer",
+          "right": 1312.5,
+          "top": 404.828125
+        }
+      ],
+      "dpr": 1,
+      "height": 864,
+      "overflow": false,
+      "overviewBottom": 626.140625,
+      "scale": 1,
+      "width": 1536
+    },
+    {
+      "bodyZoom": "1",
+      "choices": [
+        {
+          "bottom": 503.828125,
+          "descriptionFont": "16px",
+          "name": "Tacrolimus ointment",
+          "right": 355,
+          "top": 397.0625
+        },
+        {
+          "bottom": 622.59375,
+          "descriptionFont": "16px",
+          "name": "Implantable lymphatic pump",
+          "right": 355,
+          "top": 515.828125
+        },
+        {
+          "bottom": 741.359375,
+          "descriptionFont": "16px",
+          "name": "BioBridge collagen matrix",
+          "right": 355,
+          "top": 634.59375
+        },
+        {
+          "bottom": 860.125,
+          "descriptionFont": "16px",
+          "name": "Lymfactin / VEGF-C",
+          "right": 355,
+          "top": 753.359375
+        },
+        {
+          "bottom": 978.890625,
+          "descriptionFont": "16px",
+          "name": "Lymphovenous bypass",
+          "right": 355,
+          "top": 872.125
+        },
+        {
+          "bottom": 1097.65625,
+          "descriptionFont": "16px",
+          "name": "Lymph node transfer",
+          "right": 355,
+          "top": 990.890625
+        }
+      ],
+      "dpr": 1,
+      "height": 844,
+      "overflow": false,
+      "overviewBottom": 1319.53125,
+      "scale": 1,
+      "width": 390
+    }
+  ],
+  "detailRoundTrips": [
+    {
+      "route": "tacrolimus",
+      "state": {
+        "ready": true,
+        "section": {
+          "id": "tacrolimus",
+          "title": "Tacrolimus ointment",
+          "anchor": "tacrolimus"
+        },
+        "target_in_view": true,
+        "heading_in_view": true,
+        "previous_section": "landscape",
+        "next_section": "acebilustat",
+        "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=tacrolimus",
+        "url_error": null,
+        "webmcp": {
+          "supported": false,
+          "registered_tools": 0,
+          "error": null
+        }
+      },
+      "sources": [
+        "#R05",
+        "#R06"
+      ]
+    },
+    {
+      "route": "pump",
+      "state": {
+        "ready": true,
+        "section": {
+          "id": "pump",
+          "title": "Implanted lymphatic pump",
+          "anchor": "lymphatic-pump"
+        },
+        "target_in_view": true,
+        "heading_in_view": true,
+        "previous_section": "landscape",
+        "next_section": "acebilustat",
+        "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=pump",
+        "url_error": null,
+        "webmcp": {
+          "supported": false,
+          "registered_tools": 0,
+          "error": null
+        }
+      },
+      "sources": [
+        "#R07"
+      ]
+    },
+    {
+      "route": "biobridge",
+      "state": {
+        "ready": true,
+        "section": {
+          "id": "biobridge",
+          "title": "BioBridge and repair approaches",
+          "anchor": "biobridge"
+        },
+        "target_in_view": true,
+        "heading_in_view": true,
+        "previous_section": "landscape",
+        "next_section": "acebilustat",
+        "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=biobridge",
+        "url_error": null,
+        "webmcp": {
+          "supported": false,
+          "registered_tools": 0,
+          "error": null
+        }
+      },
+      "sources": [
+        "#R08",
+        "#R09"
+      ]
+    },
+    {
+      "route": "lymfactin",
+      "state": {
+        "ready": true,
+        "section": {
+          "id": "lymfactin",
+          "title": "Lymfactin results",
+          "anchor": "lymfactin"
+        },
+        "target_in_view": true,
+        "heading_in_view": true,
+        "previous_section": "landscape",
+        "next_section": "acebilustat",
+        "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=lymfactin",
+        "url_error": null,
+        "webmcp": {
+          "supported": false,
+          "registered_tools": 0,
+          "error": null
+        }
+      },
+      "sources": [
+        "#R10"
+      ]
+    },
+    {
+      "route": "surgery",
+      "state": {
+        "ready": true,
+        "section": {
+          "id": "surgery",
+          "title": "Specialist surgery",
+          "anchor": "lymphovenous-bypass"
+        },
+        "target_in_view": true,
+        "heading_in_view": true,
+        "previous_section": "landscape",
+        "next_section": "acebilustat",
+        "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=surgery",
+        "url_error": null,
+        "webmcp": {
+          "supported": false,
+          "registered_tools": 0,
+          "error": null
+        }
+      },
+      "sources": [
+        "#R11",
+        "#R14"
+      ]
+    },
+    {
+      "route": "node-transfer",
+      "state": {
+        "ready": true,
+        "section": {
+          "id": "node-transfer",
+          "title": "Lymph node transfer",
+          "anchor": "lymph-node-transfer"
+        },
+        "target_in_view": true,
+        "heading_in_view": true,
+        "previous_section": "landscape",
+        "next_section": "acebilustat",
+        "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=node-transfer",
+        "url_error": null,
+        "webmcp": {
+          "supported": false,
+          "registered_tools": 0,
+          "error": null
+        }
+      },
+      "sources": [
+        "#R11",
+        "#R12"
+      ]
+    }
+  ],
+  "keyboard": {
+    "detail": {
+      "ready": true,
+      "section": {
+        "id": "tacrolimus",
+        "title": "Tacrolimus ointment",
+        "anchor": "tacrolimus"
+      },
+      "target_in_view": true,
+      "heading_in_view": true,
+      "previous_section": "landscape",
+      "next_section": "acebilustat",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=tacrolimus",
+      "url_error": null,
+      "webmcp": {
+        "supported": false,
+        "registered_tools": 0,
+        "error": null
+      }
+    },
+    "tabToFirstSource": {
+      "href": "#R05",
+      "text": "[R05]"
+    },
+    "returnToOverview": true
+  },
+  "sharedReference": {
+    "id": "R11",
+    "retainedBothSurgeryIcons": true,
+    "originalSource": "https://doi.org/10.1016/j.jvsv.2026.102520",
+    "back": {
+      "ready": true,
+      "section": {
+        "id": "node-transfer",
+        "title": "Lymph node transfer",
+        "anchor": "lymph-node-transfer"
+      },
+      "target_in_view": true,
+      "heading_in_view": true,
+      "previous_section": "landscape",
+      "next_section": "acebilustat",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=node-transfer",
+      "url_error": null,
+      "webmcp": {
+        "supported": false,
+        "registered_tools": 0,
+        "error": null
+      }
+    }
+  },
+  "navigation": {
+    "reload": {
+      "ready": true,
+      "section": {
+        "id": "node-transfer",
+        "title": "Lymph node transfer",
+        "anchor": "lymph-node-transfer"
+      },
+      "target_in_view": true,
+      "heading_in_view": true,
+      "previous_section": "landscape",
+      "next_section": "acebilustat",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=node-transfer",
+      "url_error": null,
+      "webmcp": {
+        "supported": false,
+        "registered_tools": 0,
+        "error": null
+      }
+    },
+    "optionalPrevious": {
+      "ready": true,
+      "section": {
+        "id": "landscape",
+        "title": "Treatment landscape",
+        "anchor": "treatments"
+      },
+      "target_in_view": true,
+      "heading_in_view": true,
+      "previous_section": "research-watch",
+      "next_section": "acebilustat",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=landscape",
+      "url_error": null,
+      "webmcp": {
+        "supported": false,
+        "registered_tools": 0,
+        "error": null
+      }
+    },
+    "next": {
+      "ready": true,
+      "section": {
+        "id": "acebilustat",
+        "title": "Why focus on acebilustat?",
+        "anchor": "acebilustat-focus"
+      },
+      "target_in_view": true,
+      "heading_in_view": true,
+      "previous_section": "landscape",
+      "next_section": "leg-study",
+      "url": "https://acebilustat-lymphedema-research.denson.chatgpt.site/?section=acebilustat",
+      "url_error": null,
+      "webmcp": {
+        "supported": false,
+        "registered_tools": 0,
+        "error": null
+      }
+    }
+  },
+  "remaining": "Laptop agent and Denson should check readability on the physical laptop before resuming the paused landscape. WebMCP unavailable on this desktop; direct section URLs verified."
+}
